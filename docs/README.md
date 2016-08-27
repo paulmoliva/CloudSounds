@@ -1,6 +1,6 @@
 ## Heroku Link
 
-cloudsounds.io
+[cloudsounds.io](http://cloudsounds.io)
 
 ##Minimum Viable Product
 
@@ -33,6 +33,7 @@ Bonus: Likes
 
 -Infinite scroll (Bonus Feature)
 ![Stream](./wireframes/stream.jpg)
+[Live Demo](http://cloudsounds.io)
 
 ##Track#show
 -Cover photo pertains to the track's weather mood.
