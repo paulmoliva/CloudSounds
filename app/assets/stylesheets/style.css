@@ -51,7 +51,7 @@ input[type=text] {
 }
 
 .content {
-  height: 1500px;
+  /*height: 1500px;*/
   width: 81.6%;
   margin: 0 auto;
   background-color: white;
