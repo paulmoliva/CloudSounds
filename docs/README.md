@@ -23,6 +23,7 @@ Bonus: Likes
 
 -Login and Signup forms will pop in as modal overlays
 ![Splash Page](./wireframes/splash.png)
+[Live Demo](http://cloudsounds.io)
 
 ###Stream
 -First thing user sees when they log in.
@@ -33,7 +34,7 @@ Bonus: Likes
 
 -Infinite scroll (Bonus Feature)
 ![Stream](./wireframes/stream.jpg)
-[Live Demo](http://cloudsounds.io)
+
 
 ##Track#show
 -Cover photo pertains to the track's weather mood.
