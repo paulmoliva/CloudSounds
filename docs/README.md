@@ -42,4 +42,4 @@ Bonus: Likes
 -Left side shows track art
 
 -Center is track info, description and comments.
-![Track#show](./wireframes/track#show.jpg)
+![Track#show](./wireframes/track-show.jpg)
