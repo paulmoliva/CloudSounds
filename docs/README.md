@@ -27,9 +27,19 @@ Bonus: Likes
 ###Stream
 -First thing user sees when they log in.
 
--Autopopulates with the tracks tagged with the weather from there current location (defaults to SF if they don't authorize location tracking).
+-Autopopulates with the tracks tagged with the weather from their current location (defaults to SF if they don't authorize location tracking).
 
 -User can select their 'weather mood' from a dropdown to populate the stream with different tracks.
 
 -Infinite scroll (Bonus Feature)
 ![Stream](./wireframes/stream.jpg)
+
+##Track#show
+-Cover photo pertains to the track's weather mood.
+
+-Right side of content area shows list of other tracks for the weather mood.
+
+-Left side shows track art
+
+-Center is track info, description and comments.
+![Track#show](./wireframes/track#show.jpg)
