@@ -23,7 +23,7 @@ Bonus: Likes
 
 -Login and Signup forms will pop in as modal overlays
 ![Splash Page](./wireframes/splash.png)
-[Live Demo](http://cloudsounds.io)
+[Live Mock Up](http://cloudsounds.io)
 
 ###Stream
 -First thing user sees when they log in.
