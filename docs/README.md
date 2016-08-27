@@ -19,4 +19,4 @@ Bonus: Likes
 ##Wireframes
 
 ###Splash Page
-![Splash Page](./wireframes/spalsh.png)
+![Splash Page](./wireframes/splash.png)
