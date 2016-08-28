@@ -152,7 +152,7 @@
 * `createLike`
   0. invoked from new like button `onClick`
   0. `POST /api/likes` is called.
-  0. `receiveSingleLike` is set as the success callback.
+  0. `receiveAllLikes` is set as the success callback.
 
 * `destroyLike`
   0. invoked from delete like button `onClick`
@@ -181,7 +181,7 @@
 * `createFollow`
   0. invoked from new follow button `onClick`
   0. `POST /api/follows` is called.
-  0. `receiveSingleFollow` is set as the success callback.
+  0. `receiveAllFollows` is set as the success callback.
 
 * `destroyFollow`
   0. invoked from delete follow button `onClick`
