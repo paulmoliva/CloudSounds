@@ -4,27 +4,27 @@
 
 ##Minimum Viable Product
 
-Song CRUD
+- [ ] Song CRUD
 
-Continuous play while navigating site
+- [ ] Continuous play while navigating site
 
-Track Pages
+- [ ] Track Pages
 
-Comments
+- [ ] Comments
 
-User pages
+- [ ] User pages
 
-Bonus: Playlists for particular weather
+- [ ] Bonus: Playlists for particular weather
 
-Bonus: Likes
+- [ ] Bonus: Likes
 
-Bonus: Follows
+- [ ] Bonus: Follows
 
-Bonus: Search
+- [ ] Bonus: Search
 
-Bonus: Interactive Map with option to tag tracks with your location
+- [ ] Bonus: Interactive Map with option to tag tracks with your location
 
-~~Bonus: Superfluous weather puns~~
+- [x] Bonus: Superfluous weather puns
 
 **Design Docs**
 - [View WireFrames](https://github.com/paulmoliva/CloudSounds/tree/master/docs/wireframes)

@@ -97,6 +97,44 @@
   0. invoked from an API callback
   0. the `TrackReducer` removes `tracks[id]` from the application's state.
 
+## User Cycles
+
+### Users API Request Actions
+
+* `fetchAllUsers`
+  0. invoked from `UsersIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/users` is called.
+  0. `receiveAllUsers` is set as the success callback.
+
+* `createUser`
+  0. invoked from new user button `onClick`
+  0. `POST /api/users` is called.
+  0. `receiveSingleUser` is set as the success callback.
+
+* `fetchSingleUser`
+  0. invoked from `UserDetail` `didMount`/`willReceiveProps`
+  0. `GET /api/users/:id` is called.
+  0. `receiveSingleUser` is set as the success callback.
+
+* `updateUser`
+  0. invoked from `UserForm` `onSubmit`
+  0. `POST /api/users` is called.
+  0. `receiveSingleUser` is set as the success callback.
+
+### Users API Response Actions
+
+* `receiveAllUsers`
+  0. invoked from an API callback
+  0. the `UserReducer` updates `users` in the application's state.
+
+* `receiveSingleUser`
+  0. invoked from an API callback
+  0. the `UserReducer` updates `users[id]` in the application's state.
+
+* `removeUser`
+  0. invoked from an API callback
+  0. the `UserReducer` removes `users[id]` from the application's state.
+
 ## Comment Cycles
 
 ### Comments API Request Actions
@@ -197,6 +235,65 @@
 * `removeFollow`
   0. invoked from an API callback
   0. the `FollowReducer` removes `follows[id]` from the application's state.
+
+## NowPlaying Cycles
+
+### NowPlaying API Request Actions
+
+* `fetchTracktoPlay`
+  0. invoked from `TrackItem` `PlayTrackButton` `onclick`
+  0. `GET /api/tracks/:id` is called.
+  0. `setNowPlayingTrack` is set as the callback.
+
+### NowPlaying API Response Actions
+
+* `setNowPlayingTrack`
+  0. invoked from an API callback
+  0. the NowPlayingReducer updates `nowPlaying[track]` in the application's state.
+  0. the NowPlayingReducer updates `playQueue[queue]` in the application's state, inserting the track at the current `playQueue[current_position]`
+
+### NowPlaying Other Actions  
+
+* `playNextTrack`
+  0. invoked from `AudioPlayer` `onended` or `AudioControls``SkipButton` `onclick`
+  0. the NowPlayingReducer updates `nowPlaying[track]` in the application's state.
+
+* `playPreviousTrack`
+  0. invoked from `AudioControls` `BackButton` `onclick`
+  0. the NowPlayingReducer updates `nowPlaying[track]` in the application's state.
+
+* `updateProgress`
+  0. invoked from `AudioPlayer` `timeupdate`
+  0. the NowPlayingReducer updates `nowPlaying[progress]` in the application's state.
+
+* `updateVolume`
+  0. invoked from `AudioControls` `VolumeControl` `onchange`
+  0. the NowPlayingReducer updates `nowPlaying[volume]` in the application's sate.
+
+* `updatePaused`
+  0. invoked from the `AudioControls` `PlayPauseButton` `onclick`
+  0. the NowPlayingReducer toggles `nowPlaying[paused]` in the application's state.
+
+## PlayQueue Cycles
+
+### PlayQueue API Request Actions
+
+* `fetchTrackToQueue`
+  0. invoked from `TrackItem` `ToggleQueuedButton` `onclick`
+  0. `GET /api/tracks` is called.
+  0. `enqueueTrack` is set as the callback.
+
+### PlayQueue API Response Actions
+
+* `enqueueTrack`
+  0. invoked from an API callback.
+  0. updates `PlayQueue[queue]` in the application state.
+
+### PlayQueue Other Actions
+
+* `dequeueTrack`
+  0. invoked from `TrackItem` `ToggleQueueButton` `onclick`
+  0. updates `PlayQueue[queue]` and `PlayQueue[current_position]` in the application state.
 
 ## SearchSuggestion Cycles
 

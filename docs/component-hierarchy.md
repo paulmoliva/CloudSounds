@@ -2,7 +2,7 @@
 
 **App**
 - ContentContainer
-- MusicPlayer
+- AudioPlayer
 
 **AuthFormContainer**
  - AuthForm
@@ -10,13 +10,13 @@
 **SplashContainer**
  - SplashHero
  - SplashSearch
- - SongsIndex
+ - TracksIndex
 
 **HomeContainer**
  - NavBar
  - HomeHero
   * WeatherMoodSelector
- - SongsIndex
+ - TracksIndex
 
 **TrackShow**
  - NavBar
@@ -27,7 +27,7 @@
   + TrackCommentsContainer
     * CommentsIndex
  - Sidebar
-  + SongsIndex
+  + TracksIndex
 
 **NewTrack**
  - NavBar
@@ -35,24 +35,35 @@
 
 **UserPage**
 - NavBar
-- UploadedSongs
-  + SongsIndex
-- LikedSongs
-  + SongsIndex
+- UploadedTracks
+  + TracksIndex
+- LikedTracks
+  + TracksIndex
 - Sidebar
-  + SongsIndex
+  + TracksIndex
 
 **SearchResultsContainer**
 - Search
-- SongsIndex
+- TracksIndex
 
 **TrackItem**
 - TrackPhoto
-- PlayButton
+- PlayTrackButton
+- ToggleQueuedButton
 - TrackInfo
   + TrackUser
   + TrackTitle
   + TrackMoodIcon
+
+**AudioControls**
+- PlayPauseButton
+- BackButton
+- SkipButton
+- VolumeControl
+- Queue Controls
+
+**PlayQueueControls**
+- QueueIndex
 
 
 
