@@ -1,54 +1,58 @@
 ## Component Hierarchy
 
-**AuthFormContainer**
- - AuthForm
+**App**
+- ContentContainer
+- MusicPlayer
 
-**SplashContainer**
- - SplashHero
- - SplashSearch
- - SongsIndex
+  **AuthFormContainer**
+   - AuthForm
 
-**HomeContainer**
- - NavBar
- - HomeHero
-  * WeatherMoodSelector
- - SongsIndex
+  **SplashContainer**
+   - SplashHero
+   - SplashSearch
+   - SongsIndex
 
-**TrackShow**
- - NavBar
- - MoodHero
- - CommentFormContainer
- - TrackItemContainer
-  + TrackItem
-  + TrackCommentsContainer
-    * CommentsIndex
- - Sidebar
-  + SongsIndex
+  **HomeContainer**
+   - NavBar
+   - HomeHero
+    * WeatherMoodSelector
+   - SongsIndex
 
-**NewTrack**
- - NavBar
- - TrackForm
+  **TrackShow**
+   - NavBar
+   - MoodHero
+   - CommentFormContainer
+   - TrackItemContainer
+    + TrackItem
+    + TrackCommentsContainer
+      * CommentsIndex
+   - Sidebar
+    + SongsIndex
 
-**UserPage**
-- NavBar
-- UploadedSongs
-  + SongsIndex
-- LikedSongs
-  + SongsIndex
-- Sidebar
-  + SongsIndex
+  **NewTrack**
+   - NavBar
+   - TrackForm
 
-**SearchResultsContainer**
-- Search
-- SongsIndex
+  **UserPage**
+  - NavBar
+  - UploadedSongs
+    + SongsIndex
+  - LikedSongs
+    + SongsIndex
+  - Sidebar
+    + SongsIndex
 
-**TrackItem**
-- TrackPhoto
-- PlayButton
-- TrackInfo
-  + TrackUser
-  + TrackTitle
-  + TrackMoodIcon
+  **SearchResultsContainer**
+  - Search
+  - SongsIndex
+
+  **TrackItem**
+  - TrackPhoto
+  - PlayButton
+  - TrackInfo
+    + TrackUser
+    + TrackTitle
+    + TrackMoodIcon
 
 
 
