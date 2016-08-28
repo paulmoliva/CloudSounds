@@ -30,4 +30,4 @@ Bonus: Interactive Map with option to tag tracks with your location
 - [View WireFrames](https://github.com/paulmoliva/CloudSounds/tree/master/docs/wireframes)
 - [Component Hierarchy](https://github.com/paulmoliva/CloudSounds/tree/master/docs/component-hierarchy.md)
 - [Sample State](./sample-state.md)
-- [Redux Structure](./redux_structure.md)
+- [Redux Structure](https://github.com/paulmoliva/CloudSounds/blob/master/docs/redux-structure.md)
