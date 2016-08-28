@@ -27,5 +27,5 @@ Bonus: Interactive Map with option to tag tracks with your location
 ~~Bonus: Superfluous weather puns~~
 
 ##Design Docs
--[View WireFrames](https://github.com/paulmoliva/CloudSounds/tree/master/docs/wireframes)
--[Component Hierarchy](https://github.com/paulmoliva/CloudSounds/tree/master/docs/component-hierarchy.md)
+**[View WireFrames](https://github.com/paulmoliva/CloudSounds/tree/master/docs/wireframes)**
+**[Component Hierarchy](https://github.com/paulmoliva/CloudSounds/tree/master/docs/component-hierarchy.md)**
