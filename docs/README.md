@@ -18,7 +18,7 @@ Bonus: Playlists for particular weather
 
 Bonus: Likes
 
-<span style='text-decoration: line-through;'>Bonus: Superfluous weather puns</span>
+~~Bonus: Superfluous weather puns~~
 
 ##Wireframes
 
