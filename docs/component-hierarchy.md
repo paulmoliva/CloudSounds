@@ -42,18 +42,43 @@
 - Sidebar
   + TracksIndex
 
+**UserItem**
+- Avatar
+- Username
+- ToggleFollowButton
+
 **SearchResultsContainer**
 - Search
 - TracksIndex
 
+**TrackContainer**
+- TrackItem
+- TrackComments
+
 **TrackItem**
 - TrackPhoto
-- PlayTrackButton
-- ToggleQueuedButton
 - TrackInfo
-  + TrackUser
+  + UserItem
   + TrackTitle
   + TrackMoodIcon
+- PlayTrackButton
+- ToggleQueuedButton
+- ToggleLikeButton
+- TrackComments
+- CommentForm
+
+**TrackComments**
+  - CommentsIndex
+
+**CommentItem**
+  - UserItem
+  - TrackName
+  - CommentBody
+  - RemoveCommentButton
+
+**CommentForm**
+  - Body
+  - CharacterCounter
 
 **AudioControls**
 - PlayPauseButton

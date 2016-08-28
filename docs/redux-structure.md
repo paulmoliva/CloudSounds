@@ -145,22 +145,12 @@
   0. `receiveAllComments` is set as the success callback.
 
 * `createComment`
-  0. invoked from new comment button `onClick`
-  0. `POST /api/comments` is called.
-  0. `receiveSingleComment` is set as the success callback.
-
-* `fetchSingleComment`
-  0. invoked from `CommentDetail` `didMount`/`willReceiveProps`
-  0. `GET /api/comments/:id` is called.
-  0. `receiveSingleComment` is set as the success callback.
-
-* `updateComment`
-  0. invoked from `CommentForm` `onSubmit`
+  0. invoked from `CommentForm` `onsubmit`
   0. `POST /api/comments` is called.
   0. `receiveSingleComment` is set as the success callback.
 
 * `destroyComment`
-  0. invoked from delete comment button `onClick`
+  0. invoked from `CommentItem` `RemoveCommentButton` `onClick`
   0. `DELETE /api/comments/:id` is called.
   0. `removeComment` is set as the success callback.
 
@@ -169,14 +159,6 @@
 * `receiveAllComments`
   0. invoked from an API callback
   0. the `CommentReducer` updates `comments` in the application's state.
-
-* `receiveSingleComment`
-  0. invoked from an API callback
-  0. the `CommentReducer` updates `comments[id]` in the application's state.
-
-* `removeComment`
-  0. invoked from an API callback
-  0. the `CommentReducer` removes `comments[id]` from the application's state.
 
 ## Like Cycles
 
@@ -188,24 +170,20 @@
   0. `receiveAllLikes` is set as the success callback.
 
 * `createLike`
-  0. invoked from new like button `onClick`
+  0. invoked from `TrackItem` `ToggleLikeButton` `onClick`
   0. `POST /api/likes` is called.
   0. `receiveAllLikes` is set as the success callback.
 
 * `destroyLike`
-  0. invoked from delete like button `onClick`
+  0. invoked from `TrackItem` `ToggleLikeButton` `onClick`
   0. `DELETE /api/likes/:id` is called.
-  0. `removeLike` is set as the success callback.
+  0. `receiveAllLikes` is set as the success callback.
 
 ### Likes API Response Actions
 
 * `receiveAllLikes`
   0. invoked from an API callback
   0. the `LikeReducer` updates `likes` in the application's state.
-
-* `removeLike`
-  0. invoked from an API callback
-  0. the `LikeReducer` removes `likes[id]` from the application's state.
 
 ## Follow Cycles
 
@@ -217,24 +195,20 @@
   0. `receiveAllFollows` is set as the success callback.
 
 * `createFollow`
-  0. invoked from new follow button `onClick`
+  0. invoked from `UserItem` `ToggleFollowButton` `onClick`
   0. `POST /api/follows` is called.
   0. `receiveAllFollows` is set as the success callback.
 
 * `destroyFollow`
-  0. invoked from delete follow button `onClick`
+  0. invoked from `UserItem` `ToggleFollowButton` `onClick`
   0. `DELETE /api/follows/:id` is called.
-  0. `removeFollow` is set as the success callback.
+  0. `receiveAllFollows` is set as the success callback.
 
 ### Follows API Response Actions
 
 * `receiveAllFollows`
   0. invoked from an API callback
   0. the `FollowReducer` updates `follows` in the application's state.
-
-* `removeFollow`
-  0. invoked from an API callback
-  0. the `FollowReducer` removes `follows[id]` from the application's state.
 
 ## NowPlaying Cycles
 
