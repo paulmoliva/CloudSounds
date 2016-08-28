@@ -54,4 +54,4 @@ Bonus: Likes
 -Files, images hosted on Cloudinary
 
 -Users inputs title, weather mood, description.
-![Track#new](./wireframes/track-new.jpg)
+![Track#new](./wireframes/new-track.jpg)
