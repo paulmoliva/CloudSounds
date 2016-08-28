@@ -45,12 +45,12 @@
 ### Weather API Request Actions
 * `fetchWeather`
   0. invoked from `App` `didMount`
-  0. `GET /api/weather` is called.
+  0. `GET /extrnal/weatherApiCall` is called.
   0. `receiveWeather` is set as the success callback.
 
 ### Weather API Response Actions
 
-* `receiveAllTracks`
+* `receiveWeather`
   0. invoked from an API callback
   0. the `WeatherReducer` updates `currentWeather` in the application's state.
 
