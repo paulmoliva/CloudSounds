@@ -3,7 +3,7 @@
 **AuthFormContainer**
  - AuthForm
 
- **SplashContainer**
+**SplashContainer**
  - SplashHero
  - SplashSearch
  - SongsIndex
@@ -14,7 +14,7 @@
   * WeatherMoodSelector
  - SongsIndex
 
- **TrackShow**
+**TrackShow**
  - NavBar
  - MoodHero
  - CommentFormContainer
