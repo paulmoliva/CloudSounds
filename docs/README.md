@@ -49,3 +49,9 @@ Bonus: Likes
 
 -Center is track info, description and comments.
 ![Track#show](./wireframes/track-show.jpg)
+
+##Track#new
+-Files, images hosted on Cloudinary
+
+-Users inputs title, weather mood, description.
+![Track#new](./wireframes/track-new.jpg)
