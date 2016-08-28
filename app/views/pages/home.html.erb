@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="reset.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <!-- <nav class='hero-header'>
+      <div class='logo-holder'>
+        <img class='logo' src="./logo.png" alt="">
+        <aside class='logo-after'>CLOUDSOUNDS</aside>
+      </div>
+      <ul class='header-buttons'>
+        <li class='sign-in button'>Sign In</li>
+        <li class='sign-up button'>Create Account</li>
+      </ul>
+    </nav> -->
+
+    <!-- <div class="search">
+      <form class="search-form">
+        <input type="text" placeholder="Search for weather moods, artists, or tracks"></input>
+      </form>
+      <p> or </p>
+      <button class="upload">Upload your own</button>
+    </div> -->
+
+    <nav class='navbar'>
+      <div class="inner-nav">
+        <div class="logo-header">
+
+        </div>
+        <div class="home-header-button">
+          Home
+        </div>
+        <div class="header-search">
+          <input class="header-search"type="text" placeholder="Search"></input>
+        </div>
+        <div class="upload-header-button">
+          Upload
+        </div>
+        <div class="user-header-dropdown">
+          <img class='circle-avatar'src="http://placekitten.com/26/26" alt="" />
+          Rainy Gloomguy &#9660;
+        </div>
+      </div>
+    </nav>
+
+    <div class='content'>
+      <div class='hero sunny'>
+        <div class="hero-box home">
+          <h3>It's sunny and 65℉ in San Francisco</h3>
+          <div class='flex-box home'>
+            <h3>Here are some tracks for a sunny day, or choose your weather mood: </h3>
+            <select name="weather">
+              <option value="Sunny">Sunny</option>
+              <option value="Cloudy">Cloudy</option>
+              <option value="Rainy">Rainy</option>
+              <option value="Snowy">Snowy</option>
+              <option value="Foggy">Foggy</option>
+              <option value="Stormy">Stormy</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+      <div class="flex-row home">
+        <ul class="home-tracks">
+          <li>
+            <div class="track-item">
+              <img src="http://placekitten.com/160/160" alt="">
+              <div class="column sunny-track sunny-track">
+                <div class = "flex-row">
+                  <button class="circle-play"></button></button>
+                  <div class="info">
+                    <p class="track-user">
+                      Stormy Cloudbro
+                    </p>
+                    <p class="track-name">
+                      Yeah Dude it's Sunny
+                    </p>
+                  </div>
+                  <div class="icons">
+
+                    <%= image_tag "sunny-icon.png", class: 'icon-40 favorite-icon' %>
+                  </div>
+                </div>
+                <div class="track-description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+                <input class="comment" type="text" placeholder="Write a comment"/>
+                <button class='track-favorite'>24</button>
+              </div>
+            </div>
+          </li>
+          <li>
+          <li>
+            <div class="track-item">
+              <img src="http://placekitten.com/160/160" alt="">
+              <div class="column sunny-track sunny-track">
+                <div class = "flex-row">
+                  <button class="circle-play"></button></button>
+                  <div class="info">
+                    <p class="track-user">
+                      Stormy Cloudbro
+                    </p>
+                    <p class="track-name">
+                      Yeah Dude it's Sunny
+                    </p>
+                  </div>
+                  <div class="icons">
+                    <%= image_tag "sunny-icon.png", class: 'icon-40 favorite-icon' %>
+                  </div>
+                </div>
+                <div class="track-description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+                <input class="comment" type="text" placeholder="Write a comment"/>
+                <button class='track-favorite'>24</button>
+              </div>
+            </div>
+          </li>
+          <li>
+          <li>
+            <div class="track-item">
+              <img src="http://placekitten.com/160/160" alt="">
+              <div class="column sunny-track sunny-track">
+                <div class = "flex-row">
+                  <button class="circle-play"></button></button>
+                  <div class="info">
+                    <p class="track-user">
+                      Stormy Cloudbro
+                    </p>
+                    <p class="track-name">
+                      Yeah Dude it's Sunny
+                    </p>
+                  </div>
+                  <div class="icons">
+                    <%= image_tag "sunny-icon.png", class: 'icon-40 favorite-icon' %>
+                  </div>
+                </div>
+                <div class="track-description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+                <input class="comment" type="text" placeholder="Write a comment"/>
+                <button class='track-favorite'>24</button>
+              </div>
+            </div>
+          </li>
+          <li>
+          <li>
+            <div class="track-item">
+              <img src="http://placekitten.com/160/160" alt="">
+              <div class="column sunny-track sunny-track">
+                <div class = "flex-row">
+                  <button class="circle-play"></button></button>
+                  <div class="info">
+                    <p class="track-user">
+                      Stormy Cloudbro
+                    </p>
+                    <p class="track-name">
+                      Yeah Dude it's Sunny
+                    </p>
+                  </div>
+                  <div class="icons">
+                    <%= image_tag "sunny-icon.png", class: 'icon-40 favorite-icon' %>
+                  </div>
+                </div>
+                <div class="track-description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+                <input class="comment" type="text" placeholder="Write a comment"/>
+                <button class='track-favorite'>24</button>
+              </div>
+            </div>
+          </li>
+          <li>
+          <li>
+            <div class="track-item">
+              <img src="http://placekitten.com/160/160" alt="">
+              <div class="column sunny-track sunny-track">
+                <div class = "flex-row">
+                  <button class="circle-play"></button></button>
+                  <div class="info">
+                    <p class="track-user">
+                      Stormy Cloudbro
+                    </p>
+                    <p class="track-name">
+                      Yeah Dude it's Sunny
+                    </p>
+                  </div>
+                  <div class="icons">
+                    <%= image_tag "sunny-icon.png", class: 'icon-40 favorite-icon' %>
+                  </div>
+                </div>
+                <div class="track-description">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+                <input class="comment" type="text" placeholder="Write a comment"/>
+                <button class='track-favorite'>24</button>
+              </div>
+            </div>
+          </li>
+
+
+
+
+
+        </ul>
+        <nav class='sidebar'>
+          <h3>Suggested for you:</h3>
+          <ul class="sidebar-list">
+            <li class="sidebar-list-item">
+              <div class='sidebar-track-data'>
+                <img class="sidebar-art"src="http://placekitten.com/60/60" alt="">
+                <ul class='column'>
+                  <li class='sidebar-playlist-name'>Wendy Gusto</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-list-item">
+              <div class='sidebar-track-data'>
+                <img class="sidebar-art"src="http://placekitten.com/60/60" alt="">
+                <ul class='column'>
+                  <li class='sidebar-playlist-name'>Wendy Gusto</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-list-item">
+              <div class='sidebar-track-data'>
+                <img class="sidebar-art"src="http://placekitten.com/60/60" alt="">
+                <ul class='column'>
+                  <li class='sidebar-playlist-name'>Wendy Gusto</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-list-item">
+              <div class='sidebar-track-data'>
+                <img class="sidebar-art"src="http://placekitten.com/60/60" alt="">
+                <ul class='column'>
+                  <li class='sidebar-playlist-name'>Wendy Gusto</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-list-item">
+              <div class='sidebar-track-data'>
+                <img class="sidebar-art"src="http://placekitten.com/60/60" alt="">
+                <ul class='column'>
+                  <li class='sidebar-playlist-name'>Wendy Gusto</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-list-item">
+              <div class='sidebar-track-data'>
+                <img class="sidebar-art"src="http://placekitten.com/60/60" alt="">
+                <ul class='column'>
+                  <li class='sidebar-playlist-name'>Wendy Gusto</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+              </div>
+            </li>
+            <li class="sidebar-list-item">
+              <div class='sidebar-track-data'>
+                <img class="sidebar-art"src="http://placekitten.com/60/60" alt="">
+                <ul class='column'>
+                  <li class='sidebar-playlist-name'>Wendy Gusto</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+          <h3 class='recent-comments'>Recent Comments</h3>
+          <ul class="sidebarlist">
+            <li class='sidebar-list-item'>
+              <div class="sidebar-track-data">
+                <img class='circle-avatar' src='http://placekitten.com/40/40' />
+                <ul class='column comment'>
+                  <li class='sidebar-playlist-name comment'>Freezing Coldguy on</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+                <p class='comment'>
+                  I wish people would post more cold songs.
+                </p>
+              </div>
+            </li>
+            <li class='sidebar-list-item'>
+              <div class="sidebar-track-data">
+                <img class='circle-avatar' src='http://placekitten.com/40/40' />
+                <ul class='column comment'>
+                  <li class='sidebar-playlist-name comment'>Freezing Coldguy on</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+                <p class='comment'>
+                  I wish people would post more cold songs.
+                </p>
+              </div>
+            </li>
+            <li class='sidebar-list-item'>
+              <div class="sidebar-track-data">
+                <img class='circle-avatar' src='http://placekitten.com/40/40' />
+                <ul class='column comment'>
+                  <li class='sidebar-playlist-name comment'>Freezing Coldguy on</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+                <p class='comment'>
+                  I wish people would post more cold songs.
+                </p>
+              </div>
+            </li>
+            <li class='sidebar-list-item'>
+              <div class="sidebar-track-data">
+                <img class='circle-avatar' src='http://placekitten.com/40/40' />
+                <ul class='column comment'>
+                  <li class='sidebar-playlist-name comment'>Freezing Coldguy on</li>
+                  <li class= 'sidebar-title'>Blown Away</li>
+                </ul>
+                <p class='comment'>
+                  I wish people would post more cold songs.
+                </p>
+              </div>
+            </li>
+
+
+          </ul>
+        </nav>
+      </div>
+
+        <div class="front-footer">
+          <div class="footer-box">
+          </div>
+        </div>
+        <div class="play-controls">
+          <button class="back"></button>
+          <button class="pause"></button>
+          <button class="skip"></button>
+            <div class='timer progress'>1:04</div>
+            <div class="outer-progress">
+              <div class="inner-progress"></div>
+            </div>
+            <div class="timer total">3:07</div>
+            <button class='volume'></button>
+            <div class='track-data'>
+              <img class="playback-art"src="http://placekitten.com/30/30" alt="">
+              <ul class='column'>
+                <li class='playlist-name'>Playing from Rainy Day Tracks</li>
+                <li class= 'title'>Raindrops Keep Falling on my Head</li>
+              </ul>
+            </div>
+            <button class='favorite'></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
