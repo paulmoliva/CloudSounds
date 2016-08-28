@@ -4,55 +4,55 @@
 - ContentContainer
 - MusicPlayer
 
-  **AuthFormContainer**
-   - AuthForm
+**AuthFormContainer**
+ - AuthForm
 
-  **SplashContainer**
-   - SplashHero
-   - SplashSearch
-   - SongsIndex
+**SplashContainer**
+ - SplashHero
+ - SplashSearch
+ - SongsIndex
 
-  **HomeContainer**
-   - NavBar
-   - HomeHero
-    * WeatherMoodSelector
-   - SongsIndex
+**HomeContainer**
+ - NavBar
+ - HomeHero
+  * WeatherMoodSelector
+ - SongsIndex
 
-  **TrackShow**
-   - NavBar
-   - MoodHero
-   - CommentFormContainer
-   - TrackItemContainer
-    + TrackItem
-    + TrackCommentsContainer
-      * CommentsIndex
-   - Sidebar
-    + SongsIndex
+**TrackShow**
+ - NavBar
+ - MoodHero
+ - CommentFormContainer
+ - TrackItemContainer
+  + TrackItem
+  + TrackCommentsContainer
+    * CommentsIndex
+ - Sidebar
+  + SongsIndex
 
-  **NewTrack**
-   - NavBar
-   - TrackForm
+**NewTrack**
+ - NavBar
+ - TrackForm
 
-  **UserPage**
-  - NavBar
-  - UploadedSongs
-    + SongsIndex
-  - LikedSongs
-    + SongsIndex
-  - Sidebar
-    + SongsIndex
+**UserPage**
+- NavBar
+- UploadedSongs
+  + SongsIndex
+- LikedSongs
+  + SongsIndex
+- Sidebar
+  + SongsIndex
 
-  **SearchResultsContainer**
-  - Search
-  - SongsIndex
+**SearchResultsContainer**
+- Search
+- SongsIndex
 
-  **TrackItem**
-  - TrackPhoto
-  - PlayButton
-  - TrackInfo
-    + TrackUser
-    + TrackTitle
-    + TrackMoodIcon
+**TrackItem**
+- TrackPhoto
+- PlayButton
+- TrackInfo
+  + TrackUser
+  + TrackTitle
+  + TrackMoodIcon
 
 
 
