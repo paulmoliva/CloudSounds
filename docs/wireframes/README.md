@@ -7,7 +7,7 @@
 ![Splash Page](./splash.png)
 [Live Mock Up](http://cloudsounds.io)
 
-###Stream
+###Home
 -First thing user sees when they log in.
 
 -Autopopulates with the tracks tagged with the weather from their current location (defaults to SF if they don't authorize location tracking).
@@ -15,7 +15,8 @@
 -User can select their 'weather mood' from a dropdown to populate the stream with different tracks.
 
 -Infinite scroll (Bonus Feature)
-![Stream](./stream.jpg)
+![Home](./stream.jpg)
+[Live Mock Up](http://cloudsounds.io/pages/home)
 
 
 ##Track#show
