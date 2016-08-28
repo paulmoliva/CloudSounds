@@ -8,6 +8,8 @@ Song CRUD
 
 Continuous play while navigating site
 
+Track Pages
+
 Comments
 
 User pages
@@ -15,6 +17,8 @@ User pages
 Bonus: Playlists for particular weather
 
 Bonus: Likes
+
+<span style='text-decoration: line-through;'>Bonus: Superfluous weather puns</span>
 
 ##Wireframes
 
