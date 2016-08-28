@@ -18,6 +18,8 @@ Bonus: Playlists for particular weather
 
 Bonus: Likes
 
+Bonus: Follows
+
 ~~Bonus: Superfluous weather puns~~
 
 ##Wireframes
@@ -55,3 +57,12 @@ Bonus: Likes
 
 -Users inputs title, weather mood, description.
 ![Track#new](./wireframes/new-track.jpg)
+
+##Track#edit
+-Modal overlay with track form. Accessed from user#show
+
+##User#show
+-Displays tracks user has uploaded and tracks they have liked.
+
+-If current user is looking at their own show page, they can click their avatar picture to edit their photo.
+![User#show](./wireframes/user-show.jpg)
