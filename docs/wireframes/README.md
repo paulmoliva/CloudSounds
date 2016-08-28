@@ -16,8 +16,10 @@
 
 -Infinite scroll (Bonus Feature)
 ![Home](./stream.jpg)
-[Live Mock Up](http://cloudsounds.io/pages/home)
 
+Live mock up with a little more detail:
+![Home](./home.png)
+[Live Mock Up](http://cloudsounds.io/pages/home)
 
 ##Track#show
 -Cover photo pertains to the track's weather mood.
