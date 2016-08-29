@@ -57,7 +57,7 @@
 - `GET /api/tracks/:id/likes`
   - index of all likes for a track
 - `POST /api/likes/:id`: Like a track
-- `DELETE /api/likes/:like_id/tags/:tag_name`: Unlike a track
+- `DELETE /api/likes/:like_id/`: Unlike a track
 
 ### Follows
 
