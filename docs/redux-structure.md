@@ -88,6 +88,7 @@
 * `receiveAllTracks`
   0. invoked from an API callback
   0. the `TrackReducer` updates `tracks` in the application's state.
+  0. `tracks` retains tracks that are in `PlayQueue[queue]` unless weather mood changes.
 
 * `receiveSingleTrack`
   0. invoked from an API callback
@@ -144,6 +145,11 @@
   0. `GET /api/comments` is called.
   0. `receiveAllComments` is set as the success callback.
 
+* `fetchTrackComments`
+  0. invoked from `TrackItem` `didMount`
+  0. `GET /api/tracks/:id/comments` is called.
+  0. `receiveTrackComments` is set as the callback.
+
 * `createComment`
   0. invoked from `CommentForm` `onsubmit`
   0. `POST /api/comments` is called.
@@ -160,6 +166,10 @@
   0. invoked from an API callback
   0. the `CommentReducer` updates `comments` in the application's state.
 
+* `receiveTrackComments`
+  0. invoked from an API callback.
+  0. the `CommentReducer` updates `comments` in the application's state.
+
 ## Like Cycles
 
 ### Likes API Request Actions
@@ -168,6 +178,11 @@
   0. invoked from `LikesIndex` `didMount`/`willReceiveProps`
   0. `GET /api/likes` is called.
   0. `receiveAllLikes` is set as the success callback.
+
+* `fetchTrackLikes`
+  0. invoked from `TrackItem` `didMount`
+  0. `GET /api/track/:id/likes` is called.
+  0. `receiveTrackLikes` is set as the success callback.
 
 * `createLike`
   0. invoked from `TrackItem` `ToggleLikeButton` `onClick`
@@ -185,6 +200,10 @@
   0. invoked from an API callback
   0. the `LikeReducer` updates `likes` in the application's state.
 
+* `receiveTrackLikes`
+  0. invoked from an API callback
+  0. the `LikeReducer` updates `likes` in the application's state.
+
 ## Follow Cycles
 
 ### Follows API Request Actions
@@ -193,6 +212,11 @@
   0. invoked from `FollowsIndex` `didMount`/`willReceiveProps`
   0. `GET /api/follows` is called.
   0. `receiveAllFollows` is set as the success callback.
+
+* `fetchUserFollowRelationships`
+  0. invoked from `UserShow` `didMount`, `Follows` `ComponentWillUpdate`
+  0. `GET /api/users/:id/follows` is called.
+  0. `receiveUserFollowRelationships` is set as the success callback.
 
 * `createFollow`
   0. invoked from `UserItem` `ToggleFollowButton` `onClick`
@@ -209,6 +233,10 @@
 * `receiveAllFollows`
   0. invoked from an API callback
   0. the `FollowReducer` updates `follows` in the application's state.
+
+* `receiveUserFollowRelationships`
+  0. invoked from an API callback
+  0. the `FollowReducer` updates `follows` in the application state.
 
 ## NowPlaying Cycles
 

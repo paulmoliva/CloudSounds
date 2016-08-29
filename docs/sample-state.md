@@ -16,7 +16,7 @@
       title: "Yeah Dude it's Sunny",
       description: "Ukulele Cover of BROCCOLI",
       uploader_id: 1,
-      weather_mood_id: 1
+      weather_id: 1
       audio_url: 'http://cloudinary.com/sf773SysW3.mp3',
       image_url: 'http://cloudinary.com/ShuYyg6e85.png',
       track_length: 323,
@@ -27,7 +27,7 @@
       title: "Yeah Dude it's Sunny Part Deux",
       description: "Extended Ukulele Cover of BROCCOLI",
       uploader_id: 1,
-      weather_mood_id: 1
+      weather_id: 1
       audio_url: 'http://cloudinary.com/s2773SysW3.mp3',
       image_url: 'http://cloudinary.com/S2uYyg6e85.png',
       track_length: 623,
@@ -38,7 +38,7 @@
       title: "Yeah Dude it's Sunny Artist Commentary",
       description: "Stormy Discusses his song",
       uploader_id: 1,
-      weather_mood_id: 1
+      weather_id: 1
       audio_url: 'http://cloudinary.com/sf773SysW3.mp3',
       image_url: 'http://cloudinary.com/ShuYyg6e85.png',
       track_length: 823,
@@ -49,7 +49,7 @@
       title: "Yeah Dude it's Sunny Remix",
       description: "Remix of Stormy's Ukulele Cover of BROCCOLI",
       uploader_id: 3,
-      weather_mood_id: 1
+      weather_id: 1
       audio_url: 'http://cloudinary.com/sf773SysW3.mp3',
       image_url: 'http://cloudinary.com/ShuYyg6e85.png',
       track_length: 223,
@@ -60,15 +60,18 @@
   users: {
     1: {
       username: "Stormy Cloudbro",
-      avatar_url: 'http://cloudinary.com/kjG79Doh.png'
+      avatar_url: 'http://cloudinary.com/kjG79Doh.png',
+      email: 'email@example.com'
     },
     2: {
       username: "Rainy Gloomguy",
-      avatar_url: 'http://cloudinary.com/RjG79Doh.png'
+      avatar_url: 'http://cloudinary.com/RjG79Doh.png',
+      email: 'email@example.com'
     },
     3: {
       username: "Wendy Gusto",
-      avatar_url: 'http://cloudinary.com/WjG79Doh.png'
+      avatar_url: 'http://cloudinary.com/WjG79Doh.png',
+      email: 'email@example.com'
     },
   }
   comments: {
@@ -92,6 +95,8 @@
     }
   },
   currentWeather: {
+    id: 1,
+    weather_type: 'sunny',
     city: 'San Francisco',
     temperature: 65,
     description: 'sunny'

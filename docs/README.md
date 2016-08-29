@@ -31,3 +31,4 @@
 - [Component Hierarchy](https://github.com/paulmoliva/CloudSounds/tree/master/docs/component-hierarchy.md)
 - [Sample State](./sample-state.md)
 - [Redux Structure](https://github.com/paulmoliva/CloudSounds/blob/master/docs/redux-structure.md)
+- [API Endpoints](https://github.com/paulmoliva/CloudSounds/blob/master/docs/api-endpoints.md)
