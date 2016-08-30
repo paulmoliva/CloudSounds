@@ -3,7 +3,8 @@
 }
 
 .form-modal{
-  padding: 10% 25%;
+  width: 81.6%;
+  padding: 20px 0;
   position: absolute;
   background: rgba(17,17,17,0.5);
   z-index: 99;
@@ -34,13 +35,13 @@ input.comment {
   border-radius: 5px;;
 }
 
-.login-form {
+.session-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
-.login-form input[type=submit] {
+.session-form input[type=submit] {
   width: 50%;
-  margin-left: 25%;
 }
