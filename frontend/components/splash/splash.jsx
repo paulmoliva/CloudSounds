@@ -30,12 +30,11 @@ class Splash extends React.Component {
       let esc;
       e.which === 27 ? esc = true : esc = false;
       if (esc && !signup.attr('class').match(/hidden/)){
-        debugger;
         that.props.clearErrors();
         signup.toggleClass('hidden');
       }
       if (esc && !login.attr('class').match(/hidden/)){
-        that.props.ClearErrors();
+        that.props.clearErrors();
         login.toggleClass('hidden');
       }
     });
