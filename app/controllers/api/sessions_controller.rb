@@ -3,22 +3,25 @@ class Api::SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_credentials(
+    @user = User.find_by_credentials(
       params[:user][:username],
       params[:user][:password]
     )
 
-    if user
-      sign_in(user)
-      #redirect_to
+    if @user
+      sign_in(@user)
+      render "api/users/show"
     else
-      render :new
+      render(
+              json: ["Invalid username/password combination"],
+              status: 401
+            )
     end
   end
 
   def destroy
     sign_out
-    render {}
+    render "api/users/show"
   end
 
 

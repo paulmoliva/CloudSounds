@@ -1,0 +1,46 @@
+.hidden {
+  display: none;
+}
+
+.form-modal{
+  padding: 10% 25%;
+  position: absolute;
+  background: rgba(17,17,17,0.5);
+  z-index: 99;
+}
+
+input[type=text], input[type=password] {
+  width: 600px;
+  height: 30px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  background-color: #ddd;
+  border: none;
+}
+
+input[type=text].header-search {
+  height: 28px;
+  margin-top: 9px;
+  margin-left: 9px;;
+  box-sizing: border-box;
+}
+
+input.comment {
+  width: 92%;
+  margin: 5px 20px;
+  margin-top: auto;
+  padding: 0 9px;
+  border-radius: 5px;;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.login-form input[type=submit] {
+  width: 50%;
+  margin-left: 25%;
+}

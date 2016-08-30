@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#index'
+  root 'pages#root'
   get "/pages/:page" => "pages#show"
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:index, :show, :create]
