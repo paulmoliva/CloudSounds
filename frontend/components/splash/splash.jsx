@@ -17,6 +17,7 @@ class Splash extends React.Component {
     this.loginSubmit = this.loginSubmit.bind(this);
     this.signupSubmit = this.signupSubmit.bind(this);
     this.showErrors = this.showErrors.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   componentDidMount(){
@@ -145,7 +146,7 @@ class Splash extends React.Component {
         <div className="hero-box">
           <h3>It's sunny and 65℉ in San Francisco</h3>
           <h3>Get the music to match.</h3>
-          <button className='sign-up demo button'>Guest Login</button>
+          <button className='sign-up demo button' onClick={this.guestLogin}>Guest Login</button>
         </div>
       </div>
     </div>
@@ -158,6 +159,11 @@ class Splash extends React.Component {
     // const user = {
     //   e.currentTarget.
     // }
+  }
+
+  guestLogin() {
+    const user = {currentUser: null, username: "Guest", password: "password", email: "", avatar_url: ""};
+    this.props.login({user});
   }
 
   signupSubmit(e) {
