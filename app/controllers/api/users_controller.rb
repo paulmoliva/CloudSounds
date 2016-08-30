@@ -8,14 +8,15 @@ def create
 
   if @user.save
     sign_in(@user)
-    #redirect_to 
+    render :show
   else
-    render :new
+    puts @user.errors.full_messages
+    render :show
   end
 end
 
   private
   def user_params
-    params.require(:user).permit(:password, :username)
+    params.require(:user).permit(:password, :username, :email)
   end
 end
