@@ -42,6 +42,18 @@ input.comment {
   align-items: center;
 }
 
+.session-form p {
+  color: whitesmoke;
+  text-shadow: 1px 1px black;
+  margin: 10px 0;
+}
+
 .session-form input[type=submit] {
   width: 50%;
+}
+
+li.error {
+  font-size: 18px;
+  color: red;
+  text-shadow: 1px 1px black;
 }

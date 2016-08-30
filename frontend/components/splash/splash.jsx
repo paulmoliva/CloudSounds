@@ -10,11 +10,13 @@ class Splash extends React.Component {
       username: "",
       password: "",
       email: "",
-      avatar_url: ""
+      avatar_url: "",
+      errors: ""
     };
     this.hero = this.hero.bind(this);
     this.loginSubmit = this.loginSubmit.bind(this);
     this.signupSubmit = this.signupSubmit.bind(this);
+    this.showErrors = this.showErrors.bind(this);
   }
 
   update(field){
@@ -39,28 +41,28 @@ class Splash extends React.Component {
 
         <div className='form-modal hidden' id='loginModal'>
           <form onSubmit={this.loginSubmit} className="login-form-box">
-            Welcome to Cloud Sounds!
-            <br/>
+
 
             <div className="session-form">
-
-              <label> Username:
+              <p>Welcome to Cloud Sounds!</p>
+              <ul>{this.showErrors()}</ul>
+               <p>Username</p>
                 <input type="text"
                   className="login-input"
                   value={this.state.username}
                   onChange={this.update("username")}
                   className="login-input" />
 
-              </label>
 
 
-              <label> Password:
+
+                <p>Password</p>
                 <input type="password"
                   className="login-input"
                   value={this.state.password}
                   onChange={this.update("password")}
                   />
-              </label>
+
 
               <br />
               <input type="submit" value="Login" />
@@ -70,10 +72,10 @@ class Splash extends React.Component {
 
         <div className='form-modal hidden' id='signupModal'>
           <form onSubmit={this.signupSubmit} className="signup-form-box">
-            Welcome to Cloud Sounds!
-            <br/>
+
 
             <div className="session-form">
+              <p>Welcome to Cloud Sounds!</p>
 
                 <p>Username:</p>
                 <input type="text"
@@ -157,6 +159,13 @@ class Splash extends React.Component {
   showSignupForm(){
     let form = document.getElementById('signupModal');
     $(form).toggleClass('hidden');
+  }
+
+  showErrors(){
+    let errors =  this.props.errors;
+    return errors.map( (error)=> {
+      return (<li className='error' key={error}>{error}</li>);
+    } );
   }
 
   render(){
