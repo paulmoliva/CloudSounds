@@ -12,7 +12,10 @@ def create
     render :show
   else
     puts @user.errors.full_messages
-    render :show
+    render(
+            json: @user.errors.full_messages,
+            status: 401
+          )
   end
 end
 

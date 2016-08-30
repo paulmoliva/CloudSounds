@@ -19,6 +19,23 @@ class Splash extends React.Component {
     this.showErrors = this.showErrors.bind(this);
   }
 
+  componentDidMount(){
+    $(document).on( 'keyup', (e) => {
+      let login = document.getElementById('loginModal');
+      let signup = document.getElementById('signupModal');
+      login = $(login);
+      signup = $(signup);
+      let esc;
+      e.which === 27 ? esc = true : esc = false;
+      if (esc && !signup.attr('class').match(/hidden/)){
+        signup.toggleClass('hidden');
+      }
+      if (esc && !login.attr('class').match(/hidden/)){
+        login.toggleClass('hidden');
+      }
+    });
+  }
+
   update(field){
 		return e => { this.setState({[field]: e.currentTarget.value }); };
 	}
@@ -45,7 +62,7 @@ class Splash extends React.Component {
 
             <div className="session-form">
               <p>Welcome to Cloud Sounds!</p>
-              <ul>{this.showErrors()}</ul>
+              <ul className='errors'>{this.showErrors()}</ul>
                <p>Username</p>
                 <input type="text"
                   className="login-input"
@@ -76,7 +93,7 @@ class Splash extends React.Component {
 
             <div className="session-form">
               <p>Welcome to Cloud Sounds!</p>
-
+              <ul className='errors'>{this.showErrors()}</ul>
                 <p>Username:</p>
                 <input type="text"
                   className="signup-input"
@@ -145,7 +162,6 @@ class Splash extends React.Component {
 
   signupSubmit(e) {
     e.preventDefault();
-    debugger
     const user = this.state;
     console.log(user);
     this.props.signup({user});
