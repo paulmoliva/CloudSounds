@@ -19,7 +19,7 @@ User.create!(
   username: 'Guest',
   password: 'password',
   email: Faker::Internet.email,
-  avatar_url: Faker::Avatar.image
+  avatar_url: 'http://res.cloudinary.com/cloud-sounds/image/upload/c_crop,g_face:center,r_max,w_500/c_scale,w_129/v1472615014/c2b61026_homer-headphones_eguuts.jpg'
 )
 
 10.times do

@@ -1,0 +1,58 @@
+$skyblue: #7EC0EE;
+
+.audiojs .play {
+  background-image: url('./play-button.png');
+  background-size: contain;
+}
+
+.back {
+  background-image: url(https://a-v2.sndcdn.com/assets/images/playback/prev-34697d.svg);
+  background-position: 40% center;
+}
+
+.audiojs .pause {
+  background-image: url(https://a-v2.sndcdn.com/assets/images/playback/pause-b172a6.svg);
+  background-position: center center;
+}
+
+.skip {
+  background-image: url(https://a-v2.sndcdn.com/assets/images/playback/skip-3aac31.svg);
+  background-position: 60% center;
+}
+
+.volume {
+  background-image: url(https://a-v2.sndcdn.com/assets/images/playback/volume-max-7a4115.svg);
+  background-position: 60% 45%;
+}
+
+.audiojs {
+  position: fixed;
+  width: 81.6%;
+}
+
+.play-controls {
+  position: fixed;
+  top: 454px;
+  width: 100%;
+  height: 46px;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.audiojs {
+  .scrubber {
+    width: 88%;
+    height: 1px;
+    margin-top: 16px;
+  }
+  .progress {
+    height: 1px;
+        background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, $skyblue), color-stop(0.5, $skyblue), color-stop(0.51, $skyblue), color-stop(1, #ce1e1e));
+  }
+  .loaded {
+    height: 1px;
+  }
+}

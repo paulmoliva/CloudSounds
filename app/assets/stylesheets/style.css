@@ -522,17 +522,7 @@ select {
   color: #aaa;
 }
 
-.play-controls {
-  position: fixed;
-  bottom: 0px;
-  width: 100%;
-  height: 46px;
-  background-color: whitesmoke;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;;
-  align-items: center;
-}
+
 
 .play-controls button {
   width: 33px;
@@ -544,25 +534,7 @@ select {
   margin-right: 8px;
 }
 
-.back {
-  background-image: url(https://a-v2.sndcdn.com/assets/images/playback/prev-34697d.svg);
-  background-position: 40% center;
-}
 
-.pause {
-  background-image: url(https://a-v2.sndcdn.com/assets/images/playback/pause-b172a6.svg);
-  background-position: center center;
-}
-
-.skip {
-  background-image: url(https://a-v2.sndcdn.com/assets/images/playback/skip-3aac31.svg);
-  background-position: 60% center;
-}
-
-.volume {
-  background-image: url(https://a-v2.sndcdn.com/assets/images/playback/volume-max-7a4115.svg);
-  background-position: 60% 45%;
-}
 
 .favorite {
   background-image: url('./solid-black-heart.svg');

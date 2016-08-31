@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 import SessionForm from './session_form.jsx';
 
+//audio
+// import audiojs from '../../util/audiojs/audio.min';
+
 class Splash extends React.Component {
   constructor(props){
     super(props);
@@ -152,6 +155,8 @@ class Splash extends React.Component {
           <button className='sign-up demo button' onClick={this.guestLogin}>Guest Login</button>
         </div>
       </div>
+
+      
     </div>
   );}
 
