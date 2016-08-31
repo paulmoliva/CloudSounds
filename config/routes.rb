@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: {format: :json} do
     resources :users, only: [:index, :show, :create]
     resource :session, only: [:create, :destroy, :show]
+    resource :tracks, only: [:index, :create, :destroy, :update, :show]
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

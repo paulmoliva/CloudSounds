@@ -4,14 +4,12 @@ class Api::UsersController < ApplicationController
 end
 
 def create
-  puts params
   @user = User.new(user_params)
 
   if @user.save
     sign_in(@user)
     render :show
   else
-    puts @user.errors.full_messages
     render(
             json: @user.errors.full_messages,
             status: 401

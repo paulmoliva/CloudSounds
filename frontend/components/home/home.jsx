@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class Home extends React.Component {
   constructor(props) {
@@ -25,6 +26,8 @@ class Home extends React.Component {
       <p>{this.userName()}</p>
       <button onClick={this.props.logout}>Log out</button>
       <img src = {this.userAvatar()} />
+      <Link to="/home/upload">Upload Track</Link>
+      {this.props.children}
     </div>
   );}
 }

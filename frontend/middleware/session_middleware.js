@@ -2,9 +2,10 @@ import { receiveCurrentUser,
          receiveErrors,
          SessionConstants
        } from '../actions/session_actions';
-       import {hashHistory} from 'react-router';
 
 import { login, signup, logout } from '../util/session_api_util';
+
+import {hashHistory} from 'react-router';
 
 export default ({getState, dispatch}) => next => action => {
   const successCallback = user => {
