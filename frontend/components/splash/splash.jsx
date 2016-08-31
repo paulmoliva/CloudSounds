@@ -65,7 +65,7 @@ class Splash extends React.Component {
 
 
             <div className="session-form">
-              <p>Welcome to Cloud Sounds!</p>
+              <p>Welcome Back!</p>
               <ul className='errors'>{this.showErrors()}</ul>
                <p>Username</p>
                 <input type="text"

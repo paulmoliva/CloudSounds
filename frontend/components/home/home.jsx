@@ -14,10 +14,15 @@ class Home extends React.Component {
     }
   }
 
+  userAvatar(){
+    return this.props.currentUser.user.avatar_url;
+  }
+
   render() {return (
     <div className='content'>
       <p>{this.userName()}</p>
       <button onClick={this.props.logout}>Log out</button>
+      <img src = {this.userAvatar()} />
     </div>
   );}
 }

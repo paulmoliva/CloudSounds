@@ -5,7 +5,9 @@ $skyblue: #7EC0EE;
 }
 
 .form-modal{
+  box-sizing: border-box;
   width: 81.6%;
+  height: 454px;
   padding: 20px 0;
   position: absolute;
   background: rgba(17,17,17,0.5);
@@ -37,17 +39,23 @@ input.comment {
   border-radius: 5px;;
 }
 
+.login-form-box {
+  padding-top: 60px;
+}
+
 .session-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  align-content: center;
 }
 
 .session-form p {
   color: whitesmoke;
   text-shadow: 1px 1px black;
   margin: 10px 0;
+  font-weight: bold;
 }
 
 .session-form input[type=submit] {
