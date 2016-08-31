@@ -1,18 +1,18 @@
 $skyblue: #7EC0EE;
 
 .audiojs .play {
-  background-image: url('./play-button.png');
+  background-image: url('https://a-v2.sndcdn.com/assets/images/playback/play-c9d2fb.svg');
   background-size: contain;
 }
 
 .back {
   background-image: url(https://a-v2.sndcdn.com/assets/images/playback/prev-34697d.svg);
-  background-position: 40% center;
+  background-size: contain;
 }
 
 .audiojs .pause {
   background-image: url(https://a-v2.sndcdn.com/assets/images/playback/pause-b172a6.svg);
-  background-position: center center;
+  background-position: center 22.5%;
 }
 
 .skip {
