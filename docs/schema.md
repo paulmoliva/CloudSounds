@@ -20,8 +20,6 @@ uploader_id | integer   | not null, foreign key (references users), indexed
 weather_id  | integer   | not null, foreign key (references weather), indexed
 audio_url   | string    | not null, unique
 image_url   | string    | not null, default: './default_track_art.png'
-track_length| integer   | not null
-archived    | boolean   | not null, default: false
 
 ## comments
 column name | data type | details

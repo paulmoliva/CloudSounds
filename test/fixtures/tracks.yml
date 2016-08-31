@@ -2,6 +2,16 @@
 
 one:
   title: MyString
+  description: MyText
+  user_id: 1
+  weather_id: 1
+  audio_url: MyString
+  image_url: MyString
 
 two:
   title: MyString
+  description: MyText
+  user_id: 1
+  weather_id: 1
+  audio_url: MyString
+  image_url: MyString

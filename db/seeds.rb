@@ -14,3 +14,21 @@
     avatar_url: Faker::Avatar.image
   )
 end
+
+User.create!(
+  username: 'Guest',
+  password: 'password',
+  email: Faker::Internet.email,
+  avatar_url: Faker::Avatar.image
+)
+
+10.times do
+  Track.create!(
+    title: Faker::Hipster.sentence(3),
+    description: Faker::Hipster.sentence(4),
+    user_id: 11,
+    weather_id: 1,
+    audio_url: 'http://example.com/track.mp3',
+    image_url: Faker::Avatar.image("my-own-slug", "50x50")
+  )
+end
