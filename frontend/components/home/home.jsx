@@ -15,7 +15,9 @@ class Home extends React.Component {
   }
 
   userAvatar(){
-    return this.props.currentUser.user.avatar_url;
+    if (this.props.currentUser){
+      return this.props.currentUser.user.avatar_url;
+    }
   }
 
   render() {return (
