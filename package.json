@@ -17,14 +17,14 @@
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
     "react-redux": "^4.4.5",
+    "react-router": "^2.7.0",
     "redux": "^3.5.2",
     "webpack": "^1.13.2"
   },
   "engines": {
-  "node": "4.1.1",
-  "npm": "2.1.x"
-},
-
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
   "scripts": {
     "postinstall": "./node_modules/.bin/webpack"
   }
