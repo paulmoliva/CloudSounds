@@ -3,11 +3,12 @@ import { createTrack } from '../../actions/track_actions';
 import Upload from './upload';
 
 const mapStateToProps = state => ({
-  currentUser: state.session.currentUser
+  currentUser: state.session.currentUser,
+  errors: state.errors
 });
 
 const mapDispatchToProps = dispatch => ({
-  createTrack: (track) => dispatch(createTrack(track))
+  createTrack: (track) => dispatch(createTrack(track)),
 });
 
 export default connect(

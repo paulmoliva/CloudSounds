@@ -13,6 +13,12 @@ const TrackReducer = function(state = {}, action){
       const newState = merge({}, state);
       delete newState[action.id];
       return newState;
+    case TrackConstants.RECEIVE_ERRORS:
+      debugger;
+      const errors = action.errors;
+      return merge({}, {errors});
+    case TrackConstants.CLEAR_ERRORS:
+      return merge({}, {});
     default:
       return state;
   }

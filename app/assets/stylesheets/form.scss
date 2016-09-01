@@ -1,15 +1,14 @@
 $skyblue: #7EC0EE;
 $transparent-grey: rgba(17,17,17,0.5);
-$transparent-dark-grey: rgba(17,17,17,0.85);
+$transparent-dark-grey: rgba(17,17,17,0.95);
 .upload-modal {
   display: flex;
   justify-content: center;
   width: 81.6%;
-  padding: 35px;
   position: fixed;
   top: 46px;
   background-color: $transparent-dark-grey;
-
+  height: 100%;
 }
 
 .hidden {
@@ -43,10 +42,29 @@ input[type=text].header-search {
   box-sizing: border-box;
 }
 
+.uploadForm input[type=submit], .session-form input[type=submit] {
+  background-color: $skyblue;
+  border: none;
+  width: 50%;
+  padding: 12px 2px;
+  font-family: "Interstate";
+  font-size: 20px;
+  color: whitesmoke;
+  margin-top: 20px;
+  &:hover {
+    cursor: pointer;
+    -webkit-filter: brightness(70%);
+  }
+}
+
+.session-form input[type=submit] {
+  width: 25%;
+}
+
 input.comment {
   width: 92%;
   margin: 5px 20px;
-  margin-top: auto;
+  //margin-top: auto;
   padding: 0 9px;
   border-radius: 5px;;
 }
@@ -63,6 +81,35 @@ input.comment {
   align-content: center;
 }
 
+.uploadForm {
+  margin-top: 20px;
+  text-align: center;
+  color: whitesmoke;
+  text-shadow: 1px 1px black;
+
+  p, label {
+    margin-top: 20px;
+  }
+}
+
+
+
+ul label {
+  width: 50%;
+}
+
+label.column.weather-radios {
+  align-items: center;
+  font-size: 20px;
+  p {
+    font-size: 20px;
+  }
+}
+
+.column.left {
+  align-items: flex-start;
+}
+
 .session-form p {
   color: whitesmoke;
   text-shadow: 1px 1px black;
@@ -70,12 +117,17 @@ input.comment {
   font-weight: bold;
 }
 
-.session-form input[type=submit] {
-  padding: 2px 10px;
+#image_upload_widget_opener.upload-header-button,
+#upload_widget_opener.upload-header-button {
+  padding-top: 16px;
+  width: 100%;
+  min-width: 100%;
+  font-size: 16px;
+}
+
+#upload_widget_opener {
   background-color: $skyblue;
-  border: none;
-  font-size: 14px;
-  color: whitesmoke;
+  text-shadow: none;
 }
 
 ul.errors {

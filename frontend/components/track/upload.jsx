@@ -10,7 +10,6 @@ class Upload extends React.Component {
   render() {
     return (
     <div>
-      <h1>upload</h1>
       <UploadForm currentUser={this.props.currentUser} createTrack={this.props.createTrack}/>
     </div>
     );

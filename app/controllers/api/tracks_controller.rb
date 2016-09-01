@@ -14,9 +14,8 @@ class Api::TracksController < ApplicationController
     if @track.save
       render :show
     else
-      render(
-        json: @track.errors.full_messages
-      )
+      render json: @track.errors.full_messages, status: 401
+
     end
   end
 

@@ -1,6 +1,7 @@
 import React from 'react';
-import {CloudinaryAudioConstants, CloudinaryImageConstants} from '../../constants/cloudinary';
-
+import {CloudinaryAudioConstants,
+        CloudinaryImageConstants} from '../../constants/cloudinary';
+import {hashHistory} from 'react-router';
 
 class UploadForm extends React.Component {
   constructor(props){
@@ -11,14 +12,30 @@ class UploadForm extends React.Component {
       user_id: this.props.currentUser.user.id,
       audio_url: '',
       image_url: '',
-      weather_id: ''
+      weather_id: '',
+      errors: []
     };
     this.uploadSubmit = this.uploadSubmit.bind(this);
   }
 
   componentDidMount(){
     const that=this;
-    document.getElementById("upload_widget_opener").addEventListener("click", function() {
+
+    $(document).on( 'keyup', (e) => {
+      let login = document.getElementById('loginModal');
+      let signup = document.getElementById('signupModal');
+      login = $(login);
+      signup = $(signup);
+      let esc;
+      e.which === 27 ? esc = true : esc = false;
+      if (esc){
+        hashHistory.push('/home');
+      }
+
+    });
+
+    document.getElementById("upload_widget_opener")
+      .addEventListener("click", function() {
       window.cloudinary.openUploadWidget(CloudinaryAudioConstants,
         function(error, result) {
            if (!error){
@@ -33,7 +50,8 @@ class UploadForm extends React.Component {
          });
         }, false);
 
-    document.getElementById("image_upload_widget_opener").addEventListener("click", function() {
+    document.getElementById("image_upload_widget_opener")
+      .addEventListener("click", function() {
       window.cloudinary.openUploadWidget(CloudinaryImageConstants,
         function(error, result) {
            if (!error){
@@ -53,15 +71,30 @@ class UploadForm extends React.Component {
     return e => { this.setState({[field]: e.currentTarget.value }); };
   }
 
+  addError(message){
+    $('.errors').append(`<li class="error">${message}</li>`);
+  }
+
   uploadSubmit(e) {
     e.preventDefault();
     const track = this.state;
-    this.props.createTrack({track});
+    $('.errors').empty();
+      if (track.title === ""){
+        this.addError('Title is a reuired field.');
+      } else if(track.weather_id === ""){
+        this.addError('Track weather type is required.');
+      } else if(track.audio_url === ""){
+        this.addError('Please upload an MP3 file to proceed.');
+      } else{
+        this.props.createTrack({track});
+      }
   }
+
 
   render() {return(
     <div className='upload-modal'>
-      <form onSubmit={this.uploadSubmit}>
+      <form className="uploadForm" onSubmit={this.uploadSubmit}>
+        <ul className='errors'></ul>
         <label>
           <p>Title</p>
           <input type="text"
@@ -77,48 +110,54 @@ class UploadForm extends React.Component {
             onChange={this.update('description')}/>
 
         </label>
+        <ul>
+          <label>
+            <p id='audio_filename'></p>
+            <input type="hidden"
+              id='audio_url'
+              name="audio_url"
+              onChange={this.update('audio_url')}/>
 
-        <label>
-          <p id='audio_filename'></p>
-          <input type="hidden"
-            id='audio_url'
-            name="audio_url"
-            onChange={this.update('audio_url')}/>
+            <div className="upload-header-button"
+              id ='upload_widget_opener'>Upload MP3</div>
+          </label>
 
-          <div className="upload-header-button" id ='upload_widget_opener'>Upload MP3</div>
-        </label>
+          <label>
+            <p id='image_filename'></p>
+            <input type="hidden"
+              id='image_url'
+              name="image_url"
+              onChange={this.update('image_url')}/>
 
-        <label>
-          <p id='image_filename'></p>
-          <input type="hidden"
-            id='image_url'
-            name="image_url"
-            onChange={this.update('image_url')}/>
+            <div className="upload-header-button"
+              id ='image_upload_widget_opener'>Upload Image</div>
+          </label>
+        </ul>
 
-          <div className="upload-header-button" id ='image_upload_widget_opener'>Upload Image</div>
-        </label>
+        <label className='column weather-radios'>
+          <p>Weather Type:</p>
+          <div className='column left'>
 
-        <label className='column'>
-          <p>Weather</p>
-          <div>
-            <input type="radio" name="weather" value="1"
-              onChange={this.update('weather_id')}/> Sunny
-            </div>
             <div>
-              <input type="radio" name="weather" value="2"
-                onChange={this.update('weather_id')}/> Rainy
+              <input type="radio" name="weather" value="1"
+                onChange={this.update('weather_id')}/> Sunny
               </div>
               <div>
-                <input type="radio" name="weather" value="3"
-                  onChange={this.update('weather_id')}/> Cloudy
+                <input type="radio" name="weather" value="2"
+                  onChange={this.update('weather_id')}/> Rainy
                 </div>
                 <div>
-                  <input type="radio" name="weather" value="4"
-                    onChange={this.update('weather_id')}/> Foggy
+                  <input type="radio" name="weather" value="3"
+                    onChange={this.update('weather_id')}/> Cloudy
                   </div>
                   <div>
-                    <input type="radio" name="weather" value="5"
-                      onChange={this.update('weather_id')}/> Stormy
+                    <input type="radio" name="weather" value="4"
+                      onChange={this.update('weather_id')}/> Foggy
+                    </div>
+                    <div>
+                      <input type="radio" name="weather" value="5"
+                        onChange={this.update('weather_id')}/> Stormy
+                      </div>
                     </div>
                   </label>
                   <input type="submit" value="Create Track" />

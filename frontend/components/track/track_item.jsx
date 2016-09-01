@@ -9,7 +9,7 @@ export const TrackItem  = function({track, currentUser, playTrack, deleteTrack, 
     fetchUserTracks(currentUser.user);
   }
   return (
-    <li>
+    <li key={track.id}>
       <div className="track-item">
         <img src={track.image_url.replace('upload', 'upload/w_160,h_160/r_10')} alt="" />
         <div className={"column " + "weather-" + track.weather_id + "-track"}>

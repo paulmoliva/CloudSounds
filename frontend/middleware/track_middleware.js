@@ -19,17 +19,18 @@ export default ({getState, dispatch}) => next => action => {
     dispatch(receiveUserTracks(tracks));
     hashHistory.push('/home');
   };
-
   const deleteTracksSuccess = id => {
     debugger;
     dispatch(removeDeletedTrack(id));
   };
   const errorCallback = xhr => {
+    debugger;
     const errors = xhr.responseJson;
     dispatch(receiveErrors(errors));
   };
   switch (action.type) {
     case TrackConstants.CREATE_TRACK:
+      debugger;
       create_track(action.track, successCallback, errorCallback);
       return next(action);
     case TrackConstants.FETCH_USER_TRACKS:

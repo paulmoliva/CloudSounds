@@ -52,11 +52,9 @@ class Home extends React.Component {
   render() {
     return (
     <div>
-      <NavBar currentUser={this.props.currentUser.user} />
+      <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}/>
       <div className='content margin'>
-        <p>{this.userName()}</p>
-        <button onClick={this.props.logout}>Log out</button>
-        <Link to="/home/upload">Upload Track</Link>
+
         <div className="flex-row home">
 
           <TracksList tracks={this.generateTracksArray()}
