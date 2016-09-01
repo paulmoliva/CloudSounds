@@ -296,6 +296,14 @@ select {
   justify-content: flex-start;
 }
 
+.column.weather-3-track {
+  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/v1472756684/5f8e7ade_dhkohs.jpg');
+  background-size: cover;
+  height: 160px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
 .track-item {
   display: flex;
   flex-direction: row;
