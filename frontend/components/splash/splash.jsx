@@ -216,7 +216,7 @@ class Splash extends React.Component {
   requestData() {
     var request = new XMLHttpRequest();
     console.log(this.location);
-    request.open('GET', `http://api.openweathermap.org/data/2.5/weather?lat=${this.location.lat}&lon=${this.location.long}&APPID=1e1524616629af9956784ef33a035f14&units=imperial`, true);
+    request.open('GET', `https://api.openweathermap.org/data/2.5/weather?lat=${this.location.lat}&lon=${this.location.long}&APPID=1e1524616629af9956784ef33a035f14&units=imperial`, true);
 
     let that = this;
     request.onload = () => {
