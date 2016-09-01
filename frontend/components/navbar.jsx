@@ -8,15 +8,19 @@ const NavBar = ({currentUser}) => {
         <div className="logo-header">
 
         </div>
-          <div className="home-header-button">
-            Home
-          </div>
+          <a href="home">
+            <div className="home-header-button">
+              Home
+            </div>
+          </a>
         <div className="header-search">
           <input className="header-search"type="text" placeholder="Search"></input>
         </div>
-          <div className="upload-header-button">
-            Upload
-          </div>
+          <a href="/home/upload">
+            <div className="upload-header-button">
+              Upload
+            </div>
+          </a>
         <div className="user-header-dropdown">
           <img className='circle-avatar'src={currentUser.avatar_url.replace(
              'c_crop,g_face:center,r_max,w_500/c_scale,w_129',
