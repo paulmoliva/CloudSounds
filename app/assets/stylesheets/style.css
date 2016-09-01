@@ -44,7 +44,7 @@ ul {
 
 .content {
   width: 81.6%;
-  margin: 0 auto;
+  margin: 46px auto;
   background-color: white;
 }
 
@@ -280,6 +280,7 @@ select {
   background-image: url('./sunny-bg.jpg');
   background-size: cover;
   height: 160px;
+  width: 100%;
   justify-content: flex-start;
 }
 
