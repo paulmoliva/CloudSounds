@@ -2,7 +2,9 @@ export const TrackConstants = {
   CREATE_TRACK: "CREATE_TRACK",
   RECEIVE_SINGLE_TRACK: "RECEIVE_SINGLE_TRACK",
   FETCH_USER_TRACKS: 'FETCH_USER_TRACKS',
-  RECEIVE_USER_TRACKS: "RECEIVE_USER_TRACKS"
+  RECEIVE_USER_TRACKS: "RECEIVE_USER_TRACKS",
+  DELETE_TRACK: "DELETE_TRACK",
+  REMOVE_DELETED_TRACK: "REMOVE_DELETED_TRACK"
 };
 
 export const createTrack = track => ({
@@ -20,8 +22,17 @@ export const fetchUserTracks = tracks => ({
   tracks
 });
 
-export const receiveUserTracks = tracks =>{
-  return {
+export const receiveUserTracks = tracks => ({
   type: TrackConstants.RECEIVE_USER_TRACKS,
   tracks
-};};
+});
+
+export const deleteTrack = track => ({
+  type: TrackConstants.DELETE_TRACK,
+  track
+});
+
+export const removeDeletedTrack = id => ({
+  type: TrackConstants.REMOVE_DELETED_TRACK,
+  id
+});

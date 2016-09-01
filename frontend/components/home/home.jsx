@@ -8,7 +8,6 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.generateTracksArray = this.generateTracksArray.bind(this);
-    this.tracksList = this.tracksList.bind(this);
   }
 
   componentDidMount() {
@@ -50,46 +49,6 @@ class Home extends React.Component {
       return arr;
     }
 
-  tracksList() {
-    const tracks = this.generateTracksArray();
-    if (!tracks.length){
-      return (<li></li>);
-    }
-    else {
-      return tracks.map ( track => {
-        return (
-          <li>
-            <div className="track-item">
-              <img src={track.image_url.replace('upload', 'upload/w_160,h_160/r_10')} alt="" />
-              <div className={"column " + "weather-" + track.weather_id + "-track"}>
-                <div className = "flex-row">
-                  <button className="circle-play" data-src={track.audio_url} onClick={this.playTrack}></button>
-                  <div className="info">
-                    <p className="track-user">
-                      {this.props.currentUser.user.username}
-                    </p>
-                    <p className="track-name">
-                      {track.title}
-                    </p>
-                  </div>
-                  <div className="icons">
-
-                    <img src={"http://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" + track.weather_id} className='icon-40 favorite-icon' />
-                  </div>
-                </div>
-                <div className="track-description">
-                  {track.description}
-                </div>
-                <input className="comment" type="text" placeholder="Write a comment"/>
-                <button className='track-favorite'>24</button>
-              </div>
-            </div>
-          </li>
-        );
-      });
-    }
-  }
-
   render() {
     return (
     <div>
@@ -100,7 +59,11 @@ class Home extends React.Component {
         <Link to="/home/upload">Upload Track</Link>
         <div className="flex-row home">
 
-          <TracksList tracks={this.generateTracksArray()} playTrack={this.playTrack} currentUser={this.props.currentUser} />
+          <TracksList tracks={this.generateTracksArray()}
+            playTrack={this.playTrack}
+            currentUser={this.props.currentUser}
+            deleteTrack={this.props.deleteTrack}
+            fetchUserTracks={this.props.fetchUserTracks}/>
 
         </div>
         {this.props.children}

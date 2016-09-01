@@ -1,9 +1,12 @@
 import {receiveSingleTrack,
         receiveErrors,
         receiveUserTracks,
+        removeDeletedTrack,
         TrackConstants} from '../actions/track_actions';
 
-import {create_track, fetchUserTracks} from '../util/track_api_util';
+import {create_track,
+        fetchUserTracks,
+        deleteTrack} from '../util/track_api_util';
 
 import {hashHistory} from 'react-router';
 
@@ -14,6 +17,12 @@ export default ({getState, dispatch}) => next => action => {
   };
   const userTracksSuccess = tracks => {
     dispatch(receiveUserTracks(tracks));
+    hashHistory.push('/home');
+  };
+
+  const deleteTracksSuccess = id => {
+    debugger;
+    dispatch(removeDeletedTrack(id));
   };
   const errorCallback = xhr => {
     const errors = xhr.responseJson;
@@ -25,6 +34,9 @@ export default ({getState, dispatch}) => next => action => {
       return next(action);
     case TrackConstants.FETCH_USER_TRACKS:
       fetchUserTracks(action.tracks, userTracksSuccess, errorCallback);
+      return next(action);
+    case TrackConstants.DELETE_TRACK:
+      deleteTrack(action.track.id, deleteTracksSuccess, errorCallback);
       return next(action);
     default:
       return next(action);

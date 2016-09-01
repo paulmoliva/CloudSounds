@@ -379,8 +379,8 @@ select {
   filter: grayscale(70%);
 }
 
-.track-favorite {
-  min-width: 20px;
+.track-favorite, .track-delete {
+  min-width: 50px;
   max-width: 50px;
   height: 17px;
   margin-bottom: 5px;
@@ -395,6 +395,25 @@ select {
   margin-left: 20px;
   border-radius: 5px;
   border: 1px solid black;
+}
+
+.track-item-buttons {
+  justify-content: flex-start;
+}
+
+.track-delete {
+  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/w_15,h_15/v1472753069/trash_can_icon_ierj9z.jpg');
+  background-size: cover;
+  min-width: 17px;
+  max-width: 17px;
+  box-sizing: border-box;
+  -webkit-filter: brightness(50%);
+  margin-left: 5px;
+}
+
+.track-delete:hover {
+  -webkit-filter: brightness(100%);
+  cursor: pointer;
 }
 
 .track-favorite:hover {
