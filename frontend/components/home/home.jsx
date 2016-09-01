@@ -18,9 +18,9 @@ class Home extends React.Component {
     e.preventDefault();
     $(this).addClass('playing').siblings().removeClass('playing');
     debugger;
-    let audio = $('audio');
-    audio.src($(e.currentTarget).data().src);
-    audio.play();
+
+    $('audio').attr('src', $(e.currentTarget).data().src);
+    $('audio')[0].play();
   }
 
   userName(){
