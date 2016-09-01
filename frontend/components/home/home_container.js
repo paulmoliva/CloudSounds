@@ -4,9 +4,11 @@ import { fetchUserTracks } from '../../actions/track_actions';
 import Home from './home';
 
 const mapStateToProps = state => {
-  return{
-  currentUser: state.session.currentUser,
-  tracks: state.tracks};
+  return {
+    currentUser: state.session.currentUser,
+    tracks: state.tracks,
+    weather: state.weather
+  };
 };
 
 const mapDispatchToProps = dispatch => ({

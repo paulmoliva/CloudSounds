@@ -3,6 +3,9 @@ import { Link } from 'react-router';
 import SplashContainer from './splash/splash_container';
 
 class App extends React.Component {
+
+
+
   componentDidMount(){
     this.setUpPlayer();
   }
@@ -50,6 +53,8 @@ setUpPlayer(){
         //window.audio.playPause(); TODO: Toggle playPause
     });
   }
+
+
 
   render(){
     return (

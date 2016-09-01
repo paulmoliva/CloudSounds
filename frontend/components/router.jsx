@@ -35,7 +35,7 @@ class AppRouter extends React.Component{
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
           <IndexRoute component={ SplashContainer } onEnter={this._redirectIfLoggedIn} />
-          <Route path="/home" component={ HomeContainer } onEnter={this.ensureLoggedIn} >
+          <Route path="/home" component={ HomeContainer } onEnter={ this.ensureLoggedIn }>
             <Route path='upload' component={ UploadContainer } onEnter={this.ensureLoggedIn} />
           </Route>
         </Route>

@@ -44,8 +44,12 @@ ul {
 
 .content {
   width: 81.6%;
-  margin: 46px auto;
+  margin: 0 auto;
   background-color: white;
+}
+
+.content.margin{
+  margin: 46px auto;
 }
 
 .navbar {

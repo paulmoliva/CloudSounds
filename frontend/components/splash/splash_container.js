@@ -4,7 +4,8 @@ import Splash from './splash';
 
 const mapStateToProps = state => ({
   currentUser: state.session.currentUser,
-  errors: state.session.errors
+  errors: state.session.errors,
+  weather: state.weather
 });
 
 const mapDispatchToProps = dispatch => ({

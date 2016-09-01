@@ -89,7 +89,7 @@ class Home extends React.Component {
     return (
     <div>
       <NavBar currentUser={this.props.currentUser.user} />
-      <div className='content'>
+      <div className='content margin'>
         <p>{this.userName()}</p>
         <button onClick={this.props.logout}>Log out</button>
         <Link to="/home/upload">Upload Track</Link>

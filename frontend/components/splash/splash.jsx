@@ -8,13 +8,18 @@ import SessionForm from './session_form.jsx';
 class Splash extends React.Component {
   constructor(props){
     super(props);
+    navigator.geolocation.getCurrentPosition((pos) => {
+     this.location = {lat: pos.coords.latitude, long: pos.coords.longitude};
+     this.requestData();
+    });
     this.state = {
       currentUser: props.currentUser,
       username: "",
       password: "",
       email: "",
       avatar_url: "",
-      errors: ""
+      errors: "",
+      weather: {'name': 'Loading Weather...', 'main': {'temp': ''}}
     };
     this.hero = this.hero.bind(this);
     this.loginSubmit = this.loginSubmit.bind(this);
@@ -150,15 +155,25 @@ class Splash extends React.Component {
           </ul>
         </nav>
         <div className="hero-box">
-          <h3>It's sunny and 65℉ in San Francisco</h3>
+          <h3>
+            {this.weatherGreeting()}
+
+          </h3>
           <h3>Get the music to match.</h3>
           <button className='sign-up demo button' onClick={this.guestLogin}>Guest Login</button>
         </div>
       </div>
 
-      
+
     </div>
   );}
+
+  weatherGreeting() {
+    if (this.state.weather.main.temp)
+      return 'It\'s sunny and ' + Math.round(this.state.weather.main.temp)+ '℉ in ' + this.state.weather.name
+    else
+      return 'Loading Weather'
+    }
 
   loginSubmit(e) {
     e.preventDefault();
@@ -196,6 +211,25 @@ class Splash extends React.Component {
     return errors.map( (error)=> {
       return (<li className='error' key={error}>{error}</li>);
     } );
+  }
+
+  requestData() {
+    var request = new XMLHttpRequest();
+    console.log(this.location);
+    request.open('GET', `http://api.openweathermap.org/data/2.5/weather?lat=${this.location.lat}&lon=${this.location.long}&APPID=1e1524616629af9956784ef33a035f14&units=imperial`, true);
+
+    let that = this;
+    request.onload = () => {
+      console.log(request.status);
+      if (request.status >= 200 && request.status < 400) {
+        let weatherObj = JSON.parse(request.responseText);
+        that.setState({weather: weatherObj});
+        console.log(weatherObj.name);
+      } else {
+        console.log("didn't work");
+      }
+    };
+    request.send();
   }
 
   render(){
