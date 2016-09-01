@@ -1,6 +1,12 @@
 class Track < ActiveRecord::Base
-
-  validates :title, :user_id, :weather_id, :audio_url, :image_url, presence: true
+  before_save :default_values
+  validates :title, :user_id, :weather_id, :audio_url, presence: true
   belongs_to :user
+
+  def default_values
+    if self.image_url == ""
+      self.image_url = 'http://res.cloudinary.com/cloud-sounds/image/upload/v1472772526/album_qfitcx.jpg'
+    end
+  end
 
 end

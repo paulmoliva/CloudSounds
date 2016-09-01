@@ -1,6 +1,8 @@
 Track.create!([
   {title: "The Fragrance of Dark Coffee", description: "Rainy Chill Song.", user_id: 11, weather_id: 2, audio_url: "https://res.cloudinary.com/cloud-sounds/video/upload/v1472701577/xbfceaisgqo8vfghbed1.mp3", image_url: "https://res.cloudinary.com/cloud-sounds/image/upload/v1472701594/y9yvtgbdffdei0zhs6ii.jpg"},
-  {title: "Hollaback Girl", description: "Whack", user_id: 11, weather_id: 1, audio_url: "https://res.cloudinary.com/cloud-sounds/video/upload/v1472702524/dkgaolkwxlirwwmumsxo.mp3", image_url: "https://res.cloudinary.com/cloud-sounds/image/upload/v1472702572/l10eiyjksbnln6abhisw.jpg"}
+  {title: "Hollaback Girl", description: "Whack", user_id: 11, weather_id: 1, audio_url: "https://res.cloudinary.com/cloud-sounds/video/upload/v1472702524/dkgaolkwxlirwwmumsxo.mp3", image_url: "https://res.cloudinary.com/cloud-sounds/image/upload/v1472702572/l10eiyjksbnln6abhisw.jpg"},
+  {title: "Smooth", description: "Rockin 2000's jam", user_id: 11, weather_id: 3, audio_url: "https://res.cloudinary.com/cloud-sounds/video/upload/v1472757153/x8cvd8fkw2xnixp80edb.mp3", image_url: "https://res.cloudinary.com/cloud-sounds/image/upload/v1472757187/snjje2yunc2mlfaghcm4.jpg"},
+  {title: "Drops of Jupiter", description: "Mellow Train song", user_id: 11, weather_id: 2, audio_url: "https://res.cloudinary.com/cloud-sounds/video/upload/v1472771679/cyuluso8tt3x4vdkoqob.mp3", image_url: "https://res.cloudinary.com/cloud-sounds/image/upload/v1472771717/hlaxnayutho348k0zelt.jpg"}
 ])
 User.create!([
   {username: "chauncey.ryan", email: "adah@rathdare.net", avatar_url: "https://robohash.org/utrepudiandaeratione.png?size=300x300&set=set1", password_digest: "$2a$10$vpStuqvsOMMO9aoLFhrfgeG8QaI4MiuG/ahr/m9u8SVQAnEdRA2Oi", session_token: "NwjfTSTP1LO9RxQIoLm5yA"},
@@ -13,5 +15,5 @@ User.create!([
   {username: "fernando", email: "edmund.hyatt@hilpert.biz", avatar_url: "https://robohash.org/cupiditatedoloremdicta.png?size=300x300&set=set1", password_digest: "$2a$10$93z2Dmc8VH5Qn37o0/g.8OyLLyiOo1sO8HrsRjRVRuQ7qE579hhAy", session_token: "9_nOUcvDHRntT43JSqz5bw"},
   {username: "velva", email: "kayleigh@parkerdurgan.biz", avatar_url: "https://robohash.org/aspernaturmolestiaedolores.png?size=300x300&set=set1", password_digest: "$2a$10$leSwN0nPAu5rMqUvdiJsSOBHpeccxJLFVbc.4zCh0pgvk4fqTY9ZW", session_token: "qIl9e2_eLFW8Qu-kjPudrg"},
   {username: "aurelio_funk", email: "arturo.monahan@mohr.net", avatar_url: "https://robohash.org/rerumnonvel.png?size=300x300&set=set1", password_digest: "$2a$10$Z9tZjQH9Pxtd13Q8bvtnIuv8KYUcEc0.nLuWtTIQK1PtXDWsQtlQa", session_token: "n57oTewj7r30p7xrbFz8CA"},
-  {username: "Guest", email: "audra@mckenzie.name", avatar_url: "http://res.cloudinary.com/cloud-sounds/image/upload/c_crop,g_face:center,r_max,w_500/c_scale,w_129/v1472615014/c2b61026_homer-headphones_eguuts.jpg", password_digest: "$2a$10$oZiIww3YW6WKfeVJrZXtbu6TG.01G/HG/otz2gypZ2mdK6JPfy4j.", session_token: "_q0HsxBwqgo4t44L6W1qNw"}
+  {username: "Guest", email: "audra@mckenzie.name", avatar_url: "http://res.cloudinary.com/cloud-sounds/image/upload/c_crop,g_face:center,r_max,w_500/c_scale,w_129/v1472615014/c2b61026_homer-headphones_eguuts.jpg", password_digest: "$2a$10$oZiIww3YW6WKfeVJrZXtbu6TG.01G/HG/otz2gypZ2mdK6JPfy4j.", session_token: "ANRuilHxVqOs96klu73maA"}
 ])

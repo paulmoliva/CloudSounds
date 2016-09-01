@@ -339,6 +339,22 @@ select {
   justify-content: flex-start;
 }
 
+.column.weather-4-track {
+  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/v1472772125/photo-1470274130023-64addc574eaf_oldlqq.jpg');
+  background-size: cover;
+  height: 160px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.column.weather-5-track {
+  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/v1472772193/photo-1422225439441-f09fb9a237b7_om7nup.jpg');
+  background-size: cover;
+  height: 160px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
 .track-item {
   display: flex;
   flex-direction: row;
