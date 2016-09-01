@@ -60,6 +60,7 @@ class UploadForm extends React.Component {
   }
 
   render() {return(
+    <div className='upload-modal'>
       <form onSubmit={this.uploadSubmit}>
         <label>
           <p>Title</p>
@@ -102,27 +103,28 @@ class UploadForm extends React.Component {
           <div>
             <input type="radio" name="weather" value="1"
               onChange={this.update('weather_id')}/> Sunny
-          </div>
-          <div>
-            <input type="radio" name="weather" value="2"
-              onChange={this.update('weather_id')}/> Rainy
-          </div>
-          <div>
-            <input type="radio" name="weather" value="3"
-              onChange={this.update('weather_id')}/> Cloudy
-          </div>
-          <div>
-            <input type="radio" name="weather" value="4"
-              onChange={this.update('weather_id')}/> Foggy
-          </div>
-          <div>
-            <input type="radio" name="weather" value="5"
-              onChange={this.update('weather_id')}/> Stormy
-          </div>
-        </label>
-        <input type="submit" value="Create Track" />
+            </div>
+            <div>
+              <input type="radio" name="weather" value="2"
+                onChange={this.update('weather_id')}/> Rainy
+              </div>
+              <div>
+                <input type="radio" name="weather" value="3"
+                  onChange={this.update('weather_id')}/> Cloudy
+                </div>
+                <div>
+                  <input type="radio" name="weather" value="4"
+                    onChange={this.update('weather_id')}/> Foggy
+                  </div>
+                  <div>
+                    <input type="radio" name="weather" value="5"
+                      onChange={this.update('weather_id')}/> Stormy
+                    </div>
+                  </label>
+                  <input type="submit" value="Create Track" />
 
-      </form>
+                </form>
+    </div>
     );
   }
 }

@@ -1,5 +1,15 @@
 $skyblue: #7EC0EE;
 
+
+ol {
+  display: none;
+}
+
+#wrapper {
+  position: fixed;
+  bottom: 36px;
+}
+
 .audiojs .play {
   background-image: url('https://a-v2.sndcdn.com/assets/images/playback/play-c9d2fb.svg');
   background-size: contain;

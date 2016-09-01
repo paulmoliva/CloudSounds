@@ -11,9 +11,11 @@
 </head>
 <body>
   <script type="text/javascript">
-    audiojs.events.ready(function() {
-      var as = audiojs.createAll();
-    })
+  $(function() {
+    window.audiojs = audiojs;
+    // Setup the player to autoplay the next track
+
+  });
   </script>
 
 <%= yield %>

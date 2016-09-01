@@ -19,8 +19,8 @@ class Home extends React.Component {
     $(this).addClass('playing').siblings().removeClass('playing');
     debugger;
 
-    $('audio').attr('src', $(e.currentTarget).data().src);
-    $('audio')[0].play();
+    window.audio.load($(e.currentTarget).attr('data-src'));
+    window.audio.play();
   }
 
   userName(){
@@ -55,7 +55,7 @@ class Home extends React.Component {
       return (
         <li>
           <div className="track-item">
-            <img src={track.image_url} alt="" />
+            <img src={track.image_url.replace('upload', 'upload/w_160,h_160/r_10')} alt="" />
             <div className="column sunny-track sunny-track">
               <div className = "flex-row">
                 <button className="circle-play" data-src={track.audio_url} onClick={this.playTrack}></button>

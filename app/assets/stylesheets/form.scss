@@ -1,4 +1,16 @@
 $skyblue: #7EC0EE;
+$transparent-grey: rgba(17,17,17,0.5);
+$transparent-dark-grey: rgba(17,17,17,0.85);
+.upload-modal {
+  display: flex;
+  justify-content: center;
+  width: 81.6%;
+  padding: 35px;
+  position: fixed;
+  top: 46px;
+  background-color: $transparent-dark-grey;
+
+}
 
 .hidden {
   display: none;
