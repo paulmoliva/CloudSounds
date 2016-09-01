@@ -276,8 +276,16 @@ select {
   box-sizing: border-box;
 }
 
-.column.sunny-track {
-  background-image: url('./sunny-bg.jpg');
+.column.weather-1-track {
+  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/v1472704899/sunny-bg_ijm5nt.jpg');
+  background-size: cover;
+  height: 160px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.column.weather-2-track {
+  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/v1472705046/photo-1437624155766-b64bf17eb2ce_ugtc6o.jpg');
   background-size: cover;
   height: 160px;
   width: 100%;

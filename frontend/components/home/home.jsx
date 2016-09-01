@@ -56,7 +56,7 @@ class Home extends React.Component {
         <li>
           <div className="track-item">
             <img src={track.image_url.replace('upload', 'upload/w_160,h_160/r_10')} alt="" />
-            <div className="column sunny-track sunny-track">
+            <div className={"column " + "weather-" + track.weather_id + "-track"}>
               <div className = "flex-row">
                 <button className="circle-play" data-src={track.audio_url} onClick={this.playTrack}></button>
                 <div className="info">
@@ -69,7 +69,7 @@ class Home extends React.Component {
                 </div>
                 <div className="icons">
 
-                  <img src="http://res.cloudinary.com/cloud-sounds/image/upload/v1472690716/sunny-icon_hlbceo.png" className='icon-40 favorite-icon' />
+                  <img src={"http://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" + track.weather_id} className='icon-40 favorite-icon' />
                 </div>
               </div>
               <div className="track-description">
