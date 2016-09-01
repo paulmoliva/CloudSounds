@@ -19,7 +19,6 @@ class UploadForm extends React.Component {
   componentDidMount(){
     const that=this;
     document.getElementById("upload_widget_opener").addEventListener("click", function() {
-      debugger;
       window.cloudinary.openUploadWidget(CloudinaryAudioConstants,
         function(error, result) {
            if (!error){
@@ -35,10 +34,8 @@ class UploadForm extends React.Component {
         }, false);
 
     document.getElementById("image_upload_widget_opener").addEventListener("click", function() {
-      debugger;
       window.cloudinary.openUploadWidget(CloudinaryImageConstants,
         function(error, result) {
-           debugger;
            if (!error){
 
              $('#image_url').val(result[0].secure_url);

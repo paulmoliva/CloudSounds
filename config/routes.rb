@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   root 'pages#root'
   get "/pages/:page" => "pages#show"
   namespace :api, defaults: {format: :json} do
-    resources :users, only: [:index, :show, :create]
+    resources :users, only: [:index, :show, :create] do
+      resources :tracks, only: [:index]
+    end
     resource :session, only: [:create, :destroy, :show]
     resource :tracks, only: [:index, :create, :destroy, :update, :show]
   end

@@ -1,5 +1,4 @@
-json.track do
-  json.id track.id
+json.set! track.id do
   json.title track.title
   json.description track.description
   json.user_id track.user_id

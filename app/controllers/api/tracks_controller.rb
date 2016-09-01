@@ -3,6 +3,11 @@ class Api::TracksController < ApplicationController
     @track = Track.new
   end
 
+  def index
+    @tracks = User.find(track_params[:user_id]).tracks
+
+  end
+
   def create
     @track = Track.new(track_params)
 
