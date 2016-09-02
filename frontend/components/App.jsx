@@ -13,7 +13,6 @@ class App extends React.Component {
 setUpPlayer(){
     let a = window.audiojs.createAll({
       trackEnded: function() {
-        debugger;
         let playing = $('.playing');
 
         var next = $('.playing').next();
