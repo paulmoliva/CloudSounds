@@ -7,6 +7,7 @@ class TrackItem  extends React.Component {
 
  constructor(props) {
    super(props);
+   this.addTracktoPlaylist = this.addTracktoPlaylist.bind(this);
    this.deleteThisTrack = this.deleteThisTrack.bind(this);
    this.generateWaveform = this.generateWaveform.bind(this);
  }
@@ -15,12 +16,11 @@ class TrackItem  extends React.Component {
     this.props.fetchUserTracks(this.props.currentUser.user);
   }
   addTracktoPlaylist(){
-    $('ol').append(`<li class='playlist-item' data-src=${this.props.track.audio_url}>
+    $('ol').append(`<li id='track-${this.props.track.id}'class='playlist-item' data-src=${this.props.track.audio_url}>
         ${this.props.track.title}
     </li>`);
   }
   generateWaveform() {
-    let that = this;
     var waveform = window.Wavesurfer.create({
       container: `#waveform-${this.props.track.id}`,
       maxCanvasWidth: (screen.width * 0.50),
@@ -29,9 +29,6 @@ class TrackItem  extends React.Component {
       cursorColor: 'transparent'
     });
     waveform.load(this.props.track.audio_url);
-    waveform.on('ready', function () {
-      $(`#waveform-${that.props.track.id}`).removeClass('hidden');
-    });
   }
 
   componentDidMount(){

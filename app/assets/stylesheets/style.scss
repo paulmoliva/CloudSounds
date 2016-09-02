@@ -395,7 +395,17 @@ select {
   background-image: url('./play-button.png');
   background-size: contain;
   margin-left: 20px;
+
+  &:hover {
+    cursor:pointer;
+    -webkit-filter: brightness(70%);
+  }
+  &:focus {
+    outline: none;
+  }
 }
+
+
 .circle-pause {
   padding: 20px;
   border-radius: 50%;

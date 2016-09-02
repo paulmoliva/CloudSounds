@@ -15,16 +15,17 @@ class Home extends React.Component {
     $('ol').click( e => {
       $(e.target).addClass('playing').siblings().removeClass('playing');
       window.audio.load($(e.target).attr('data-src'));
+      $('#wrapper').removeClass('hidden');
       window.audio.play();
     });
   }
 
   playTrack(e) {
     e.preventDefault();
-    $(this).addClass('playing').siblings().removeClass('playing');
+    $('#track-' + $(e.currentTarget).attr('id')).addClass('playing').siblings().removeClass('playing');
     let trackID = $(e.currentTarget).attr('id');
-
     window.audio.load($(e.currentTarget).attr('data-src'));
+    $('#wrapper').removeClass('hidden');
     window.audio.play();
   }
 
