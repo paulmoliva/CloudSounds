@@ -17,8 +17,17 @@ class TrackItem  extends React.Component {
   }
   addTracktoPlaylist(){
     $('ol').append(`<li id='track-${this.props.track.id}'class='playlist-item' data-src=${this.props.track.audio_url}>
-        ${this.props.track.title}
+        ${this._slicedTitle(((screen.width * 0.15)/12), this.props.track.title)}
     </li>`);
+  }
+  _slicedTitle(ln, str){
+    let elipses;
+    if (str.length > ln -1){
+      elipses = "...";
+    } else{
+      elipses = "";
+    }
+    return str.slice(0, ln) + elipses;
   }
   generateWaveform() {
     var waveform = window.Wavesurfer.create({

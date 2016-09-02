@@ -1,5 +1,5 @@
 $skyblue: #7EC0EE;
-
+$transparent-light-grey: rgba(17,17,17,0.25);
 
 .playing {
   background-color: $skyblue;
@@ -9,13 +9,15 @@ $skyblue: #7EC0EE;
 .playlist-item {
   &:hover {
     cursor: pointer;
+    background-color: $transparent-light-grey
   }
 }
 
 #playlist {
-  position:absolute;
-  top: 76px;
-  left: 70%;
+  position:fixed;
+  bottom: 46px;
+  right: 10px;
+  font-size: 12px;
 }
 
 #wrapper {
