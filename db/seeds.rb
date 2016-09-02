@@ -21,3 +21,20 @@ User.create!([
   {username: "aurelio_funk", email: "arturo.monahan@mohr.net", avatar_url: "https://robohash.org/rerumnonvel.png?size=300x300&set=set1", password_digest: "$2a$10$Z9tZjQH9Pxtd13Q8bvtnIuv8KYUcEc0.nLuWtTIQK1PtXDWsQtlQa", session_token: "n57oTewj7r30p7xrbFz8CA"},
   {username: "Guest", email: "audra@mckenzie.name", avatar_url: "http://res.cloudinary.com/cloud-sounds/image/upload/c_crop,g_face:center,r_max,w_500/c_scale,w_129/v1472615014/c2b61026_homer-headphones_eguuts.jpg", password_digest: "$2a$10$oZiIww3YW6WKfeVJrZXtbu6TG.01G/HG/otz2gypZ2mdK6JPfy4j.", session_token: "ANRuilHxVqOs96klu73maA"}
 ])
+
+sample_comments = [
+  'I love this song!',
+  'Pretty good!',
+  'Goes great with the weather',
+  'This seems like a rainy song!',
+  "\u1f600 \u1f600 \u1f600 \u1f600"
+]
+
+num_tracks = Track.count
+num_users = User.count
+
+25.times do
+  Comment.create!(user_id: (0...num_tracks).to_a.sample,
+                  track_id: (0...num_users).to_a.sample,
+                  body: sample_comments.sample)
+end

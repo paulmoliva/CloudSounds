@@ -5,7 +5,7 @@ class Api::TracksController < ApplicationController
 
   def index
     @tracks = User.find(track_params[:user_id]).tracks
-
+    @comments = track_params[:with_comments]
   end
 
   def create
@@ -15,7 +15,6 @@ class Api::TracksController < ApplicationController
       render :show
     else
       render json: @track.errors.full_messages, status: 401
-
     end
   end
 
@@ -28,6 +27,6 @@ class Api::TracksController < ApplicationController
   private
   def track_params
     params.require(:track).permit(:title, :description, :audio_url,
-     :user_id, :image_url, :weather_id)
+     :user_id, :image_url, :weather_id, :with_comments)
   end
 end

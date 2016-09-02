@@ -75,7 +75,7 @@ class TrackItem  extends React.Component {
           <input className="comment" type="text" placeholder="Write a comment"/>
           <ul className='track-item-buttons'>
             <button className='track-favorite'>24</button>
-            <button className='track-delete' onClick={this.props.deleteThisTrack}></button>
+            <button className='track-delete' onClick={this.deleteThisTrack}></button>
           </ul>
         </div>
       </div>

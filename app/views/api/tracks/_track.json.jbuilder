@@ -6,6 +6,13 @@ json.set! track.id do
   json.weather_id track.weather_id
   json.audio_url track.audio_url
   json.image_url track.image_url
+  if @comments
+    json.set! 'comments' do
+      Track.find(track.id).comments.each do |comment|
+        json.partial! 'api/comments/comment', comment: comment
+      end
+    end
+  end
 end
 
 # params.require(:track).permit(:title, :description, :audio_url,
