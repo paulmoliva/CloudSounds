@@ -1,13 +1,19 @@
 import React from 'react';
 
 
-//TODO put this back in
+
 
 export const TrackItem  = function({track, currentUser, playTrack, deleteTrack, fetchUserTracks}) {
   function deleteThisTrack() {
     deleteTrack(track);
     fetchUserTracks(currentUser.user);
   }
+  function addTracktoPlaylist(){
+    $('ol').append(`<li class='playlist-item' data-src=${track.audio_url}>
+        ${track.title}
+    </li>`);
+  }
+  addTracktoPlaylist();
   return (
     <li key={track.id}>
       <div className="track-item">

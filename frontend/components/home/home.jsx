@@ -12,6 +12,11 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.fetchUserTracks(this.props.currentUser.user);
+    $('ol').click( e => {
+      $(e.target).addClass('playing').siblings().removeClass('playing');
+      window.audio.load($(e.target).attr('data-src'));
+      window.audio.play();
+    });
   }
 
   playTrack(e) {

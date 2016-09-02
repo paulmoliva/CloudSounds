@@ -172,7 +172,7 @@ class Splash extends React.Component {
     if (this.state.weather.temp)
       return `It\'s ${Math.round(this.state.weather.temp)}℉ and ${this.state.weather.desc} in ${this.state.weather.location}`
     else
-      return 'It\'s 65℉ and sunny on San Francisco';
+      return 'It\'s 65℉ and Partly Cloudy in San Francisco';
     }
 
   loginSubmit(e) {

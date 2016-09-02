@@ -13,11 +13,14 @@ class App extends React.Component {
 setUpPlayer(){
     let a = window.audiojs.createAll({
       trackEnded: function() {
-        var next = $('ol li.playing').next();
+        debugger;
+        let playing = $('.playing');
+
+        var next = $('.playing').next();
         if (!next.length) next = $('ol li').first();
         next.addClass('playing').siblings().removeClass('playing');
-        audio.load($('a', next).attr('data-src'));
-        audio.play();
+        window.audio.load($(next).attr('data-src'));
+        window.audio.play();
       }
     });
 
@@ -29,29 +32,30 @@ setUpPlayer(){
 
     // Load in a track on click
     $('ol li').click(function(e) {
+      debugger;
       e.preventDefault();
       $(this).addClass('playing').siblings().removeClass('playing');
       window.audio.load($('a', this).attr('data-src'));
       window.audio.play();
     });
     // Keyboard shortcuts
-    $(document).keydown(function(e) {
-      var unicode = e.charCode ? e.charCode : e.keyCode;
-      // right arrow
-      if (unicode == 39) {
-        var next = $('li.playing').next();
-        if (!next.length) next = $('ol li').first();
-        next.click();
-        // back arrow
-      } else if (unicode == 37) {
-        var prev = $('li.playing').prev();
-        if (!prev.length) prev = $('ol li').last();
-        prev.click();
-        // spacebar
-      }
-
-        //window.audio.playPause(); TODO: Toggle playPause
-    });
+    // $(document).keydown(function(e) {
+    //   var unicode = e.charCode ? e.charCode : e.keyCode;
+    //   // right arrow
+    //   if (unicode == 39) {
+    //     var next = $('li.playing').next();
+    //     if (!next.length) next = $('ol li').first();
+    //     next.click();
+    //     // back arrow
+    //   } else if (unicode == 37) {
+    //     var prev = $('li.playing').prev();
+    //     if (!prev.length) prev = $('ol li').last();
+    //     prev.click();
+    //     // spacebar
+    //   }
+    //
+    //     //window.audio.playPause(); TODO: Toggle playPause
+    // });
   }
 
 
@@ -59,14 +63,14 @@ setUpPlayer(){
   render(){
     return (
       <div>
+        <ol id='playlist'>
+          <li><a href="#" data-src="https://res.cloudinary.com/cloud-sounds/video/upload/v1472701577/xbfceaisgqo8vfghbed1.mp3">The Fragrance of Dark Coffee</a></li>
+        </ol>
         {this.props.children}
 
         <div id="wrapper">
 
           <audio preload></audio>
-          <ol>
-            <li><a href="#" data-src="https://res.cloudinary.com/cloud-sounds/video/upload/v1472701577/xbfceaisgqo8vfghbed1.mp3">The Fragrance of Dark Coffee</a></li>
-          </ol>
         </div>
 
 
