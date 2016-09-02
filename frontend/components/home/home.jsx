@@ -22,7 +22,7 @@ class Home extends React.Component {
   playTrack(e) {
     e.preventDefault();
     $(this).addClass('playing').siblings().removeClass('playing');
-
+    let trackID = $(e.currentTarget).attr('id');
 
     window.audio.load($(e.currentTarget).attr('data-src'));
     window.audio.play();

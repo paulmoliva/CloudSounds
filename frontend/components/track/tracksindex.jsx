@@ -1,5 +1,5 @@
 import React from 'react';
-import {TrackItem} from './track_item';
+import TrackItem from './track_item';
 
 export const TracksList = function({tracks, playTrack, currentUser, deleteTrack, fetchUserTracks}) {
   $('#playlist').empty();
