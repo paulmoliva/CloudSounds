@@ -12,6 +12,16 @@ class TrackCommentsIndex extends React.Component {
       }
   }
 
+  componentDidMount() {
+    let el = $(`#track-${this.id}-comments`);
+    let change = false;
+    el.className().match(/hidden/) ? change = true : change = false;
+    let showButton = $(`#track-${this.id}-show-comments`);
+    const text = showButton.text();
+    debugger;
+    showButton.text(text.replace('show', 'hide').replace('▼', '►'));
+  }
+
   generateCommentsArray(){
     const result = [];
     for (const key in this.props){
@@ -19,12 +29,20 @@ class TrackCommentsIndex extends React.Component {
 
       let comment = this.props[n];
       result.push(CommentItem({comment}));
-      console.log(result);
     }
     return result;
   }
 
   render() {
+    const commentsList = $(`#track-${this.id}-comments`);
+    let showText, carat;
+    if (commentsList.hasClass('hidden')){
+      showText = 'show';
+      carat = '▼';
+    } else {
+      showText = 'hide';
+      carat = '►';
+    }
     let that = this;
     if (this.hasComments)
     return (
@@ -43,7 +61,7 @@ class TrackCommentsIndex extends React.Component {
             }
           }
           >
-          {Object.keys(this.props).length > 1 ? `Click to show ${Object.keys(this.props).length} comments ▼` : 'Click to show 1 comment'}
+          {Object.keys(this.props).length > 1 ? `Click to ${showText} ${Object.keys(this.props).length} comments ${carat}` : `Click to ${showText} 1 comment ${carat}`}
         </p>
         <ul className="commentlist hidden" id={`track-${this.id}-comments`}>
           {this.generateCommentsArray()}

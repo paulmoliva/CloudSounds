@@ -55,7 +55,15 @@ class TrackItem  extends React.Component {
       this.props.createComment(comment_params);
       console.log(comment_params);
       $(e.currentTarget).addClass('hidden');
-      $(`#track-${trackID}-comments`).removeClass('hidden');
+      const commentsList = $(`#track-${trackID}-comments`);
+      debugger;
+      if (commentsList.hasClass('hidden')){
+        commentsList.removeClass('hidden');
+        const showButton = $(`#track-${trackID}-show-comments`);
+        showButton.text(showButton.text().replace('show', 'hide')
+          .replace('▼', '►'));
+      }
+
     }
   }
 
@@ -65,7 +73,8 @@ class TrackItem  extends React.Component {
     $(".comment").keyup(this.listenForComments);
   }
 
-  render() {return (
+  render() {
+    return (
     <li key={this.props.track.id}>
       <div className="track-item">
         <img src=
