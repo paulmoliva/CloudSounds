@@ -43,7 +43,7 @@ class TrackCommentsIndex extends React.Component {
             }
           }
           >
-          Click to show comments ▼
+          {Object.keys(this.props).length > 1 ? `Click to show ${Object.keys(this.props).length} comments ▼` : 'Click to show 1 comment'}
         </p>
         <ul className="commentlist hidden" id={`track-${this.id}-comments`}>
           {this.generateCommentsArray()}

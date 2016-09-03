@@ -23,7 +23,7 @@ export const CloudinaryImageConstants = {
   multiple: false,
   text: {
     "sources.local.drop_file": "Drop Image here",
-    "sources.local.select_file": "Select Img",
+    "sources.local.select_file": "Select Image",
     "progress.failed_note": "Your image failed uploading."
   }
 };

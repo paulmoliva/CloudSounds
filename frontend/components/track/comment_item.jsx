@@ -13,9 +13,11 @@ const CommentItem = ({comment}) => {
           <li className= 'sidebar-title'>{comment.time_ago} ago</li>
         </ul>
       </div>
-      <p className='comment'>
-        {comment.body}
-      </p>
+        <div>
+          <p className='comment'>
+            {comment.body}
+          </p>
+        </div>
     </li>
   );
 };

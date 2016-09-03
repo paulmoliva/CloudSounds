@@ -93,6 +93,8 @@ class UploadForm extends React.Component {
 
   render() {return(
     <div className='upload-modal'>
+      <div className="closeX"
+        onClick={()=>hashHistory.goBack()}>X</div>
       <form className="uploadForm" onSubmit={this.uploadSubmit}>
         <ul className='errors'></ul>
         <label>

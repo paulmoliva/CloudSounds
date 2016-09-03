@@ -20,18 +20,12 @@ const TrackReducer = function(state = {}, action) {
     case TrackConstants.CLEAR_ERRORS:
       return merge({}, {});
     case CommentConstants.RECEIVE_SINGLE_COMMENT:
-    debugger;
-      const comment = action.comment;
-      const aNewState = merge({}, state);
-      const oldTrackComments = aNewState.tracks[comment.track_id].comments;
-      aNewState.tracks[comment.track_id].comments =
-        merge(oldTrackComments, action.comment);
-      return aNewState;
-    case CommentConstants.REMOVE_COMMENT:
-      const theNewState = merge({}, state);
-      delete theNewState
-        .tracks[action.comment.track_id]
-        .comments[action.comment.id];
+      let newCommentID = Object.keys(action.comment)[0];
+      let commentTrackID = action.comment[newCommentID].track_id;
+      let oldState = merge({}, state);
+      oldState[commentTrackID].comments =
+        merge(oldState[commentTrackID].comments, action.comment);
+      return oldState;
     default:
       return state;
   }

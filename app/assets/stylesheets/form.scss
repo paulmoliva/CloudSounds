@@ -16,6 +16,18 @@ $transparent-dark-grey: rgba(17,17,17,0.95);
   display: none;
 }
 
+.closeX {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  color: whitesmoke;
+  font-size: 60px;
+  z-index: 3;
+  &:hover{
+    cursor:pointer;
+  }
+}
+
 .form-modal{
   box-sizing: border-box;
   width: 81.6%;

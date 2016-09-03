@@ -44,16 +44,18 @@ class TrackItem  extends React.Component {
 
   listenForComments(e) {
     if (e.which === 13 && !$(e.currentTarget).hasClass('hidden')) {
+      const trackID = parseInt($(e.currentTarget).attr('id').split('-')[0]);
       const comment_params = {
         comment: {
           user_id:this.props.currentUser.user.id,
-          track_id: this.props.track.id,
+          track_id: trackID,
           body: $(e.currentTarget).val()
         }
       };
       this.props.createComment(comment_params);
       console.log(comment_params);
       $(e.currentTarget).addClass('hidden');
+      $(`#track-${trackID}-comments`).removeClass('hidden');
     }
   }
 
@@ -101,7 +103,7 @@ class TrackItem  extends React.Component {
               id={'waveform-' + this.props.track.id}>
             </div>
           </div>
-          <input className="comment" type="text" placeholder="Write a comment"/>
+          <input className="comment" type="text" id={`${this.props.track.id}-commentform`}placeholder="Write a comment"/>
           <ul className='track-item-buttons'>
             <button className='track-favorite'>24</button>
             <button className='track-delete'

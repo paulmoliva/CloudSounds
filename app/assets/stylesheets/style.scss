@@ -137,6 +137,7 @@ p.comment {
   padding: 5px;
   margin-left: 0;
   margin-top: 5px;
+  display: inline-block;
 }
 
 .show-comments {
@@ -179,7 +180,7 @@ ul.dropdown {
 
 .commentlist {
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 }
 
 .sidebar .column {
