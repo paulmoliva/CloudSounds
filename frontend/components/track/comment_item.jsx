@@ -14,7 +14,7 @@ const CommentItem = ({comment}) => {
         </ul>
       </div>
         <div>
-          <p className='comment'>
+          <p className='triangle-isosceles top'>
             {comment.body}
           </p>
         </div>
