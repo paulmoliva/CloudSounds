@@ -115,7 +115,6 @@ li.sidebar-title {
 .comment-item {
   display: flex;
   flex-direction: column;
-
 }
 
 .comment-data {
@@ -715,6 +714,11 @@ select {
   display: flex;
   flex-direction: column;
   justify-content: space-between;;
+}
+
+.column.flex-start {
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .column li {

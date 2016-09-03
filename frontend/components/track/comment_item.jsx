@@ -26,12 +26,12 @@ const CommentItem = ({comment, deleteComment, currentUser, track}) => {
           <li className= 'sidebar-title'>{comment.time_ago} ago</li>
         </ul>
       </div>
-        <div>
+        <div className='column flex-start'>
           <p className='triangle-isosceles top'>
             {comment.body}
           </p>
+          {makeDeleteButton()}
         </div>
-        {makeDeleteButton()}
     </li>
   );
 };
