@@ -9,7 +9,7 @@ export const create_comment = function(comment_params, success) {
 export const deleteComment = function(id, success) {
   $.ajax({
     type: 'DELETE',
-    url: `api/comments?id=${id}`,
+    url: `api/comments/${id}`,
     success
   });
 };

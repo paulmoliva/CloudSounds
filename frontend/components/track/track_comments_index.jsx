@@ -5,9 +5,9 @@ class TrackCommentsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.generateCommentsArray = this.generateCommentsArray.bind(this);
-    //debugger;
-    if (this.props){
-      this.id = this.props[Object.keys(this.props)[0]].track_id;
+    if (typeof this.props.comments !== 'undefined'
+      && Object.keys(this.props.comments).length){
+      this.id = this.props.comments[Object.keys(this.props.comments)[0]].track_id;
       this.hasComments = true;
       }
   }
@@ -18,17 +18,19 @@ class TrackCommentsIndex extends React.Component {
     el.className().match(/hidden/) ? change = true : change = false;
     let showButton = $(`#track-${this.id}-show-comments`);
     const text = showButton.text();
-    debugger;
     showButton.text(text.replace('show', 'hide').replace('▼', '►'));
   }
 
   generateCommentsArray(){
     const result = [];
-    for (const key in this.props){
+    const deleteComment = this.props.deleteComment;
+    const currentUser = this.props.currentUser;
+    const track = this.props.track;
+    for (const key in this.props.comments){
       let n = parseInt(key);
 
-      let comment = this.props[n];
-      result.push(CommentItem({comment}));
+      let comment = this.props.comments[n];
+      result.push(CommentItem({comment, deleteComment, currentUser, track}));
     }
     return result;
   }
@@ -61,7 +63,7 @@ class TrackCommentsIndex extends React.Component {
             }
           }
           >
-          {Object.keys(this.props).length > 1 ? `Click to ${showText} ${Object.keys(this.props).length} comments ${carat}` : `Click to ${showText} 1 comment ${carat}`}
+          {Object.keys(this.props.comments).length > 1 ? `Click to ${showText} ${Object.keys(this.props.comments).length} comments ${carat}` : `Click to ${showText} 1 comment ${carat}`}
         </p>
         <ul className="commentlist hidden" id={`track-${this.id}-comments`}>
           {this.generateCommentsArray()}

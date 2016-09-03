@@ -15,16 +15,16 @@ export default ({getState, dispatch}) => next => action => {
   const createCommentSuccess = comment => {
     dispatch(receiveSingleComment(comment));
   };
-  const deleteCommentSuccess = id => {
-    dispatch(removeComment(id));
+  const deleteCommentSuccess = comment => {
+    dispatch(removeComment(comment));
   };
   switch (action.type) {
 
     case CommentConstants.CREATE_COMMENT:
       create_comment(action.comment, createCommentSuccess);
       return next(action);
-    case CommentConstants.DESTROY_COMMENT:
-      deleteComment(action.comment.id, deleteCommentSuccess);
+    case CommentConstants.DELETE_COMMENT:
+      deleteComment(action.id, deleteCommentSuccess);
       return next(action);
     default:
       return next(action);

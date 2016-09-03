@@ -26,6 +26,13 @@ const TrackReducer = function(state = {}, action) {
       oldState[commentTrackID].comments =
         merge(oldState[commentTrackID].comments, action.comment);
       return oldState;
+    case CommentConstants.REMOVE_COMMENT:
+      let deletedCommentTrackId = action.comment.track_id;
+      let commentIdToRemove = action.comment.id;
+      let stateWCommentRemoved = merge({}, state);
+      delete stateWCommentRemoved[deletedCommentTrackId]
+        .comments[commentIdToRemove];
+      return stateWCommentRemoved;
     default:
       return state;
   }

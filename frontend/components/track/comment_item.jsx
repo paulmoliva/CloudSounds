@@ -1,6 +1,19 @@
 import React from 'react';
 
-const CommentItem = ({comment}) => {
+const CommentItem = ({comment, deleteComment, currentUser, track}) => {
+  function deleteThisComment() {
+    deleteComment(comment.id);
+  }
+  function makeDeleteButton(){
+    if (comment.user_id === currentUser.user.id
+      || track.user_id === currentUser.user.id) {
+        return (
+          <button className='track-delete'
+            onClick={deleteThisComment}>
+          </button>
+        );
+      }
+  }
   return (
     <li className='comment-item'>
       <div className="comment-data">
@@ -18,6 +31,7 @@ const CommentItem = ({comment}) => {
             {comment.body}
           </p>
         </div>
+        {makeDeleteButton()}
     </li>
   );
 };

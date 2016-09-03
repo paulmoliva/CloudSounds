@@ -1,7 +1,7 @@
 export const CommentConstants = {
   CREATE_COMMENT: "CREATE_COMMENT",
   RECEIVE_SINGLE_COMMENT: "RECEIVE_SINGLE_COMMENT",
-  DESTROY_COMMENT: "DESTROY_COMMENT",
+  DELETE_COMMENT: "DELETE_COMMENT",
   REMOVE_COMMENT: "REMOVE_COMMENT",
 };
 
@@ -15,9 +15,9 @@ export const receiveSingleComment = comment => ({
   comment
 });
 
-export const destroyComment = comment => ({
-  type: CommentConstants.DESTROY_COMMENT,
-  comment
+export const deleteComment = id => ({
+  type: CommentConstants.DELETE_COMMENT,
+  id
 });
 
 export const removeComment = comment => ({

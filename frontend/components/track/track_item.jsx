@@ -121,7 +121,12 @@ class TrackItem  extends React.Component {
           </ul>
         </div>
       </div>
-      {new TrackCommentsIndex(this.props.track.comments).render()}
+      {new TrackCommentsIndex({
+        comments: this.props.track.comments,
+        deleteComment: this.props.deleteComment,
+        currentUser: this.props.currentUser,
+        track: this.props.track
+      }).render()}
     </li>);
   }
 }
