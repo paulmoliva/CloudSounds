@@ -9,6 +9,7 @@ $transparent-dark-grey: rgba(17,17,17,0.95);
   top: 46px;
   background-color: $transparent-dark-grey;
   height: 100%;
+  z-index: 2;
 }
 
 .hidden {

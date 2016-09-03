@@ -36,8 +36,8 @@ const NavBar = ({currentUser, logout}) => {
 
         <div className="user-header-dropdown" onClick={toggleDropdown}>
           <img className='circle-avatar'src={currentUser.avatar_url.replace(
-             'c_crop,g_face:center,r_max,w_500/c_scale,w_129',
-             'c_scale,w_26/r_30')} alt="" />
+             'upload/',
+             'upload//c_crop,g_face/c_scale,h_26,w_26/r_30/')} alt="" />
           {currentUser.username} &#9660;
           <ul className='hidden dropdown'>
             <li onClick={logout}>Logout</li>

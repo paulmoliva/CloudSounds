@@ -104,7 +104,7 @@ h3.recent-comments {
 }
 
 li.sidebar-playlist-name.comment {
-  margin-top: 2px;
+  margin-top: 5px;
   font-size: 16px;
 }
 
@@ -112,7 +112,20 @@ li.sidebar-title {
   margin-top: 0;
 }
 
+.comment-item {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.comment-data {
+  display: flex;
+  flex-direction: row;
+
+}
+
 ul.column.comment {
+  justify-content: flex-start;
   margin-left: 0px;
 }
 
@@ -122,6 +135,16 @@ p.comment {
   border-radius: 5px;
   background-color: rgba(45,45,45, 0.37);
   padding: 5px;
+  margin-left: 0;
+  margin-top: 5px;
+}
+
+.show-comments {
+  margin-top: 3px;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .column .sidebar-playlist-name {
