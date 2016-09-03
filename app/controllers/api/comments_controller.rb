@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
 
   def index
-    @comments = Track.find(params[:track_id]).comments
+    @comments = Track.find(params[:track_id]).comments.reverse
   end
 
   def create

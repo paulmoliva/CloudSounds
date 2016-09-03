@@ -1,7 +1,5 @@
 import React from 'react';
-
-
-
+import TrackCommentsIndex from './track_comments_index';
 
 class TrackItem  extends React.Component {
 
@@ -10,15 +8,19 @@ class TrackItem  extends React.Component {
    this.addTracktoPlaylist = this.addTracktoPlaylist.bind(this);
    this.deleteThisTrack = this.deleteThisTrack.bind(this);
    this.generateWaveform = this.generateWaveform.bind(this);
+   this.listenForComments = this.listenForComments.bind(this);
  }
   deleteThisTrack() {
     this.props.deleteTrack(this.props.track);
     this.props.fetchUserTracks(this.props.currentUser.user);
   }
   addTracktoPlaylist(){
-    $('ol').append(`<li id='track-${this.props.track.id}'class='playlist-item' data-src=${this.props.track.audio_url}>
+    $('ol').append(
+      `<li id='track-${this.props.track.id}'
+        class='playlist-item'
+        data-src=${this.props.track.audio_url}>
         ${this._slicedTitle(((screen.width * 0.15)/12), this.props.track.title)}
-    </li>`);
+      </li>`);
   }
   _slicedTitle(ln, str){
     let elipses;
@@ -40,16 +42,37 @@ class TrackItem  extends React.Component {
     waveform.load(this.props.track.audio_url);
   }
 
+  listenForComments(e) {
+    if (e.which === 13 && !$(e.currentTarget).hasClass('hidden')) {
+      const comment_params = {
+        comment: {
+          user_id:this.props.currentUser.user.id,
+          track_id: this.props.track.id,
+          body: $(e.currentTarget).val()
+        }
+      };
+      this.props.createComment(comment_params);
+      console.log(comment_params);
+      $(e.currentTarget).addClass('hidden');
+    }
+  }
+
   componentDidMount(){
     this.generateWaveform();
     this.addTracktoPlaylist();
+    $(".comment").keyup(this.listenForComments);
   }
 
   render() {return (
     <li key={this.props.track.id}>
       <div className="track-item">
-        <img src={this.props.track.image_url.replace('upload', 'upload/w_160,h_160/r_10')} alt="" />
-        <div className={"column " + "weather-" + this.props.track.weather_id + "-track"}>
+        <img src=
+          {this.props.track.image_url
+            .replace('upload', 'upload/w_160,h_160/r_10')}
+          alt={this.props.track.title}
+        />
+        <div className=
+          {"column " + "weather-" + this.props.track.weather_id + "-track"}>
           <div className = "flex-row">
             <button className="circle-play"
               id={this.props.track.id}
@@ -66,19 +89,28 @@ class TrackItem  extends React.Component {
               </p>
             </div>
             <div className="icons">
-              <img src={"http://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" + this.props.track.weather_id} className='icon-40 favorite-icon' />
+              <img src=
+                {"http://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" +
+                    this.props.track.weather_id}
+                className='icon-40 favorite-icon'
+              />
             </div>
           </div>
           <div className="track-description">
-            <div className="waveform" id={'waveform-' + this.props.track.id}></div>
+            <div className="waveform"
+              id={'waveform-' + this.props.track.id}>
+            </div>
           </div>
           <input className="comment" type="text" placeholder="Write a comment"/>
           <ul className='track-item-buttons'>
             <button className='track-favorite'>24</button>
-            <button className='track-delete' onClick={this.deleteThisTrack}></button>
+            <button className='track-delete'
+              onClick={this.deleteThisTrack}>
+            </button>
           </ul>
         </div>
       </div>
+      {new TrackCommentsIndex(this.props.track.comments).render()}
     </li>);
   }
 }

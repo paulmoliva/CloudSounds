@@ -67,7 +67,10 @@ class Home extends React.Component {
             playTrack={this.playTrack}
             currentUser={this.props.currentUser}
             deleteTrack={this.props.deleteTrack}
-            fetchUserTracks={this.props.fetchUserTracks}/>
+            fetchUserTracks={this.props.fetchUserTracks}
+            createComment={this.props.createComment}
+            deleteComment={this.props.deleteComment}
+          />
 
         </div>
         {this.props.children}

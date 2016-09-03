@@ -34,7 +34,7 @@ num_tracks = Track.count
 num_users = User.count
 
 25.times do
-  Comment.create!(user_id: (0...num_tracks).to_a.sample,
-                  track_id: (0...num_users).to_a.sample,
+  Comment.create!(user_id: (1...num_tracks - 1).to_a.sample,
+                  track_id: (1...num_users - 1).to_a.sample,
                   body: sample_comments.sample)
 end

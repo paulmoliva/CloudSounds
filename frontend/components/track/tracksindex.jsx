@@ -1,8 +1,14 @@
 import React from 'react';
 import TrackItem from './track_item';
 
-export const TracksList = function({tracks, playTrack, currentUser, deleteTrack, fetchUserTracks}) {
-
+export const TracksList = function({tracks,
+                                    playTrack,
+                                    currentUser,
+                                    deleteTrack,
+                                    fetchUserTracks,
+                                    createComment,
+                                    deleteComment})
+{
   if (!tracks.length){
     return (<p></p>);
   }
@@ -16,7 +22,10 @@ export const TracksList = function({tracks, playTrack, currentUser, deleteTrack,
             currentUser={currentUser}
             playTrack={playTrack}
             deleteTrack={deleteTrack}
-            fetchUserTracks={fetchUserTracks}/>
+            fetchUserTracks={fetchUserTracks}
+            createComment={createComment}
+            deleteComment={deleteComment}
+            />
         );
         })
       }

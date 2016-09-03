@@ -104,8 +104,12 @@ h3.recent-comments {
 }
 
 li.sidebar-playlist-name.comment {
-  margin-top: 14px;
+  margin-top: 2px;
   font-size: 16px;
+}
+
+li.sidebar-title {
+  margin-top: 0;
 }
 
 ul.column.comment {
@@ -128,6 +132,7 @@ p.comment {
 .column .sidebar-title {
   color: #000;
   font-size: 16px;
+  margin-top: 2px;
 }
 
 ul.hidden.dropdown {
@@ -149,22 +154,25 @@ ul.dropdown {
   background-color: $transparent-grey;
 }
 
+.commentlist {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
 .sidebar .column {
   margin-left: 5px;
 }
 
-.sidebar-track-data {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
+
 
 .sidebar-track-data ul {
   justify-content: flex-start;
 }
 
 .sidebar-list-item {
+  margin: 0 15px;
   margin-bottom: 5px;
+  width: 25%;
 }
 
 .inner-nav {

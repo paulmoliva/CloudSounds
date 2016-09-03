@@ -4,8 +4,9 @@ class Api::TracksController < ApplicationController
   end
 
   def index
-    @tracks = User.find(track_params[:user_id]).tracks
-    @comments = track_params[:with_comments]
+    if params[:user_id]
+      @tracks = User.find(params[:user_id]).tracks
+    end
   end
 
   def create
