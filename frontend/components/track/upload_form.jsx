@@ -87,6 +87,7 @@ class UploadForm extends React.Component {
         this.addError('Please upload an MP3 file to proceed.');
       } else{
         this.props.createTrack({track});
+        hashHistory.push('/home');
       }
   }
 
@@ -94,7 +95,8 @@ class UploadForm extends React.Component {
   render() {return(
     <div className='upload-modal'>
       <div className="closeX"
-        onClick={()=>hashHistory.goBack()}>X</div>
+        onClick={()=>hashHistory.goBack()}>X
+      </div>
       <form className="uploadForm" onSubmit={this.uploadSubmit}>
         <ul className='errors'></ul>
         <label>

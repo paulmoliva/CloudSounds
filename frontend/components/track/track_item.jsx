@@ -105,7 +105,9 @@ class TrackItem  extends React.Component {
             </button>
             <div className="info">
               <p className="track-user">
-                {this.props.currentUser.user.username}
+                <Link to={`users/${this.props.track.user_id}`}>
+                  {this.props.track.username}
+                </Link>
               </p>
               <p className="track-name">
                 <Link to={`tracks/${this.props.track.id}`}>

@@ -2,8 +2,13 @@ $skyblue: #7EC0EE;
 $transparent-light-grey: rgba(17,17,17,0.25);
 
 .playing {
-  background-color: $skyblue;
-  color: white;
+  background-color: black;
+  color: whitesmoke;
+  padding: 3px 3px;
+  &:hover {
+    background-color: $skyblue;
+    color: black;
+  }
 }
 
 .playlist-item {

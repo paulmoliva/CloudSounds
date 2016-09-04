@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import SessionForm from './session_form.jsx';
+import {CloudinaryImageConstants} from '../../constants/cloudinary';
 
 //audio
 // import audiojs from '../../util/audiojs/audio.min';
@@ -46,22 +47,29 @@ class Splash extends React.Component {
         login.toggleClass('hidden');
       }
     });
+
+    document.getElementById("image_upload_widget_opener")
+      .addEventListener("click", function() {
+      window.cloudinary.openUploadWidget(CloudinaryImageConstants,
+        function(error, result) {
+           if (!error){
+
+             $('#image_url').val(result[0].secure_url);
+             that.setState({
+               ['avatar_url']: result[0].secure_url
+             });
+             $('#image_upload_widget_opener')[0].remove();
+             $('#image_filename').text("Image Upload successful!");
+           }
+         });
+        }, false);
+
+
   }
 
   update(field){
 		return e => { this.setState({[field]: e.currentTarget.value }); };
 	}
-
-
-
-
-  formModal() {
-    (
-    <div className ="login-modal">
-      <SessionForm />
-    </div>
-    );
-  }
 
   hero() {return (
     <div className="content">
@@ -69,6 +77,9 @@ class Splash extends React.Component {
       <div className='hero'>
 
         <div className='form-modal hidden' id='loginModal'>
+          <div className="closeX"
+            onClick={()=>$('#loginModal').toggleClass('hidden')}>X
+          </div>
           <form onSubmit={this.loginSubmit} className="login-form-box">
 
 
@@ -100,6 +111,9 @@ class Splash extends React.Component {
         </div>
 
         <div className='form-modal hidden' id='signupModal'>
+          <div className="closeX"
+            onClick={()=>$('#signupModal').toggleClass('hidden')}>X
+          </div>
           <form onSubmit={this.signupSubmit} className="signup-form-box">
 
 
@@ -123,13 +137,16 @@ class Splash extends React.Component {
 
 
 
-              <p>Avatar URL:</p>
-              <input type="text"
-                className="signup-input"
-                value={this.state.avatar_url}
-                onChange={this.update("avatar_url")}
-                className="signup-input"
-                label="Avatar URL" />
+                <label>
+                  <p id='image_filename'></p>
+                  <input type="hidden"
+                    id='image_url'
+                    name="image_url"
+                    onChange={this.update('avatar_url')}/>
+
+                  <div className="upload-header-button"
+                    id ='image_upload_widget_opener'>Upload Avatar Image</div>
+                </label>
 
                 <p>Password:</p>
                 <input type="password"
