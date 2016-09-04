@@ -15,7 +15,7 @@ const CommentItem = ({comment, deleteComment, currentUser, track}) => {
       }
   }
   return (
-    <li className='comment-item'>
+    <li key={comment.id} className='comment-item'>
       <div className="comment-data">
         <img  src={comment.user_image_url
             .replace(

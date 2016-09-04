@@ -56,7 +56,6 @@ class TrackItem  extends React.Component {
         }
       };
       this.props.createComment(comment_params);
-      console.log(comment_params);
       $(e.currentTarget).addClass('hidden');
       const commentsList = $(`#track-${trackID}-comments`);
       debugger;
@@ -78,7 +77,7 @@ class TrackItem  extends React.Component {
 
   render() {
     return (
-    <li key={this.props.track.id}>
+    <li key={'track-' + this.props.track.id}>
       <div className="track-item">
         <img src=
           {this.props.track.image_url

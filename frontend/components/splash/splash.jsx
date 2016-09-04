@@ -150,8 +150,10 @@ class Splash extends React.Component {
             <aside className='logo-after'>CLOUDSOUNDS</aside>
           </div>
           <ul className='header-buttons'>
-            <li className='sign-in button' onClick={this.showLoginForm}>Sign In</li>
-            <li className='sign-up button' onClick={this.showSignupForm}>Create Account</li>
+            <li className='sign-in button'
+              onClick={this.showLoginForm}>Sign In</li>
+            <li className='sign-up button'
+              onClick={this.showSignupForm}>Create Account</li>
           </ul>
         </nav>
         <div className="hero-box">
@@ -160,7 +162,8 @@ class Splash extends React.Component {
 
           </h3>
           <h3>Get the music to match.</h3>
-          <button className='sign-up demo button' onClick={this.guestLogin}>Guest Login</button>
+          <button className='sign-up demo button'
+            onClick={this.guestLogin}>Guest Login</button>
         </div>
       </div>
 
@@ -170,7 +173,7 @@ class Splash extends React.Component {
 
   weatherGreeting() {
     if (this.state.weather.temp)
-      return `It\'s ${Math.round(this.state.weather.temp)}℉ and ${this.state.weather.desc} in ${this.state.weather.location}`
+      return `It\'s ${Math.round(this.state.weather.temp)}℉ and ${this.state.weather.desc} in ${this.state.weather.location}`;
     else
       return 'It\'s 65℉ and Partly Cloudy in San Francisco';
     }
@@ -185,14 +188,17 @@ class Splash extends React.Component {
   }
 
   guestLogin() {
-    const user = {currentUser: null, username: "Guest", password: "password", email: "", avatar_url: ""};
+    const user = {currentUser: null,
+      username: "Guest",
+      password: "password",
+      email: "",
+      avatar_url: ""};
     this.props.login({user});
   }
 
   signupSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    console.log(user);
     this.props.signup({user});
   }
 
@@ -215,25 +221,18 @@ class Splash extends React.Component {
 
   requestData() {
     var request = new XMLHttpRequest();
-    console.log(this.location);
     request.open('GET', `https://api.worldweatheronline.com/premium/v1/weather.ashx?q=${this.location.lat},${this.location.long}&includelocation=yes&format=json&key=8e4eeea070554e7481a01401160209`, true);
 
     let that = this;
     request.onload = () => {
-      console.log(request.status);
       if (request.status >= 200 && request.status < 400) {
         let weatherJSON = $.parseJSON(request.responseText);
-        console.log(weatherJSON);
         let data = weatherJSON.data.current_condition[0];
         let location = weatherJSON.data.nearest_area[0].areaName[0].value;
         let weatherObj = {temp: data.temp_F,
                           desc: data.weatherDesc[0].value,
                           location: location};
-        console.log(weatherObj);
         that.setState({weather: weatherObj});
-        console.log(weatherObj.name);
-      } else {
-        console.log("didn't work");
       }
     };
     request.send();
