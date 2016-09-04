@@ -13,11 +13,9 @@ import {hashHistory} from 'react-router';
 export default ({getState, dispatch}) => next => action => {
   const successCallback = track => {
     dispatch(receiveSingleTrack(track));
-    hashHistory.push('/home');
   };
   const userTracksSuccess = tracks => {
     dispatch(receiveUserTracks(tracks));
-    hashHistory.push('/home');
   };
   const deleteTracksSuccess = id => {
     dispatch(removeDeletedTrack(id));

@@ -106,6 +106,9 @@ h3.recent-comments {
 li.sidebar-playlist-name.comment {
   margin-top: 5px;
   font-size: 16px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 li.sidebar-title {

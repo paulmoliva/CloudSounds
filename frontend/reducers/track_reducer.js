@@ -9,7 +9,7 @@ const TrackReducer = function(state = {}, action) {
       return merge({}, state, track);
     case TrackConstants.RECEIVE_USER_TRACKS:
       const tracks = action.tracks;
-      return merge({}, state, tracks);
+      return merge({}, tracks);
     case TrackConstants.REMOVE_DELETED_TRACK:
       const newState = merge({}, state);
       delete newState[action.id];

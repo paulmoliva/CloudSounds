@@ -1,6 +1,6 @@
 import React from 'react';
 import TrackCommentsIndex from './track_comments_index';
-
+import { Link } from 'react-router';
 class TrackItem  extends React.Component {
 
  constructor(props) {

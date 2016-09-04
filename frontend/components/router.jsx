@@ -6,6 +6,11 @@ import App from './App';
 import SplashContainer from './splash/splash_container';
 import HomeContainer from './home/home_container';
 import UploadContainer from './track/upload_container';
+import UsersContainer from './users/users_container';
+import {Test} from './users/test';
+//
+
+
 
 class AppRouter extends React.Component{
   constructor(props){
@@ -23,6 +28,7 @@ class AppRouter extends React.Component{
   }
 
   _redirectIfLoggedIn(nextState, replace){
+    debugger;
     const currentState = this.context.store.getState();
     const currentUser = currentState.session.currentUser;
     if (currentUser) {
@@ -30,14 +36,17 @@ class AppRouter extends React.Component{
     }
   }
 
+
+
   render(){
     return(
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
           <IndexRoute component={ SplashContainer } onEnter={this._redirectIfLoggedIn} />
-          <Route path="/home" component={ HomeContainer } onEnter={ this.ensureLoggedIn }>
-            <Route path='upload' component={ UploadContainer } onEnter={this.ensureLoggedIn} />
+          <Route path="home" component={ HomeContainer } onEnter={ this._ensureLoggedIn }>
+            <Route path='upload' component={ UploadContainer } onEnter={this._ensureLoggedIn} />
           </Route>
+          <Route path="users/:id" component={ UsersContainer }/>
         </Route>
       </Router>
     );

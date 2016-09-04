@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import NavBar from '../navbar';
 import {TracksList} from '../track/tracksindex';
 
-class Home extends React.Component {
+class UserShow extends React.Component {
   constructor(props) {
     super(props);
     this.generateTracksArray = this.generateTracksArray.bind(this);
@@ -12,8 +12,10 @@ class Home extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchUserTracks(this.props.currentUser.user);
+    const path = this.props.location.pathname;
+    const userId = parseInt(path.split('/')[2]);
 
+    this.props.fetchUserTracks({id: userId});
     $('ol').click( e => {
       $(e.target).addClass('playing').siblings().removeClass('playing');
       window.audio.load($(e.target).attr('data-src'));
@@ -21,7 +23,6 @@ class Home extends React.Component {
       window.audio.play();
     });
   }
-
 
   playTrack(e) {
     e.preventDefault();
@@ -70,7 +71,7 @@ class Home extends React.Component {
             fetchUserTracks={this.props.fetchUserTracks}
             createComment={this.props.createComment}
             deleteComment={this.props.deleteComment}
-            />
+          />
         );
       }
     }
@@ -90,4 +91,4 @@ class Home extends React.Component {
   );}
 }
 
-export default Home;
+export default UserShow;

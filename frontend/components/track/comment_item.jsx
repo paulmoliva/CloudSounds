@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, hashHistory } from 'react-router';
 
 const CommentItem = ({comment, deleteComment, currentUser, track}) => {
   function deleteThisComment() {
@@ -22,7 +23,8 @@ const CommentItem = ({comment, deleteComment, currentUser, track}) => {
               'upload/',
               'upload//c_crop,g_face/c_scale,h_40,w_40/r_30/')} />
         <ul className='column comment'>
-          <li className='sidebar-playlist-name comment'>{comment.user_name}</li>
+          <li className='sidebar-playlist-name comment'
+            onClick={() => hashHistory.push('/users/' + comment.user_id)}>{comment.user_name}</li>
           <li className= 'sidebar-title'>{comment.time_ago} ago</li>
         </ul>
       </div>
