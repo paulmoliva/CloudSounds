@@ -40,6 +40,9 @@ class TrackItem  extends React.Component {
       cursorColor: 'transparent'
     });
     waveform.load(this.props.track.audio_url);
+    $(`#waveform-${this.props.track.id}`).append(
+      `<canvas id="waveform-progress-${this.props.track.id}" width="${(screen.width * 0.40)}" height="45" style="z-index:1; position: absolute; top: 0px;">`
+    );
   }
 
   listenForComments(e) {
