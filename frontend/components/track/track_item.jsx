@@ -39,7 +39,7 @@ class TrackItem  extends React.Component {
       container: `#waveform-${this.props.track.id}`,
       maxCanvasWidth: (screen.width * 0.50),
       height: 45,
-      waveColor: '#7EC0EE',
+      waveColor: 'rgba(126,192,238,1)',
       cursorColor: 'transparent'
     });
     waveform.load(this.props.track.audio_url);
