@@ -13,12 +13,14 @@ class TrackCommentsIndex extends React.Component {
   }
 
   componentDidMount() {
-    let el = $(`#track-${this.id}-comments`);
-    let change = false;
-    el.className().match(/hidden/) ? change = true : change = false;
-    let showButton = $(`#track-${this.id}-show-comments`);
-    const text = showButton.text();
-    showButton.text(text.replace('show', 'hide').replace('▼', '►'));
+    // let el = $(`#track-${this.id}-comments`);
+    // let change = false;
+    // debugger;
+    // el.className().match(/hidden/) ? change = false : change = true;
+    // let showButton = $(`#track-${this.id}-show-comments`);
+    // const text = showButton.text();
+    // if (change)
+    //   showButton.text(text.replace('show', 'hide').replace('▼', '►'));
   }
 
   generateCommentsArray(){
@@ -36,15 +38,15 @@ class TrackCommentsIndex extends React.Component {
   }
 
   render() {
-    const commentsList = $(`#track-${this.id}-comments`);
-    let showText, carat;
-    if (commentsList.hasClass('hidden')){
-      showText = 'show';
-      carat = '▼';
-    } else {
-      showText = 'hide';
-      carat = '►';
-    }
+    // const commentsList = $(`#track-${this.id}-comments`);
+    // let showText, carat;
+    // if (commentsList.hasClass('hidden')){
+    //   showText = 'show';
+    //   carat = '▼';
+    // } else {
+    //   showText = 'hide';
+    //   carat = '►';
+    // }
     let that = this;
     if (this.hasComments)
     return (
@@ -54,16 +56,16 @@ class TrackCommentsIndex extends React.Component {
           onClick={ () => {
             let el = $(`#track-${this.id}-comments`);
             el.toggleClass('hidden');
-            let showButton = $(`#track-${this.id}-show-comments`);
-            const text = showButton.text();
-            if(text.match(/show/))
-              showButton.text(text.replace('show', 'hide').replace('▼', '►'));
-            else
-              showButton.text(text.replace('hide', 'show').replace( '►', '▼'));
+            // let showButton = $(`#track-${this.id}-show-comments`);
+            // const text = showButton.text();
+            // if(text.match(/show/))
+            //   showButton.text(text.replace('show', 'hide').replace('▼', '►'));
+            // else
+            //   showButton.text(text.replace('hide', 'show').replace( '►', '▼'));
             }
           }
           >
-          {Object.keys(this.props.comments).length > 1 ? `Click to ${showText} ${Object.keys(this.props.comments).length} comments ${carat}` : `Click to ${showText} 1 comment ${carat}`}
+          {Object.keys(this.props.comments).length > 1 ? `${Object.keys(this.props.comments).length} comments ▼` : `1 comment ▼`}
         </p>
         <ul className="commentlist hidden" id={`track-${this.id}-comments`}>
           {this.generateCommentsArray()}

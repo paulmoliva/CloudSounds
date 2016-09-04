@@ -7,6 +7,7 @@ import SplashContainer from './splash/splash_container';
 import HomeContainer from './home/home_container';
 import UploadContainer from './track/upload_container';
 import UsersContainer from './users/users_container';
+import TrackContainer from './track/track_container';
 import {Test} from './users/test';
 //
 
@@ -47,6 +48,7 @@ class AppRouter extends React.Component{
             <Route path='upload' component={ UploadContainer } onEnter={this._ensureLoggedIn} />
           </Route>
           <Route path="users/:id" component={ UsersContainer }/>
+          <Route path="tracks/:id" component={ TrackContainer }/>
         </Route>
       </Router>
     );

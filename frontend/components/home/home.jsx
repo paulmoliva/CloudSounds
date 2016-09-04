@@ -23,11 +23,10 @@ class Home extends React.Component {
   }
 
 
-  playTrack(e) {
-    e.preventDefault();
-    $('#track-' + $(e.currentTarget).attr('id')).addClass('playing').siblings().removeClass('playing');
-    let trackID = $(e.currentTarget).attr('id');
-    window.audio.load($(e.currentTarget).attr('data-src'));
+  playTrack(el) {
+    $('#track-' + $(el).attr('id')).addClass('playing').siblings().removeClass('playing');
+    let trackID = $(el).attr('id');
+    window.audio.load($(el).attr('data-src'));
     $('#wrapper').removeClass('hidden');
     window.audio.play();
   }
@@ -80,7 +79,6 @@ class Home extends React.Component {
     <div>
       <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}/>
       <div className='content margin'>
-        <h1>{this.props.tracks.username}</h1>
         <div className="flex-row home">
           {this.renderTracksList()}
         </div>

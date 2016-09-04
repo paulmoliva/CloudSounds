@@ -15,13 +15,16 @@ class TrackItem  extends React.Component {
     this.props.fetchUserTracks(this.props.currentUser.user);
   }
   addTracktoPlaylist(){
-    $('ol').append(
-      `<li id='track-${this.props.track.id}'
-        class='playlist-item'
-        data-src=${this.props.track.audio_url}>
-        ${this._slicedTitle(((screen.width * 0.15)/12), this.props.track.title)}
-      </li>`);
+    if (!$(`ol #track-${this.props.track.id}`).length){
+      $('ol').append(
+        `<li id='track-${this.props.track.id}'
+          class='playlist-item'
+          data-src=${this.props.track.audio_url}>
+          ${this._slicedTitle(((screen.width * 0.15)/12), this.props.track.title)}
+        </li>`);
+    }
   }
+
   _slicedTitle(ln, str){
     let elipses;
     if (str.length > ln -1){
@@ -71,7 +74,7 @@ class TrackItem  extends React.Component {
 
   componentDidMount(){
     this.generateWaveform();
-    this.addTracktoPlaylist();
+    //this.addTracktoPlaylist();
     $(".comment").keyup(this.listenForComments);
   }
 
@@ -79,18 +82,25 @@ class TrackItem  extends React.Component {
     return (
     <li key={'track-' + this.props.track.id}>
       <div className="track-item">
-        <img src=
-          {this.props.track.image_url
-            .replace('upload', 'upload/w_160,h_160/r_10')}
-          alt={this.props.track.title}
-        />
+        <Link to={`tracks/${this.props.track.id}`}>
+          <img src=
+            {this.props.track.image_url
+              .replace('upload', 'upload/w_160,h_160/r_10')}
+            alt={this.props.track.title}
+          />
+        </Link>
         <div className=
           {"column " + "weather-" + this.props.track.weather_id + "-track"}>
           <div className = "flex-row">
             <button className="circle-play"
               id={this.props.track.id}
               data-src={this.props.track.audio_url}
-              onClick={this.props.playTrack}>
+              onClick={
+                () => {
+                  this.addTracktoPlaylist();
+                  this.props.playTrack($(`#${this.props.track.id}`));
+                }
+              }>
 
             </button>
             <div className="info">
@@ -98,7 +108,9 @@ class TrackItem  extends React.Component {
                 {this.props.currentUser.user.username}
               </p>
               <p className="track-name">
-                {this.props.track.title}
+                <Link to={`tracks/${this.props.track.id}`}>
+                  {this.props.track.title}
+                </Link>
               </p>
             </div>
             <div className="icons">

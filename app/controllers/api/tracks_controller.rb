@@ -4,9 +4,12 @@ class Api::TracksController < ApplicationController
   end
 
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      @tracks = User.find(params[:user_id]).tracks
+    if track_params[:user_id].length >= 1
+      @user = User.find(track_params[:user_id])
+      @tracks = User.find(track_params[:user_id]).tracks
+    elsif track_params[:track_id]
+      @tracks = Track.find(track_params[:track_id].to_i)
+      @user = User.find(@tracks.user_id)
     end
   end
 
@@ -29,6 +32,6 @@ class Api::TracksController < ApplicationController
   private
   def track_params
     params.require(:track).permit(:title, :description, :audio_url,
-     :user_id, :image_url, :weather_id, :with_comments)
+     :user_id, :image_url, :weather_id, :track_id)
   end
 end
