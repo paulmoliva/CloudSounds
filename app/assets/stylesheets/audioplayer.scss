@@ -23,6 +23,7 @@ $transparent-light-grey: rgba(17,17,17,0.25);
 #wrapper {
   position: fixed;
   bottom: 36px;
+  z-index: 2;
 }
 
 .audiojs .play {
