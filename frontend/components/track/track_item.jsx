@@ -39,9 +39,12 @@ class TrackItem  extends React.Component {
     var waveform = window.Wavesurfer.create({
       container: `#waveform-${this.props.track.id}`,
       maxCanvasWidth: (screen.width * 0.4062),
-      height: 45,
+      height: 60,
       waveColor: 'rgba(126,192,238,1)',
-      cursorColor: 'transparent'
+      cursorColor: 'transparent',
+      progressColor: 'rgb(238,126,136)',
+      barWidth: 1.75,
+      normalize: true,
     });
     waveform.load(this.props.track.audio_url);
     $(`#waveform-${this.props.track.id}`).append(
@@ -53,9 +56,11 @@ class TrackItem  extends React.Component {
       var wave = $('#waveform-' + that.props.track.id + ' wave canvas');
       var waveWidth = wave.width();
       $(`#waveform-${that.props.track.id}`).append(
-        `<canvas id="waveform-progress-${that.props.track.id}" width="${waveWidth}" height="45" style="z-index:1; position: absolute; top: 0px;">`
+        `<canvas id="waveform-progress-${that.props.track.id}" width="${waveWidth}" height="60" style="z-index:1; position: absolute; top: 0px;">`
       );
-});
+      debugger;
+      window.waveforms[`${that.props.track.id}`] = waveform;
+    });
   }
 
   listenForComments(e) {
