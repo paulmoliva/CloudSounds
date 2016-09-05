@@ -21,21 +21,6 @@ class UserShow extends React.Component {
     addOlListener();
   }
 
-  userName(){
-    if (this.props.currentUser){
-      return this.props.currentUser.user.username;
-    }
-    else{
-      return '';
-    }
-  }
-
-  userAvatar(){
-    if (this.props.currentUser){
-      return this.props.currentUser.user.avatar_url;
-    }
-  }
-
   generateTracksArray() {
     let arr = [];
     for (let key in this.props.tracks){
@@ -43,11 +28,11 @@ class UserShow extends React.Component {
         arr.push(this.props.tracks[key]);
       }
     }
-      arr = arr.map ( track => {
-        return track;
-      } );
-      return arr;
-    }
+    arr = arr.map ( track => {
+      return track;
+    } );
+    return arr;
+  }
 
     renderTracksList(){
       if (Object.keys(this.props.tracks).length > 1){
@@ -64,21 +49,22 @@ class UserShow extends React.Component {
       }
     }
 
-  render() {
-    return (
-    <div>
-      <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}/>
-      <div className='content margin'>
-        <h1 className='user-show-name'>
-          {this.props.tracks.username + "'s Tracks"}
-        </h1>
-        <div className="flex-row home">
-          {this.renderTracksList()}
+    render() {
+      return (
+        <div>
+          <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}/>
+          <div className='content margin'>
+            <h1 className='user-show-name'>
+              {this.props.tracks.username + "'s Tracks"}
+            </h1>
+            <div className="flex-row home">
+              {this.renderTracksList()}
+            </div>
+            {this.props.children}
+          </div>
         </div>
-        {this.props.children}
-      </div>
-    </div>
-  );}
-}
+      );
+    }
+  }
 
 export default UserShow;

@@ -3,9 +3,6 @@ import { Link } from 'react-router';
 import SessionForm from './session_form.jsx';
 import {CloudinaryImageConstants} from '../../constants/cloudinary';
 
-//audio
-// import audiojs from '../../util/audiojs/audio.min';
-
 class Splash extends React.Component {
   constructor(props){
     super(props);
@@ -81,8 +78,6 @@ class Splash extends React.Component {
             onClick={()=>$('#loginModal').toggleClass('hidden')}>X
           </div>
           <form onSubmit={this.loginSubmit} className="login-form-box">
-
-
             <div className="session-form">
               <p>Welcome Back!</p>
               <ul className='errors'>{this.showErrors()}</ul>
@@ -93,17 +88,12 @@ class Splash extends React.Component {
                   onChange={this.update("username")}
                   className="login-input" />
 
-
-
-
                 <p>Password</p>
                 <input type="password"
                   className="login-input"
                   value={this.state.password}
                   onChange={this.update("password")}
                   />
-
-
               <br />
               <input type="submit" value="Login" />
             </div>
@@ -115,8 +105,6 @@ class Splash extends React.Component {
             onClick={()=>$('#signupModal').toggleClass('hidden')}>X
           </div>
           <form onSubmit={this.signupSubmit} className="signup-form-box">
-
-
             <div className="session-form">
               <p>Welcome to Cloud Sounds!</p>
               <ul className='errors'>{this.showErrors()}</ul>
@@ -126,28 +114,21 @@ class Splash extends React.Component {
                   value={this.state.username}
                   onChange={this.update("username")}
                   className="signup-input" />
-
-
               <p>Email:</p>
                 <input type="text"
                   className="signup-input"
                   value={this.state.email}
                   onChange={this.update("email")}
                   className="signup-input" />
-
-
-
                 <label>
                   <p id='image_filename'></p>
                   <input type="hidden"
                     id='image_url'
                     name="image_url"
                     onChange={this.update('avatar_url')}/>
-
                   <div className="upload-header-button"
                     id ='image_upload_widget_opener'>Upload Avatar Image</div>
                 </label>
-
                 <p>Password:</p>
                 <input type="password"
                   className="signup-input"
@@ -158,7 +139,6 @@ class Splash extends React.Component {
               <input type="submit" value="Sign Up" />
             </div>
           </form>
-
         </div>
 
         <nav className='hero-header'>
@@ -176,7 +156,6 @@ class Splash extends React.Component {
         <div className="hero-box">
           <h3>
             {this.weatherGreeting()}
-
           </h3>
           <h3>Get the music to match.</h3>
           <button className='sign-up demo button'
@@ -199,9 +178,6 @@ class Splash extends React.Component {
     e.preventDefault();
     const user = this.state;
     this.props.login({user});
-    // const user = {
-    //   e.currentTarget.
-    // }
   }
 
   guestLogin() {
@@ -251,6 +227,8 @@ class Splash extends React.Component {
                           location: location};
         that.setState({weather: weatherObj});
       }
+
+      
     };
     request.send();
   }

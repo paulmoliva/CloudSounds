@@ -18,21 +18,6 @@ class Home extends React.Component {
     addOlListener();
   }
 
-  userName(){
-    if (this.props.currentUser){
-      return this.props.currentUser.user.username;
-    }
-    else{
-      return '';
-    }
-  }
-
-  userAvatar(){
-    if (this.props.currentUser){
-      return this.props.currentUser.user.avatar_url;
-    }
-  }
-
   generateTracksArray() {
     let arr = [];
     for (let key in this.props.tracks){
@@ -40,11 +25,11 @@ class Home extends React.Component {
         arr.push(this.props.tracks[key]);
       }
     }
-      arr = arr.map ( track => {
-        return track;
-      } );
-      return arr;
-    }
+    arr = arr.map ( track => {
+      return track;
+    });
+    return arr;
+  }
 
     renderTracksList(){
       if (Object.keys(this.props.tracks).length > 1){

@@ -1,14 +1,17 @@
 export function playTrack(el) {
+  //remove event listeners from other canvases
+  if ($('.playing').length){
+    $('.waveform').unbind('click');
+  }
+  //Add playing class to playlist and play song.
   $('#track-' + $(el).attr('id')).addClass('playing').siblings().removeClass('playing');
   let trackID = $(el).attr('id');
   window.audio.load($(el).attr('data-src'));
   $('#wrapper').removeClass('hidden');
   window.audio.play();
 
-  var width = (screen.width * 0.4062);
   var playingTrackID = $('.playing').attr('id').split('-')[1];
-  var can = $('#waveform-' + playingTrackID)[0];
-  console.log(can);
+  var can = $('#waveform-' + playingTrackID);
   //for detectng clicks on the waveform
   function getPosition(event)
   {
@@ -34,7 +37,7 @@ export function playTrack(el) {
     var waveWidth = wave.width();
     window.audio.skipTo( x / waveWidth);
   }
-  can.addEventListener("click", getPosition, false);
+  can.on("click", getPosition);
 }
 
 export function addOlListener() {

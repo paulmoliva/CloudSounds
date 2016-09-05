@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import SplashContainer from './splash/splash_container';
+import {playTrack} from '../util/player_helpers';
 
 class App extends React.Component {
 
@@ -14,12 +15,15 @@ setUpPlayer(){
     let a = window.audiojs.createAll({
       trackEnded: function() {
         let playing = $('.playing');
-
         var next = $('.playing').next();
         if (!next.length) next = $('ol li').first();
-        next.addClass('playing').siblings().removeClass('playing');
-        window.audio.load($(next).attr('data-src'));
-        window.audio.play();
+
+        const trackId = next.attr('id').split('-')[1];
+        playTrack(trackId);
+
+        // next.addClass('playing').siblings().removeClass('playing');
+        // window.audio.load($(next).attr('data-src'));
+        // window.audio.play();
       }
     });
 
