@@ -46,6 +46,13 @@ class TrackItem  extends React.Component {
     $(`#waveform-${this.props.track.id}`).append(
       `<canvas id="waveform-progress-${this.props.track.id}" width="${(screen.width * 0.421)}" height="45" style="z-index:1; position: absolute; top: 0px;">`
     );
+    $(`#waveform-${this.props.track.id}`).append(
+      `<div id="waveform-loading-${this.props.track.id}"  style="z-index:1; position: absolute; top: 0px; width:${(screen.width * 0.421)}px; height:45px; display:flex; flex-direction: row; align-items: center;"><h2 style="font-size: 20px;">Loading Waveform</h2><img src='https://res.cloudinary.com/cloud-sounds/image/upload/v1473033713/loading5_kluvdv.gif' height='40px' width='40px'/></div>`
+    );
+    const that = this;
+    waveform.on('ready', function () {
+      $(`#waveform-loading-${that.props.track.id}`).remove();
+});
   }
 
   listenForComments(e) {
