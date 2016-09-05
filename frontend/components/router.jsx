@@ -29,7 +29,6 @@ class AppRouter extends React.Component{
   }
 
   _redirectIfLoggedIn(nextState, replace){
-    debugger;
     const currentState = this.context.store.getState();
     const currentUser = currentState.session.currentUser;
     if (currentUser) {

@@ -58,7 +58,6 @@ class TrackItem  extends React.Component {
       $(`#waveform-${that.props.track.id}`).append(
         `<canvas id="waveform-progress-${that.props.track.id}" width="${waveWidth}" height="60" style="z-index:1; position: absolute; top: 0px;">`
       );
-      debugger;
       window.waveforms[`${that.props.track.id}`] = waveform;
     });
   }

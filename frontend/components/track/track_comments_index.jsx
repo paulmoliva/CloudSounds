@@ -15,7 +15,6 @@ class TrackCommentsIndex extends React.Component {
   componentDidMount() {
     // let el = $(`#track-${this.id}-comments`);
     // let change = false;
-    // debugger;
     // el.className().match(/hidden/) ? change = false : change = true;
     // let showButton = $(`#track-${this.id}-show-comments`);
     // const text = showButton.text();
