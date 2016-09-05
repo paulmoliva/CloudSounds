@@ -9,6 +9,7 @@ class TrackItem  extends React.Component {
    this.deleteThisTrack = this.deleteThisTrack.bind(this);
    this.generateWaveform = this.generateWaveform.bind(this);
    this.listenForComments = this.listenForComments.bind(this);
+   this.makeDeleteButton = this.makeDeleteButton.bind(this);
  }
   deleteThisTrack() {
     this.props.deleteTrack(this.props.track);
@@ -79,6 +80,16 @@ class TrackItem  extends React.Component {
     }
   }
 
+  makeDeleteButton(){
+    if (this.props.track.user_id === this.props.currentUser.user.id) {
+        return (
+          <button className='track-delete'
+            onClick={this.deleteThisTrack}>
+          </button>
+        );
+      }
+  }
+
   componentDidMount(){
     this.generateWaveform();
     //this.addTracktoPlaylist();
@@ -138,9 +149,7 @@ class TrackItem  extends React.Component {
           <input className="comment" type="text" id={`${this.props.track.id}-commentform`}placeholder="Write a comment"/>
           <ul className='track-item-buttons'>
             <button className='track-favorite'>24</button>
-            <button className='track-delete'
-              onClick={this.deleteThisTrack}>
-            </button>
+            {this.makeDeleteButton()}
           </ul>
         </div>
       </div>
