@@ -26,11 +26,12 @@ $transparent-light-grey: rgba(17,17,17,0.25);
 }
 
 #playlist-queue{
+  color: black;
   display: block;
   font-size: 16px;
   margin-right: 5px;
-  position: fixed;
-  right: 10px;;
+  position: absolute;
+  right: 1px;
   bottom: 11px;
   z-index: 3;
   &:hover{
@@ -78,12 +79,36 @@ $transparent-light-grey: rgba(17,17,17,0.25);
 }
 
 .volume {
+  position: relative;
   background-image: url(https://a-v2.sndcdn.com/assets/images/playback/volume-max-7a4115.svg);
   background-position: center;
   background-repeat: no-repeat;
   width: 20px;
   height: 45px;
   padding: 0 6px;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.volume-control {
+  position:absolute;
+  height: 60px;
+  min-width: 5px;
+  top: -58px;
+  left: 10px;
+  border-left: 1.5px solid black;
+  border-right: 1.5px solid black;
+  border-top: 1.5px solid black;
+  display: flex;
+  align-items: flex-end;
+  .volume-bar{
+    height: 60px;
+    width: 100%;
+    background-color: $skyblue;
+    z-index: 3;
+    box-sizing: border-box;
+  }
 }
 
 
