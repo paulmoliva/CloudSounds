@@ -22,10 +22,17 @@ class TrackItem  extends React.Component {
           class='playlist-item'
           data-src=${this.props.track.audio_url}
           data-img=${this.props.track.image_url.replace('upload', 'upload/w_30,h_30')}
-          data-title=${this.props.track.title}>
+          data-title=${htmlEntities(this.props.track.title)}>
           ${this._slicedTitle(((screen.width * 0.15)/12), this.props.track.title)}
         </li>`);
     }
+
+    //from Stack Overflow user j08691 (space to &nbsp is mine)
+    function htmlEntities(str) {
+        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/ /g, '&nbsp');
+    }
+
   }
 
   _slicedTitle(ln, str){
