@@ -53,6 +53,26 @@ class Home extends React.Component {
       <div className='content margin'>
         <div className="flex-row home">
           {this.renderTracksList()}
+          <nav className="sidebar">
+            <h3>Trending Comments</h3>
+              <ul className="sidebarlist">
+                <li className='sidebar-list-item column'>
+                  <div className="sidebar-track-data   flex-row">
+                    <Link to="/users/12">
+                    <img className='circle-avatar' src='https://res.cloudinary.com/cloud-sounds/image/upload//c_crop,g_face/c_scale,h_26,w_26/r_30/v1473029683/kvkoxddeqysnqzippxjn.jpg' />
+                    </Link>
+                    <ul className='column comment'>
+                      <Link to="/users/12">
+                      <li className='sidebar-playlist-name comment'>Paul Oliva</li>
+                      </Link>
+                    </ul>
+                  </div>
+                </li>
+                <p className='comment'>
+                  Click my user name to see an example user show page containing tracks.
+                </p>
+              </ul>
+          </nav>
         </div>
         {this.props.children}
       </div>
