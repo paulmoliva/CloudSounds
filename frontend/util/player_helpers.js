@@ -3,16 +3,31 @@ export function playTrack(el) {
   if ($('.playing').length){
     $('.waveform').unbind('click');
   }
-  //Add playing class to playlist and play song.
+
+  //Add playing class to playlist
   $('#track-' + $(el).attr('id')).addClass('playing').siblings().removeClass('playing');
   let trackID = $(el).attr('id');
   window.audio.load($(el).attr('data-src'));
   $('#wrapper').removeClass('hidden');
+
+  //Add now playing badge to player
+  const playlistItem = $('.playlist-item.playing');
+  const imageURL = $(playlistItem).attr('data-img');
+  const title = $(playlistItem).attr('data-title');
+  const badge = $('.nowplaying-badge');
+  badge.empty();
+  badge.append(`<img src=${imageURL}>`);
+  badge.append(`<ul class='column'>
+                  <li class='playlist-name'>Playing from Cloudy Day Tracks</li>
+                  <li class= 'title'>${title}</li>
+                </ul>`);
+
+  //play the track
   window.audio.play();
 
+  //for detectng clicks on the waveform
   var playingTrackID = $('.playing').attr('id').split('-')[1];
   var can = $('#waveform-' + playingTrackID);
-  //for detectng clicks on the waveform
   function getPosition(event)
   {
     var x = new Number();
@@ -43,8 +58,9 @@ export function playTrack(el) {
 export function addOlListener() {
   $('ol').click( e => {
     $(e.target).addClass('playing').siblings().removeClass('playing');
-    window.audio.load($(e.target).attr('data-src'));
-    $('#wrapper').removeClass('hidden');
-    window.audio.play();
+    // window.audio.load($(e.target).attr('data-src'));
+    // $('#wrapper').removeClass('hidden');
+    // window.audio.play();
+    playTrack(e.target);
   });
 }

@@ -104,7 +104,7 @@ $transparent-light-grey: rgba(17,17,17,0.25);
     height: 45px;
   }
   .scrubber {
-    width: 25%;
+    width: 45%;
     height: 3px;
     margin-top: 16px;
   }
@@ -149,6 +149,9 @@ $transparent-light-grey: rgba(17,17,17,0.25);
 }
 
 .nowplaying-badge {
+  font-family: "Interstate";
   width: 19%;
-  border: 1px solid black
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
