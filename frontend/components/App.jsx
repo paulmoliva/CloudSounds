@@ -16,10 +16,13 @@ setUpPlayer(){
       trackEnded: function() {
         let playing = $('.playing');
         var next = $('.playing').next();
-        if (!next.length) next = $('ol li').first();
-
-        const trackId = next.attr('id').split('-')[1];
-        playTrack(trackId);
+        if (!next.length){
+          //next = $('ol li').first();
+          $('#wrapper').toggleClass('hidden');
+        } else {
+          const trackId = next.attr('id').split('-')[1];
+          playTrack(trackId);
+        }
 
         // next.addClass('playing').siblings().removeClass('playing');
         // window.audio.load($(next).attr('data-src'));
