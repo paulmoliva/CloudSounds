@@ -31,35 +31,49 @@ $transparent-light-grey: rgba(17,17,17,0.25);
   z-index: 2;
 }
 
-.audiojs .play {
-  background-image: url('https://a-v2.sndcdn.com/assets/images/playback/play-c9d2fb.svg');
-  background-size: contain;
+.playing p.play {
+  display:none;
 }
 
-.back {
+.audiojs .play {
+  background-image: url('https://a-v2.sndcdn.com/assets/images/playback/play-c9d2fb.svg');
+}
+
+.audiojs .back {
+  display: inline-block;
   background-image: url(https://a-v2.sndcdn.com/assets/images/playback/prev-34697d.svg);
-  background-size: contain;
+  background-size: 50%;
+  margin-left: 9%;
 }
 
 .audiojs .pause {
   background-image: url(https://a-v2.sndcdn.com/assets/images/playback/pause-b172a6.svg);
-  background-position: center 22.5%;
+  background-position: center;
+  background-size: 50%;
 }
 
-.skip {
+.audiojs .skip {
+  display: inline-block;
   background-image: url(https://a-v2.sndcdn.com/assets/images/playback/skip-3aac31.svg);
-  background-position: 60% center;
+  background-size: 50%;
+}
+.audiojs.playing{
+  padding: 0;
+}
+.audiojs.playing:hover {
+  background-color: #f2f2f2;
 }
 
 .volume {
   background-image: url(https://a-v2.sndcdn.com/assets/images/playback/volume-max-7a4115.svg);
   background-position: 60% 45%;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 45px;
+  padding: 0 6px;
 }
 
-.audiojs {
-  position: fixed;
-  width: 100%;
-}
+
 
 .play-controls {
   position: fixed;
@@ -74,9 +88,24 @@ $transparent-light-grey: rgba(17,17,17,0.25);
 }
 
 .audiojs {
+  position: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #f2f2f2;
+  p {
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    //border: 1px solid black;
+    height: 45px;
+  }
   .scrubber {
-    width: 88%;
-    height: 5px;
+    width: 25%;
+    height: 3px;
     margin-top: 16px;
   }
   .progress {
@@ -86,8 +115,40 @@ $transparent-light-grey: rgba(17,17,17,0.25);
   .loaded {
     height: 5px;
   }
+
 }
 
+#wrapper {
+}
+
+#wrapper.hidden {
+  display: none;
+}
 .waveform {
   position: relative;
+}
+
+.audiojs .time {
+  float: left;
+  height: 36px;
+  line-height: 36px;
+  margin: 0px 0px 0px 6px;
+  padding: 0px 6px 0px 12px;
+  color: rgb(51,51,51);
+  //text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.5);
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+}
+.audiojs .time em {
+  padding: 0px 2px 0px 0px;
+  //color: #f9f9f9;
+  font-style: normal;
+}
+.audiojs .time strong {
+  padding: 0px 0px 0px 2px;
+  font-weight: normal;
+}
+
+.nowplaying-badge {
+  width: 19%;
+  border: 1px solid black
 }
