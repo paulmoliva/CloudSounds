@@ -25,6 +25,19 @@ $transparent-light-grey: rgba(17,17,17,0.25);
   font-size: 12px;
 }
 
+#playlist-queue{
+  display: block;
+  font-size: 16px;
+  margin-right: 5px;
+  position: fixed;
+  right: 10px;;
+  bottom: 11px;
+  z-index: 3;
+  &:hover{
+    cursor: pointer;
+  }
+}
+
 #wrapper {
   position: fixed;
   bottom: 36px;

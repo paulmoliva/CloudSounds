@@ -21,7 +21,7 @@ setUpPlayer(){
           $('#wrapper').toggleClass('hidden');
         } else {
           const trackId = next.attr('id').split('-')[1];
-          playTrack(trackId);
+          playTrack($(next[0]));
         }
 
         // next.addClass('playing').siblings().removeClass('playing');
@@ -34,9 +34,24 @@ setUpPlayer(){
     window.audio = a[0];
     let first = $('ol a').attr('data-src');
     $('ol li').first().addClass('playing');
-    //window.audio.load(first);
 
+    //set upclick handlers for next and back
+    $('.skip').on('click', () => {
+      var next = $('li.playing').next();
+      if (!next.length) next = $('ol li').first();
+      next.click();
+    });
 
+    $('.back').on('click', () => {
+      var prev = $('li.playing').prev();
+      if (!prev.length) prev = $('ol li').last();
+      prev.click();
+    });
+
+    $('#playlist-queue').on('click', () => {
+      console.log('click');
+      $('#playlist').toggleClass('hidden');
+    })
     // Keyboard shortcuts
     // $(document).keydown(function(e) {
     //   var unicode = e.charCode ? e.charCode : e.keyCode;
@@ -62,7 +77,7 @@ setUpPlayer(){
   render(){
     return (
       <div>
-        <ol id='playlist'>
+        <ol id='playlist' className='hidden'>
         </ol>
         {this.props.children}
 
@@ -71,6 +86,7 @@ setUpPlayer(){
           <audio preload></audio>
         </div>
 
+        <div id="playlist-queue">Playlist▼</div> \
 
       </div>
     );

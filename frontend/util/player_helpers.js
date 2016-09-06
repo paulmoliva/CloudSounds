@@ -3,10 +3,9 @@ export function playTrack(el) {
   if ($('.playing').length){
     $('.waveform').unbind('click');
   }
-
   //Add playing class to playlist
-  $('#track-' + $(el).attr('id')).addClass('playing').siblings().removeClass('playing');
-  let trackID = $(el).attr('id');
+  let trackID = $(el).attr('id').match(/\d+/g);
+  $('#track-' + trackID).addClass('playing').siblings().removeClass('playing');
   window.audio.load($(el).attr('data-src'));
   $('#wrapper').removeClass('hidden');
 
