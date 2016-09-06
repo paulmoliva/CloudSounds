@@ -46,20 +46,51 @@ class TrackItem  extends React.Component {
       barWidth: 1.75,
       normalize: true,
     });
-    waveform.load(this.props.track.audio_url);
-    $(`#waveform-${this.props.track.id}`).append(
-      `<div id="waveform-loading-${this.props.track.id}"  style="z-index:1; position: absolute; top: 0px; width:${(screen.width * 0.4062)}px; height:45px; display:flex; flex-direction: row; align-items: center;"><h2 style="font-size: 20px;">Loading Waveform</h2><img src='https://res.cloudinary.com/cloud-sounds/image/upload/v1473033713/loading5_kluvdv.gif' height='40px' width='40px'/></div>`
-    );
     const that = this;
-    waveform.on('ready', function () {
-      $(`#waveform-loading-${that.props.track.id}`).remove();
-      var wave = $('#waveform-' + that.props.track.id + ' wave canvas');
-      var waveWidth = wave.width();
-      $(`#waveform-${that.props.track.id}`).append(
-        `<canvas id="waveform-progress-${that.props.track.id}" width="${waveWidth}" height="60" style="z-index:1; position: absolute; top: 0px;">`
+    if (!this.props.track.peaks.length){
+      waveform.load(this.props.track.audio_url);
+      $(`#waveform-${this.props.track.id}`).append(
+        `<div id="waveform-loading-${this.props.track.id}"  style="z-index:1; position: absolute; top: 0px; width:${(screen.width * 0.4062)}px; height:45px; display:flex; flex-direction: row; align-items: center;"><h2 style="font-size: 20px;">Loading Waveform</h2><img src='https://res.cloudinary.com/cloud-sounds/image/upload/v1473033713/loading5_kluvdv.gif' height='40px' width='40px'/></div>`
       );
-      window.waveforms[`${that.props.track.id}`] = waveform;
-    });
+      const numPeaks = Math.round((screen.width * 0.4062) / 1.75);
+      waveform.on('ready', function () {
+        const peaks = waveform.backend.getPeaks(numPeaks);
+
+        $.ajax({
+          url: '/api/tracks/' + that.props.track.id,
+          type: 'PUT',
+          data: {
+            track: {
+              'peaks': peaks
+            }
+          },
+          success: (data) => console.log(data)
+        });
+
+        $(`#waveform-loading-${that.props.track.id}`).remove();
+        var wave = $('#waveform-' + that.props.track.id + ' wave canvas');
+        var waveWidth = wave.width();
+        $(`#waveform-${that.props.track.id}`).append(
+          `<canvas id="waveform-progress-${that.props.track.id}" width="${waveWidth}" height="60" style="z-index:1; position: absolute; top: 0px;">`
+        );
+        window.waveforms[`${that.props.track.id}`] = waveform;
+      });
+    } else {
+      //set timeout so waveforms don't load too fast!
+        setTimeout ( ()=>{
+          $(waveform.load(this.props.audio_url, this.props.track.peaks));
+          $(`#waveform-${this.props.track.id}`).append(
+            `<div id="waveform-loading-${this.props.track.id}"  style="z-index:1; position: absolute; top: 0px; width:${(screen.width * 0.4062)}px; height:45px; display:flex; flex-direction: row; align-items: center;"><h2 style="font-size: 20px;">Loading Waveform</h2><img src='https://res.cloudinary.com/cloud-sounds/image/upload/v1473033713/loading5_kluvdv.gif' height='40px' width='40px'/></div>`
+          );
+          $(`#waveform-loading-${that.props.track.id}`).remove();
+          var wave = $('#waveform-' + that.props.track.id + ' wave canvas');
+          var waveWidth = wave.width();
+          $(`#waveform-${that.props.track.id}`).append(
+            `<canvas id="waveform-progress-${that.props.track.id}" width="${waveWidth}" height="60" style="z-index:1; position: absolute; top: 0px;">`
+          );
+          window.waveforms[`${that.props.track.id}`] = waveform;
+        }, 400);
+    }
   }
 
   listenForComments(e) {

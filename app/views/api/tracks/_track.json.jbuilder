@@ -8,6 +8,7 @@ json.set! track.id do
   json.weather_id track.weather_id
   json.audio_url track.audio_url
   json.image_url track.image_url
+  json.peaks track.peaks
 
   json.set! 'comments' do
     Track.find(track.id).comments.reverse.each do |comment|

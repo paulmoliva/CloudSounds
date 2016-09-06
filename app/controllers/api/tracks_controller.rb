@@ -15,11 +15,20 @@ class Api::TracksController < ApplicationController
 
   def create
     @track = Track.new(track_params)
-
+    debugger
     if @track.save
       render :show
     else
       render json: @track.errors.full_messages, status: 401
+    end
+  end
+
+  def update
+    @track = Track.find(params[:id])
+    if @track.update(track_params)
+      render json: params[:id]
+    else
+      render json: 'error saving peaks', status: 401
     end
   end
 
@@ -32,6 +41,6 @@ class Api::TracksController < ApplicationController
   private
   def track_params
     params.require(:track).permit(:title, :description, :audio_url,
-     :user_id, :image_url, :weather_id, :track_id)
+     :user_id, :image_url, :weather_id, :track_id, :peaks => [])
   end
 end
