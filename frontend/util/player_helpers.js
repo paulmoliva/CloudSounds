@@ -1,6 +1,10 @@
 export function playTrack(el) {
-  //remove event listeners from other canvases
+  //if any tracks are currently playing
   if ($('.playing').length){
+    //stop current track
+    window.audio.playPause();
+
+    //remove event listeners from other canvases
     $('.waveform').unbind('click');
   }
   //Add playing class to playlist

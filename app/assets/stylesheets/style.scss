@@ -519,6 +519,7 @@ select {
 
 .track-item-buttons {
   justify-content: flex-start;
+  margin-bottom: 5px;
 }
 
 .track-delete {
@@ -534,6 +535,24 @@ select {
 .track-delete:hover {
   -webkit-filter: brightness(100%);
   cursor: pointer;
+}
+
+.enqueue-track {
+  background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/v1473184788/download_zj6l4s.svg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid black;
+  border-radius: 3px;
+  min-width: 17px;
+  max-width: 17px;
+  box-sizing: border-box;
+  -webkit-filter: brightness(50%);
+  margin-left: 5px;
+  &:hover {
+    -webkit-filter: brightness(100%);
+    cursor: pointer;
+  }
 }
 
 .track-favorite:hover {

@@ -5,8 +5,6 @@ import {playTrack} from '../util/player_helpers';
 
 class App extends React.Component {
 
-
-
   componentDidMount(){
     this.setUpPlayer();
   }
@@ -33,7 +31,6 @@ setUpPlayer(){
     // Strap the player onto the window
     window.audio = a[0];
 
-
     //set upclick handlers for next, back, and volume, playlist show/hide
     $('.skip').on('click', () => {
       var next = $('li.playing').next();
@@ -42,9 +39,18 @@ setUpPlayer(){
     });
 
     $('.back').on('click', () => {
-      var prev = $('li.playing').prev();
-      if (!prev.length) prev = $('ol li').last();
-      prev.click();
+      //get length of progress bar in px
+      const progress = parseInt($('.progress').css('width').match(/\d+/g));
+
+      //if near track beginning, play previous track.
+      if(progress < 5){
+        var prev = $('li.playing').prev();
+        if (!prev.length) prev = $('ol li').last();
+        prev.click();
+      //else restart current track
+    } else {
+      window.audio.skipTo(0);
+    }
     });
 
     $('#playlist-queue').on('click', () => {
@@ -69,9 +75,11 @@ setUpPlayer(){
       $('.volume').attr('data-prevvolume', `${relY}`);
     });
 
+    //default volume attribute of 60
     $('.volume').attr('data-volume', `60`);
     $('.volume').attr('data-prevvolume', `60`);
 
+    //mute volume by clicking volume icon
     $('.volume').on('click', (e) => {
       if (e.target.className !== 'volume') return;
       const currentVolume = parseInt($('.volume').attr('data-volume'));

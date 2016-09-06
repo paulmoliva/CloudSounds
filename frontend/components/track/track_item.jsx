@@ -127,7 +127,8 @@ class TrackItem  extends React.Component {
     if (this.props.track.user_id === this.props.currentUser.user.id) {
         return (
           <button className='track-delete'
-            onClick={this.deleteThisTrack}>
+            onClick={this.deleteThisTrack}
+            title="Delete track">
           </button>
         );
       }
@@ -192,6 +193,10 @@ class TrackItem  extends React.Component {
           <input className="comment" type="text" id={`${this.props.track.id}-commentform`}placeholder="Write a comment"/>
           <ul className='track-item-buttons'>
             <button className='track-favorite'>24</button>
+            <button className='enqueue-track'
+              onClick={this.addTracktoPlaylist}
+              title="Add to playlist">
+            </button>
             {this.makeDeleteButton()}
           </ul>
         </div>
