@@ -15,6 +15,7 @@ export const TracksList = function({tracks,
   else {
     return ( <Masonry className='home-tracks'
                 elementType={'ul'}
+                ref={function(c) {window.masonry = c.masonry;}}
               >
       {tracks.map ( track => {
         return (

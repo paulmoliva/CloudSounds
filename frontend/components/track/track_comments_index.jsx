@@ -1,5 +1,6 @@
 import React from 'react';
 import CommentItem from './comment_item';
+import Masonry from 'react-masonry-component';
 class TrackCommentsIndex extends React.Component {
 
   constructor(props) {
@@ -55,6 +56,8 @@ class TrackCommentsIndex extends React.Component {
           onClick={ () => {
             let el = $(`#track-${this.id}-comments`);
             el.toggleClass('hidden');
+            debugger;
+            window.masonry.layout();
             // let showButton = $(`#track-${this.id}-show-comments`);
             // const text = showButton.text();
             // if(text.match(/show/))
