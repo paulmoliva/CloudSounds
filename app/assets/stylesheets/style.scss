@@ -556,6 +556,21 @@ select {
   }
 }
 
+.upload.play-all {
+  min-height: 212px;
+  min-width: 212px;
+  margin: 15px;
+  background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_175/v1473218456/logo_h4imur.png');
+  background-position: top;
+  background-repeat: no-repeat;
+  &:hover {
+    background-color: $skyblue;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
 .track-favorite:hover {
   background-color: whitesmoke;
   cursor: pointer;
@@ -642,12 +657,14 @@ select {
 
 
 .upload {
-  height: 40px;
   border: 1px solid #ccc;
   background: transparent;
-  padding: 2px 12px;
+  padding: 12px 12px;
   border-radius: 8%;
   font-size: 16px;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .trending {

@@ -6,8 +6,10 @@ const CommentItem = ({comment, deleteComment, currentUser, track}) => {
     deleteComment(comment.id);
   }
   function makeDeleteButton(){
-    if (comment.user_id === currentUser.user.id
-      || track.user_id === currentUser.user.id) {
+    if (currentUser &&
+        (comment.user_id === currentUser.user.id
+        || track.user_id === currentUser.user.id)
+       ) {
         return (
           <button className='track-delete'
             onClick={deleteThisComment}>

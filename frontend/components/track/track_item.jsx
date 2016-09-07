@@ -124,7 +124,8 @@ class TrackItem  extends React.Component {
   }
 
   makeDeleteButton(){
-    if (this.props.track.user_id === this.props.currentUser.user.id) {
+    if (this.props.currentUser &&
+        this.props.track.user_id === this.props.currentUser.user.id) {
         return (
           <button className='track-delete'
             onClick={this.deleteThisTrack}

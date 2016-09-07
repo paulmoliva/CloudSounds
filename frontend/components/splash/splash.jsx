@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import SessionForm from './session_form.jsx';
 import {CloudinaryImageConstants} from '../../constants/cloudinary';
 import {getLocation, requestData} from '../../util/weather_helpers.js';
+import { playTrack } from '../../util/player_helpers';
 import SplashTrackItem from './splash_track_item';
 import Masonry from 'react-masonry-component';
 class Splash extends React.Component {
@@ -25,6 +26,7 @@ class Splash extends React.Component {
     this.signupSubmit = this.signupSubmit.bind(this);
     this.showErrors = this.showErrors.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
+    this.playAll = this.playAll.bind(this);
   }
 
   componentDidMount(){
@@ -161,14 +163,23 @@ class Splash extends React.Component {
             onClick={this.guestLogin}>Guest Login</button>
         </div>
       </div>
-      <Masonry
+      <div className="search">
+        <form className="search-form">
+          <input type="text" placeholder="Search for weather moods, artists, or tracks"></input>
+        </form>
+        <p> or </p>
+        <button className="upload" onClick={this.guestLogin}>Upload your own</button>
+      </div>
+      <h3>Hear what's coming down today</h3>
+      {Object.keys(this.props.tracks).length ? (<Masonry
           className={'my-gallery-class'}
           elementType={'ul'}
           disableImagesLoaded={false}
           updateOnEachImageLoad={false}
-      >
+      >   <button onClick={this.playAll}
+                  className='upload play-all'>Play All</button>
           {this.mapTracksToItems()}
-      </Masonry>
+      </Masonry>) : <img src="https://res.cloudinary.com/cloud-sounds/image/upload/v1473033713/loading5_kluvdv.gif" />}
     </div>
   );}
 
@@ -189,9 +200,8 @@ class Splash extends React.Component {
 
   loginSubmit(e) {
     e.preventDefault();
-    const user = this.state.user;
-    const weather = this.state.weather;
-    this.props.login(user, weather);
+    const user = this.state;
+    this.props.login({user});
   }
 
   guestLogin() {
@@ -224,6 +234,11 @@ class Splash extends React.Component {
     return errors.map( (error)=> {
       return (<li className='error' key={error}>{error}</li>);
     } );
+  }
+
+  playAll(){
+    $('.enqueue-track').click();
+    $('.album img')[0].click();
   }
 
   render(){
