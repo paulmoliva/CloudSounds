@@ -1,6 +1,6 @@
 import React from 'react';
 import TrackItem from './track_item';
-
+import Masonry from 'react-masonry-component';
 export const TracksList = function({tracks,
                                     playTrack,
                                     currentUser,
@@ -13,7 +13,9 @@ export const TracksList = function({tracks,
     return (<p></p>);
   }
   else {
-    return ( <ul className='home-tracks'>
+    return ( <Masonry className='home-tracks'
+                elementType={'ul'}
+              >
       {tracks.map ( track => {
         return (
           <TrackItem
@@ -29,6 +31,6 @@ export const TracksList = function({tracks,
         );
         })
       }
-    </ul>);
+    </Masonry>);
   }
 };
