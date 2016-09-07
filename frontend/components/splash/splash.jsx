@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import SessionForm from './session_form.jsx';
 import {CloudinaryImageConstants} from '../../constants/cloudinary';
 import {getLocation, requestData} from '../../util/weather_helpers.js';
-import { playTrack } from '../../util/player_helpers';
+import { playTrack, addOlListener, addTracktoPlaylist } from '../../util/player_helpers';
 import SplashTrackItem from './splash_track_item';
 import Masonry from 'react-masonry-component';
 class Splash extends React.Component {
@@ -63,6 +63,8 @@ class Splash extends React.Component {
           }
         });
       }, false);
+
+      addOlListener();
   }
 
   update(field){
@@ -237,8 +239,15 @@ class Splash extends React.Component {
   }
 
   playAll(){
-    $('.enqueue-track').click();
-    $('.album img')[0].click();
+    $('.album').each( (i, el) => {
+      let track = {};
+      track.id = $(el).attr('id').match(/\d+/g);
+      track.audio_url = $(el).attr('data-src');
+      track.image_url = $(el).attr('data-img');
+      track.title = $(el).attr('data-title');
+      addTracktoPlaylist(track);
+    });
+    playTrack($('ol li')[0]);
   }
 
   render(){

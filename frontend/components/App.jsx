@@ -58,7 +58,6 @@ setUpPlayer(){
     });
 
     $('.volume').hover( () => {
-      console.log('hover');
       $('.volume-control').toggleClass('hidden');
     });
 

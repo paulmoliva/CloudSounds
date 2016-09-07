@@ -1,8 +1,16 @@
 import React from 'react';
-import {playTrack, addTracktoPlaylist} from '../../util/player_helpers';
+import {playTrack,
+        addTracktoPlaylist,
+        addOlListener} from '../../util/player_helpers';
 const SplashTrackItem = ({track}) => {
   if (typeof track === 'object' && Object.keys(track).length) return (
-  <li className="album" key={track.id} id={`splash-track-${track.id}`}>
+  <li className="album"
+    key={track.id}
+    id={`splash-track-${track.id}`}
+    data-src={track.audio_url}
+    data-img={track.image_url}
+    data-title={track.title}
+  >
     <img src={track.image_url.replace('upload', 'upload/w_212,h_212')}
       onClick={ () => {
         addTracktoPlaylist(track);

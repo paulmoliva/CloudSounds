@@ -54,6 +54,7 @@ ul {
   width: 81.6%;
   margin: 0 auto;
   background-color: white;
+  margin-bottom: 66px;
 }
 
 .content.margin{
@@ -548,7 +549,8 @@ select {
   max-width: 17px;
   min-height: 17px;
   box-sizing: border-box;
-  -webkit-filter: brightness(50%);
+  padding: 2px 2px;
+  -webkit-filter: brightness(75%);
   margin-left: 5px;
   &:hover {
     -webkit-filter: brightness(100%);
@@ -557,12 +559,17 @@ select {
 }
 
 .upload.play-all {
-  min-height: 212px;
+  min-height: 266px;
   min-width: 212px;
+  box-sizing: border-box;
   margin: 15px;
+  padding: 5px 5px;
   background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_175/v1473218456/logo_h4imur.png');
-  background-position: top;
+  background-position: center 10%;
   background-repeat: no-repeat;
+  font-size: 18px;
+  font-weight: bold;
+
   &:hover {
     background-color: $skyblue;
   }
@@ -680,6 +687,10 @@ select {
   margin: 15px;
   &:hover{
 
+  }
+
+  .enqueue-track{
+    margin-left: 0;
   }
 }
 
