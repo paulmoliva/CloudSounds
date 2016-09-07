@@ -176,6 +176,9 @@ class Splash extends React.Component {
       {Object.keys(this.props.tracks).length ? (<Masonry
           className={'my-gallery-class'}
           elementType={'ul'}
+          options={{
+            columnWidth: 0
+          }}
           disableImagesLoaded={false}
           updateOnEachImageLoad={false}
       >   <button onClick={this.playAll}
