@@ -2,14 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import SessionForm from './session_form.jsx';
 import {CloudinaryImageConstants} from '../../constants/cloudinary';
-
+import {getLocation, requestData} from '../../util/weather_helpers.js';
+import SplashTrackItem from './splash_track_item';
+import Masonry from 'react-masonry-component';
 class Splash extends React.Component {
   constructor(props){
     super(props);
-    navigator.geolocation.getCurrentPosition((pos) => {
-     this.location = {lat: pos.coords.latitude, long: pos.coords.longitude};
-     this.requestData();
-    });
+
     this.state = {
       currentUser: props.currentUser,
       username: "",
@@ -19,6 +18,8 @@ class Splash extends React.Component {
       errors: "",
       weather: {'name': 'Loading Weather...', 'main': {'temp': ''}}
     };
+
+
     this.hero = this.hero.bind(this);
     this.loginSubmit = this.loginSubmit.bind(this);
     this.signupSubmit = this.signupSubmit.bind(this);
@@ -27,6 +28,7 @@ class Splash extends React.Component {
   }
 
   componentDidMount(){
+    getLocation(this, requestData, this.props.fetchUserTracks);
     const that = this;
     $(document).on( 'keyup', (e) => {
       let login = document.getElementById('loginModal');
@@ -46,22 +48,19 @@ class Splash extends React.Component {
     });
 
     document.getElementById("image_upload_widget_opener")
-      .addEventListener("click", function() {
+    .addEventListener("click", function() {
       window.cloudinary.openUploadWidget(CloudinaryImageConstants,
         function(error, result) {
-           if (!error){
-
-             $('#image_url').val(result[0].secure_url);
-             that.setState({
-               ['avatar_url']: result[0].secure_url
-             });
-             $('#image_upload_widget_opener')[0].remove();
-             $('#image_filename').text("Image Upload successful!");
-           }
-         });
-        }, false);
-
-
+          if (!error){
+            $('#image_url').val(result[0].secure_url);
+            that.setState({
+              ['avatar_url']: result[0].secure_url
+            });
+            $('#image_upload_widget_opener')[0].remove();
+            $('#image_filename').text("Image Upload successful!");
+          }
+        });
+      }, false);
   }
 
   update(field){
@@ -162,22 +161,37 @@ class Splash extends React.Component {
             onClick={this.guestLogin}>Guest Login</button>
         </div>
       </div>
-
-
+      <Masonry
+          className={'my-gallery-class'}
+          elementType={'ul'}
+          disableImagesLoaded={false}
+          updateOnEachImageLoad={false}
+      >
+          {this.mapTracksToItems()}
+      </Masonry>
     </div>
   );}
 
   weatherGreeting() {
     if (this.state.weather.temp)
-      return `It\'s ${Math.round(this.state.weather.temp)}℉ and ${this.state.weather.desc} in ${this.state.weather.location}`;
+      return `It\'s ${Math.round(this.state.weather.temp)}℉ and ${this.state.weather.desc} in ${this.state.weather.city}`;
     else
       return 'It\'s 65℉ and Partly Cloudy in San Francisco';
+  }
+
+  mapTracksToItems(){
+    let result = [];
+    for(let key in this.props.tracks){
+      result.push(this.props.tracks[key]);
     }
+    return result.map( (el) => <SplashTrackItem track={el} key={el.id} /> );
+  }
 
   loginSubmit(e) {
     e.preventDefault();
-    const user = this.state;
-    this.props.login({user});
+    const user = this.state.user;
+    const weather = this.state.weather;
+    this.props.login(user, weather);
   }
 
   guestLogin() {
@@ -212,31 +226,9 @@ class Splash extends React.Component {
     } );
   }
 
-  requestData() {
-    var request = new XMLHttpRequest();
-    request.open('GET', `https://api.worldweatheronline.com/premium/v1/weather.ashx?q=${this.location.lat},${this.location.long}&includelocation=yes&format=json&key=8e4eeea070554e7481a01401160209`, true);
-
-    let that = this;
-    request.onload = () => {
-      if (request.status >= 200 && request.status < 400) {
-        let weatherJSON = $.parseJSON(request.responseText);
-        let data = weatherJSON.data.current_condition[0];
-        let location = weatherJSON.data.nearest_area[0].areaName[0].value;
-        let weatherObj = {temp: data.temp_F,
-                          desc: data.weatherDesc[0].value,
-                          location: location};
-        that.setState({weather: weatherObj});
-      }
-
-      
-    };
-    request.send();
-  }
-
   render(){
     return this.hero();
   }
 }
-
 
 export default Splash;

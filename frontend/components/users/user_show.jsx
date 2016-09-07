@@ -11,6 +11,7 @@ class UserShow extends React.Component {
     super(props);
     this.generateTracksArray = this.generateTracksArray.bind(this);
     this.renderTracksList = this.renderTracksList.bind(this);
+    this.generateNavBar = this.generateNavBar.bind(this);
   }
 
   componentDidMount() {
@@ -34,6 +35,14 @@ class UserShow extends React.Component {
     return arr;
   }
 
+  generateNavBar(){
+    if (this.props.currentUser){
+      return (
+        <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}/>
+      );
+    } else return '';
+  }
+
     renderTracksList(){
       if (Object.keys(this.props.tracks).length > 1){
         return (
@@ -52,7 +61,7 @@ class UserShow extends React.Component {
     render() {
       return (
         <div>
-          <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}/>
+          {this.generateNavBar()}
           <div className='content margin'>
             <h1 className='user-show-name'>
               {this.props.tracks.username + "'s Tracks"}

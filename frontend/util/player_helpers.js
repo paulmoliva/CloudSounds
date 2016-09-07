@@ -67,3 +67,33 @@ export function addOlListener() {
     playTrack(e.target);
   });
 }
+
+export function addTracktoPlaylist(track){
+  if (!$(`ol #track-${track.id}`).length){
+    $('ol').append(
+      `<li id='track-${track.id}'
+        class='playlist-item'
+        data-src=${track.audio_url}
+        data-img=${track.image_url.replace('upload', 'upload/w_30,h_30')}
+        data-title=${htmlEntities(track.title)}>
+        ${_slicedTitle(((screen.width * 0.15)/12), track.title)}
+      </li>`);
+  }
+
+  //from Stack Overflow user j08691 (space to &nbsp is mine)
+  function htmlEntities(str) {
+      return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/ /g, '&nbsp');
+  }
+
+}
+
+function _slicedTitle(ln, str){
+  let elipses;
+  if (str.length > ln -1){
+    elipses = "...";
+  } else{
+    elipses = "";
+  }
+  return str.slice(0, ln) + elipses;
+}

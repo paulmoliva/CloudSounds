@@ -5,17 +5,30 @@ import NavBar from '../navbar';
 import {TracksList} from '../track/tracksindex';
 
 import {playTrack, addOlListener} from '../../util/player_helpers';
+import {getLocation, requestData} from '../../util/weather_helpers';
 
 class Home extends React.Component {
   constructor(props) {
     super(props);
+
+    getLocation(this, requestData);
+
     this.generateTracksArray = this.generateTracksArray.bind(this);
     this.renderTracksList = this.renderTracksList.bind(this);
+    this.generateNavBar = this.generateNavBar.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchUserTracks(this.props.currentUser.user);
     addOlListener();
+  }
+
+  generateNavBar(){
+    if (this.props.currentUser){
+      return (
+        <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}/>
+      );
+    } else return '';
   }
 
   generateTracksArray() {
@@ -49,7 +62,7 @@ class Home extends React.Component {
   render() {
     return (
     <div>
-      <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}/>
+      {this.generateNavBar()}
       <div className='content margin'>
         <div className="flex-row home">
           {this.renderTracksList()}

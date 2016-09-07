@@ -5,4 +5,4 @@ if @tracks.is_a?(Track::ActiveRecord_Associations_CollectionProxy)
 else
   json.partial! '/api/tracks/track', track: @tracks, commments: @comments
 end
-json.username @user.username
+json.username @user.username if @user

@@ -13,7 +13,8 @@ export const create_track = function(track_params, success, errors) {
 
 export const fetchUserTracks = function(track_params, success, errors) {
   let param = $.param({track: {'user_id': track_params['id'],
-                               'track_id': track_params['track_id']
+                               'track_id': track_params['track_id'],
+                               'weather_id': track_params['weather_id']
                               }
                       });
   $.get({

@@ -7,9 +7,12 @@ class Api::TracksController < ApplicationController
     if track_params[:user_id].length >= 1
       @user = User.find(track_params[:user_id])
       @tracks = User.find(track_params[:user_id]).tracks
-    elsif track_params[:track_id]
+    elsif track_params[:track_id].length >= 1
       @tracks = Track.find(track_params[:track_id].to_i)
       @user = User.find(@tracks.user_id)
+    elsif track_params[:weather_id]
+      @tracks = Weather.find(track_params[:weather_id]).tracks
+      @user = current_user
     end
   end
 

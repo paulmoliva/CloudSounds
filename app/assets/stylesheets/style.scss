@@ -366,7 +366,7 @@ select {
 }
 
 .column.weather-1-track {
-  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/v1472704899/sunny-bg_ijm5nt.jpg');
+  background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/v1472704899/sunny-bg_ijm5nt.jpg');
   background-size: cover;
   height: 160px;
   width: 100%;
@@ -374,7 +374,7 @@ select {
 }
 
 .column.weather-2-track {
-  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/v1472705046/photo-1437624155766-b64bf17eb2ce_ugtc6o.jpg');
+  background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/v1472705046/photo-1437624155766-b64bf17eb2ce_ugtc6o.jpg');
   background-size: cover;
   height: 160px;
   width: 100%;
@@ -382,7 +382,7 @@ select {
 }
 
 .column.weather-3-track {
-  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/v1472756684/5f8e7ade_dhkohs.jpg');
+  background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/v1472756684/5f8e7ade_dhkohs.jpg');
   background-size: cover;
   height: 160px;
   width: 100%;
@@ -390,7 +390,7 @@ select {
 }
 
 .column.weather-4-track {
-  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/v1472772125/photo-1470274130023-64addc574eaf_oldlqq.jpg');
+  background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/v1472772125/photo-1470274130023-64addc574eaf_oldlqq.jpg');
   background-size: cover;
   height: 160px;
   width: 100%;
@@ -398,7 +398,7 @@ select {
 }
 
 .column.weather-5-track {
-  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/v1472772193/photo-1422225439441-f09fb9a237b7_om7nup.jpg');
+  background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/v1472772193/photo-1422225439441-f09fb9a237b7_om7nup.jpg');
   background-size: cover;
   height: 160px;
   width: 100%;
@@ -523,7 +523,7 @@ select {
 }
 
 .track-delete {
-  background-image: url('http://res.cloudinary.com/cloud-sounds/image/upload/w_15,h_15/v1472753069/trash_can_icon_ierj9z.jpg');
+  background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/w_15,h_15/v1472753069/trash_can_icon_ierj9z.jpg');
   background-size: cover;
   min-width: 17px;
   max-width: 17px;
@@ -546,6 +546,7 @@ select {
   border-radius: 3px;
   min-width: 17px;
   max-width: 17px;
+  min-height: 17px;
   box-sizing: border-box;
   -webkit-filter: brightness(50%);
   margin-left: 5px;
@@ -660,13 +661,33 @@ select {
 .album {
   box-sizing: border-box;
   margin: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  &:hover{
+
+  }
 }
 
 .album aside {
   font-size: 12px;
+}
+
+.album img {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  z-index: 3;
+  filter: opacity(0%);
+  -webkit-filter: opacity(0%);
+  &:hover {
+    -webkit-filter: opacity(100%);
+    filter: opacity(100%);
+    cursor: pointer;
+  }
 }
 
 .track-info {

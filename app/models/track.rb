@@ -2,6 +2,7 @@ class Track < ActiveRecord::Base
   before_save :default_values
   validates :title, :user_id, :weather_id, :audio_url, presence: true
   belongs_to :user
+  belongs_to :weather
   has_many :comments
 
   def default_values
