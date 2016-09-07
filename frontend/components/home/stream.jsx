@@ -7,13 +7,13 @@ import {TracksList} from '../track/tracksindex';
 import {playTrack, addOlListener} from '../../util/player_helpers';
 import {getLocation, requestData} from '../../util/weather_helpers';
 
-class Home extends React.Component {
+class Stream extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       weather: {
         temp: 65,
-        desc: 'cloudy',
+        desc: '',
         city: 'San Francisco',
         weatherID: 2
        }
@@ -23,11 +23,12 @@ class Home extends React.Component {
     this.renderTracksList = this.renderTracksList.bind(this);
     this.generateNavBar = this.generateNavBar.bind(this);
     this.generateHeaderLinks = this.generateHeaderLinks.bind(this);
+    this.renderWeatherBlurb = this.renderWeatherBlurb.bind(this);
   }
 
   componentDidMount() {
 
-    this.props.fetchUserTracks(this.props.currentUser.user);
+    getLocation(this, requestData, this.props.fetchUserTracks);
 
     addOlListener();
   }
@@ -96,12 +97,21 @@ class Home extends React.Component {
       }
     }
 
+    renderWeatherBlurb(){
+      const weather =this.state.weather;
+      const blurb = `Here are some tracks for today's ${weather.desc} weather`;
+      return (
+        <h3 className='weather-blurb'>{blurb}</h3>
+      );
+    }
+
   render() {
     return (
     <div>
       {this.generateNavBar()}
       <div className='content margin'>
         {this.generateHeaderLinks()}
+        {this.renderWeatherBlurb()}
         <div className="flex-row home">
           {this.renderTracksList()}
           <nav className="sidebar">
@@ -115,4 +125,4 @@ class Home extends React.Component {
   );}
 }
 
-export default Home;
+export default Stream;

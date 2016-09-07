@@ -113,7 +113,6 @@ class TrackItem  extends React.Component {
       this.props.createComment(comment_params);
       $(e.currentTarget).addClass('hidden');
       const commentsList = $(`#track-${trackID}-comments`);
-      debugger;
       if (commentsList.hasClass('hidden')){
         commentsList.removeClass('hidden');
         const showButton = $(`#track-${trackID}-show-comments`);

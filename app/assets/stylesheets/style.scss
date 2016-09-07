@@ -366,7 +366,7 @@ select {
 
 .home-tracks li {
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 32px;
   width: 95%;
   box-sizing: border-box;
 }
@@ -441,6 +441,34 @@ select {
   display: flex;
   flex-direction: row;
   margin-top: 5px;
+}
+
+.header-links-row {
+  display: flex;
+  flex-direction: row;
+  margin-left: 20px;
+  padding-top: 20px;
+  h2 {
+    font-size: 24px;
+    margin: 0 12px;
+    &:hover{
+      cursor:pointer;;
+    }
+  }
+}
+
+.header-link.active {
+  color: $skyblue;
+  border-bottom: 1px solid $skyblue;
+}
+
+.weather-blurb {
+  font-size: 18px;
+  text-align: left;
+  margin-left: 32px;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  color: rgb(153,153,153);
 }
 
 .circle-play {

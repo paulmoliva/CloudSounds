@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './App';
 import SplashContainer from './splash/splash_container';
 import HomeContainer from './home/home_container';
+import StreamContainer from './home/stream_container';
 import UploadContainer from './track/upload_container';
 import UsersContainer from './users/users_container';
 import TrackContainer from './track/track_container';
@@ -46,6 +47,7 @@ class AppRouter extends React.Component{
           <Route path="home" component={ HomeContainer } onEnter={ this._ensureLoggedIn }>
             <Route path='upload' component={ UploadContainer } onEnter={this._ensureLoggedIn} />
           </Route>
+          <Route path="stream" component={ StreamContainer } onEnter={ this._ensureLoggedIn } />
           <Route path="users/:id" component={ UsersContainer }/>
           <Route path="tracks/:id" component={ TrackContainer }/>
         </Route>
