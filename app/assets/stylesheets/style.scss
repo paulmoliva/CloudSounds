@@ -330,7 +330,8 @@ h1.user-show-name {
 }
 
 ul.my-gallery-class {
-  //justify-content: flex-start;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 .flex-box.home {
@@ -566,7 +567,7 @@ select {
   min-height: 266px;
   min-width: 212px;
   box-sizing: border-box;
-  margin: 15px;
+  margin: 15px 0;
   padding: 5px 5px;
   background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_175/v1473218456/logo_h4imur.png');
   background-position: center 10%;
@@ -688,7 +689,7 @@ select {
 
 .album {
   box-sizing: border-box;
-  margin: 15px;
+  margin: 15px 0;
   &:hover{
 
   }

@@ -177,7 +177,9 @@ class Splash extends React.Component {
           className={'my-gallery-class'}
           elementType={'ul'}
           options={{
-            columnWidth: 0
+            columnWidth: 212,
+            gutter: 15,
+            fitWidth: true
           }}
           disableImagesLoaded={false}
           updateOnEachImageLoad={false}
