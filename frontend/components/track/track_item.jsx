@@ -22,7 +22,7 @@ class TrackItem  extends React.Component {
           class='playlist-item'
           data-src=${this.props.track.audio_url}
           data-img=${this.props.track.image_url.replace('upload', 'upload/w_30,h_30')}
-          data-weatherName=${this.props.track.weather_name}
+          data-weathername=${this.props.track.weather_name}
           data-title=${htmlEntities(this.props.track.title)}>
           ${this._slicedTitle(((screen.width * 0.15)/12), this.props.track.title)}
         </li>`);

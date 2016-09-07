@@ -10,7 +10,7 @@ const SplashTrackItem = ({track}) => {
     data-src={track.audio_url}
     data-img={track.image_url}
     data-title={track.title}
-    data-weatherName={track.weather_name}
+    data-weathername={track.weather_name}
   >
     <img src={track.image_url.replace('upload', 'upload/w_212,h_212')}
       onClick={ () => {
