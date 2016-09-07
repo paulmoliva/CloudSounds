@@ -17,7 +17,12 @@ class Splash extends React.Component {
       email: "",
       avatar_url: "",
       errors: "",
-      weather: {'name': 'Loading Weather...', 'main': {'temp': ''}}
+      weather: {
+        temp: 65,
+        desc: 'cloudy',
+        city: 'San Francisco',
+        weatherID: 2
+       }
     };
 
 
