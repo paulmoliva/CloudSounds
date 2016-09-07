@@ -1,4 +1,5 @@
 user = User.find(track.user_id);
+weather = Weather.find(track.weather_id)
 json.set! track.id do
   json.id track.id
   json.title track.title
@@ -9,7 +10,7 @@ json.set! track.id do
   json.audio_url track.audio_url
   json.image_url track.image_url
   json.peaks track.peaks
-
+  json.weather_name weather.name
   json.set! 'comments' do
     Track.find(track.id).comments.reverse.each do |comment|
       json.partial! 'api/comments/comment', comment: comment

@@ -18,10 +18,11 @@ export function playTrack(el) {
   const imageURL = $(playlistItem).attr('data-img');
   const title = $(playlistItem).attr('data-title');
   const badge = $('.nowplaying-badge');
+  const weatherName = $(playlistItem).attr('data-weatherName');
   badge.empty();
   badge.append(`<img src=${imageURL}>`);
   badge.append(`<ul class='column'>
-                  <li class='playlist-name'>Playing from Cloudy Day Tracks</li>
+                  <li class='playlist-name'>${'Playing from ' + weatherName+' Day Tracks'}</li>
                   <li class= 'title'>${title}</li>
                 </ul>`);
 
@@ -75,6 +76,7 @@ export function addTracktoPlaylist(track){
         class='playlist-item'
         data-src=${track.audio_url}
         data-img=${track.image_url.replace('upload', 'upload/w_30,h_30')}
+        data-weatherName=${track.weather_name}
         data-title=${htmlEntities(track.title)}>
         ${_slicedTitle(((screen.width * 0.15)/12), track.title)}
       </li>`);

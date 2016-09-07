@@ -255,6 +255,7 @@ class Splash extends React.Component {
       track.audio_url = $(el).attr('data-src');
       track.image_url = $(el).attr('data-img');
       track.title = $(el).attr('data-title');
+      track.weather_name = $(el).attr('data-weatherName');
       addTracktoPlaylist(track);
     });
     playTrack($('ol li')[0]);
