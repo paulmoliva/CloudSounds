@@ -114,7 +114,7 @@ class Stream extends React.Component {
         {this.renderWeatherBlurb()}
         <div className="flex-row home">
           {this.renderTracksList()}
-          <nav className="sidebar">
+          <nav className="sidebar-stream">
             <h3>Trending Comments</h3>
 
           </nav>
