@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import NavBar from '../navbar';
 import {TracksList} from '../track/tracksindex';
 
-import {playTrack, addOlListener} from '../../util/player_helpers';
+import {playTrack, addOlListener, installWaveformListener} from '../../util/player_helpers';
 import {getLocation, requestData} from '../../util/weather_helpers';
 
 class Home extends React.Component {
@@ -28,7 +28,7 @@ class Home extends React.Component {
   componentDidMount() {
 
     this.props.fetchUserTracks(this.props.currentUser.user);
-
+    installWaveformListener();
     addOlListener();
   }
 

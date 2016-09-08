@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import NavBar from '../navbar';
 import {TracksList} from '../track/tracksindex';
 
-import {playTrack, addOlListener} from '../../util/player_helpers';
+import {playTrack, addOlListener, installWaveformListener} from '../../util/player_helpers';
 
 class UserShow extends React.Component {
   constructor(props) {
@@ -20,6 +20,7 @@ class UserShow extends React.Component {
 
     this.props.fetchUserTracks({id: userId});
     addOlListener();
+    installWaveformListener();
   }
 
   generateTracksArray() {

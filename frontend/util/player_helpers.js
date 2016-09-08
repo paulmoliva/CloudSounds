@@ -64,6 +64,44 @@ export function playTrack(el) {
   can.on("click", getPosition);
 }
 
+export function installWaveformListener(){
+  function getPosition(event)
+  {
+    var x = new Number();
+    var y = new Number();
+    var canvas = $('#waveform-' + playingTrackID)[0];
+
+    if (event.x != undefined && event.y != undefined)
+    {
+      x = event.x;
+      y = event.y;
+    }
+    else // Firefox method to get the position
+    {
+      x = event.clientX + document.body.scrollLeft +
+      document.documentElement.scrollLeft;
+      y = event.clientY + document.body.scrollTop +
+      document.documentElement.scrollTop;
+    }
+    x -= (canvas.offsetLeft * 1.95);
+    if (screen.width >= 1750) x-= 30;
+    y -= canvas.offsetTop;
+    var wave = $('#waveform-' + playingTrackID + ' wave canvas');
+    var waveWidth = wave.width();
+    window.audio.skipTo( x / waveWidth);
+    console.log(x / waveWidth + '%');
+    console.log('offset:' + canvas.offsetLeft);
+    console.log('waveWidth:' + waveWidth);
+    console.log('clickPos:' + x);
+  }
+  if ($('.playing').length){
+    //for detectng clicks on the waveform
+    var playingTrackID = $('.playing').attr('id').split('-')[1];
+    var can = $('#waveform-' + playingTrackID);
+    can.on("click", getPosition);
+  }
+}
+
 export function addOlListener() {
   $('ol').click( e => {
     $(e.target).addClass('playing').siblings().removeClass('playing');
