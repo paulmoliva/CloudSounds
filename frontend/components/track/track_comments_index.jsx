@@ -56,7 +56,6 @@ class TrackCommentsIndex extends React.Component {
           onClick={ () => {
             let el = $(`#track-${this.id}-comments`);
             el.toggleClass('hidden');
-            console.log(that);
             window.masonry.layout();
             // let showButton = $(`#track-${this.id}-show-comments`);
             // const text = showButton.text();

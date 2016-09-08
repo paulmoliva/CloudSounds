@@ -16,7 +16,7 @@ class UserShow extends React.Component {
 
   componentDidMount() {
     const path = this.props.location.pathname;
-    const userId = parseInt(path.split('/')[2]);
+    const userId = parseInt(path.match(/\d+/g));
 
     this.props.fetchUserTracks({id: userId});
     addOlListener();
@@ -53,6 +53,8 @@ class UserShow extends React.Component {
             fetchUserTracks={this.props.fetchUserTracks}
             createComment={this.props.createComment}
             deleteComment={this.props.deleteComment}
+            like={this.props.like}
+            unlike={this.props.unlike}
           />
         );
       }

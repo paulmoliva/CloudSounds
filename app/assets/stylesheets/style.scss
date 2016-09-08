@@ -547,8 +547,16 @@ select {
 }
 
 .favorite-icon {
-  -webkit-filter: grayscale(70%);
-  filter: grayscale(70%);
+  -webkit-filter: brightness(70%);
+  filter: brightness(70%);
+}
+
+.favorite-icon.liked,  {
+  -webkit-filter: brightness(99%);
+  filter: brightness(100%);
+}
+.track-favorite.liked{
+  background-color: whitesmoke;
 }
 
 .track-favorite, .track-delete {
@@ -601,10 +609,10 @@ select {
   min-height: 17px;
   box-sizing: border-box;
   padding: 2px 2px;
-  -webkit-filter: brightness(75%);
+  background-color: rgba(255, 255, 255, 0.25);
   margin-left: 5px;
   &:hover {
-    -webkit-filter: brightness(100%);
+      background-color: whitesmoke;
     cursor: pointer;
   }
 }
@@ -635,8 +643,8 @@ select {
 }
 
 .favorite-icon:hover {
-  -webkit-filter: grayscale(0%);
-  filter: grayscale(0%);
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
   cursor: pointer;
 }
 

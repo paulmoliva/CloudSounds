@@ -4,6 +4,7 @@ class Track < ActiveRecord::Base
   belongs_to :user
   belongs_to :weather
   has_many :comments
+  has_many :likes
 
   def default_values
     if self.image_url == ""

@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :show, :create, :destroy]
     resource :session, only: [:create, :destroy, :show]
     resources :tracks, only: [:index, :create, :destroy, :update, :show]
+    resource :like, only: [:create, :destroy]
   end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

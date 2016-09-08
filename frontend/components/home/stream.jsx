@@ -92,6 +92,8 @@ class Stream extends React.Component {
             fetchUserTracks={this.props.fetchUserTracks}
             createComment={this.props.createComment}
             deleteComment={this.props.deleteComment}
+            like={this.props.like}
+            unlike={this.props.unlike}
             />
         );
       }

@@ -11,6 +11,8 @@ json.set! track.id do
   json.image_url track.image_url
   json.peaks track.peaks
   json.weather_name weather.name
+  json.like_count track.likes.count
+  json.liked current_user.likes.where({track_id: track.id}).any? if current_user
   json.set! 'comments' do
     Track.find(track.id).comments.reverse.each do |comment|
       json.partial! 'api/comments/comment', comment: comment

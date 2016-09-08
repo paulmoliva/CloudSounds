@@ -10,6 +10,9 @@ class TrackItem  extends React.Component {
    this.generateWaveform = this.generateWaveform.bind(this);
    this.listenForComments = this.listenForComments.bind(this);
    this.makeDeleteButton = this.makeDeleteButton.bind(this);
+   this.makeLikeButton = this.makeLikeButton.bind(this);
+   this.makeLikeIcon = this.makeLikeIcon.bind(this);
+   this.toggleLike = this.toggleLike.bind(this);
  }
   deleteThisTrack() {
     this.props.deleteTrack(this.props.track);
@@ -135,6 +138,57 @@ class TrackItem  extends React.Component {
       }
   }
 
+  makeLikeButton() {
+    if(this.props.track.liked){
+      return (
+        <button id={this.props.track.id + '-like'}onClick={this.toggleLike} className='track-favorite liked'>{this.props.track.like_count}</button>
+      );
+    } else {
+      return (
+        <button id={this.props.track.id + '-like'}onClick={this.toggleLike} className='track-favorite'>{this.props.track.like_count}</button>
+      );
+    }
+  }
+
+  makeLikeIcon() {
+    if(this.props.track.liked){
+      return (
+        <img src=
+          {"http://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" +
+              this.props.track.weather_id}
+          className='icon-40 favorite-icon liked'
+          onClick={this.toggleLike}
+          id = {'icon'+this.props.track.id}
+        />
+    );
+    } else {
+      return (
+        <img src=
+          {"http://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" +
+              this.props.track.weather_id}
+          className='icon-40 favorite-icon'
+          onClick={this.toggleLike}
+          id = {'icon'+this.props.track.id}
+        />
+    );
+    }
+  }
+
+  toggleLike(e){
+    const likeData = {like: {user_id: this.props.currentUser.user.id,
+      track_id: this.props.track.id}};
+    if ($(e.target).hasClass('liked')){
+      this.props.unlike(likeData);
+    } else {
+      this.props.like(likeData);
+    }
+    $(`#icon${this.props.track.id}`).toggleClass('liked');
+    $(`#${this.props.track.id}-like`).toggleClass('liked');
+
+  }
+
+
+
   componentDidMount(){
     this.generateWaveform();
     //this.addTracktoPlaylist();
@@ -179,11 +233,7 @@ class TrackItem  extends React.Component {
               </p>
             </div>
             <div className="icons">
-              <img src=
-                {"http://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" +
-                    this.props.track.weather_id}
-                className='icon-40 favorite-icon'
-              />
+              {this.makeLikeIcon()}
             </div>
           </div>
           <div className="track-description">
@@ -193,7 +243,7 @@ class TrackItem  extends React.Component {
           </div>
           <input className="comment" type="text" id={`${this.props.track.id}-commentform`}placeholder="Write a comment"/>
           <ul className='track-item-buttons'>
-            <button className='track-favorite'>24</button>
+            {this.makeLikeButton()}
             <button className='enqueue-track'
               onClick={this.addTracktoPlaylist}
               title="Add to playlist">

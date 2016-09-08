@@ -1,5 +1,6 @@
 import { TrackConstants } from '../actions/track_actions';
 import { CommentConstants } from '../actions/comment_actions';
+import {LikeConstants} from '../actions/like_actions';
 import merge from 'lodash/merge';
 
 const TrackReducer = function(state = {}, action) {
@@ -33,6 +34,12 @@ const TrackReducer = function(state = {}, action) {
       delete stateWCommentRemoved[deletedCommentTrackId]
         .comments[commentIdToRemove];
       return stateWCommentRemoved;
+    case LikeConstants.RECEIVE_LIKE:
+      const like = action.num;
+      let newLikeState = merge({}, state);
+      newLikeState[like.track_id].like_count += like.increment;
+      newLikeState[like.track_id].liked = true;
+      return newLikeState;
     default:
       return state;
   }
