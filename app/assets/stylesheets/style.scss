@@ -364,6 +364,7 @@ ul.my-gallery-class {
 select {
   font-family: "Interstate";
   font-size: 24px;
+  font-size: 4.9vw;
   border: 0;
   background-color: #7EC0EE;
   color: whitesmoke;
@@ -396,6 +397,8 @@ select {
   width: 100%;
   justify-content: flex-start;
 }
+
+select#select1 option[value="1"]   { background-image:url('https://res.cloudinary.com/cloud-sounds/image/upload/v1472704899/sunny-bg_ijm5nt.jpg');   }
 
 .column.weather-2-track {
   background-image: url('https://res.cloudinary.com/cloud-sounds/image/upload/v1472705046/photo-1437624155766-b64bf17eb2ce_ugtc6o.jpg');
@@ -635,6 +638,15 @@ select {
   &:focus {
     outline: none;
   }
+}
+
+.upload.play-all.centered{
+  text-align: center;
+  margin-left: 25%;
+}
+
+.centered {
+  margin: 0 auto;
 }
 
 .track-favorite:hover {

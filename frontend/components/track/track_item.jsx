@@ -249,6 +249,13 @@ class TrackItem  extends React.Component {
               title="Add to playlist">
             </button>
             {this.makeDeleteButton()}
+            <p className="data-ball hidden"
+               id={`splash-track-${this.props.track.id}`}
+               data-src={this.props.track.audio_url}
+               data-img={this.props.track.image_url}
+               data-title={this.props.track.title}
+               data-weathername={this.props.track.weather_name}
+            ></p>
           </ul>
         </div>
       </div>

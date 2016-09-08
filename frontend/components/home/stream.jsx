@@ -5,6 +5,7 @@ import NavBar from '../navbar';
 import {TracksList} from '../track/tracksindex';
 
 import {playTrack,
+        addTracktoPlaylist,
         addOlListener,
         installWaveformListener} from '../../util/player_helpers';
 import {getLocation, requestData} from '../../util/weather_helpers';
@@ -103,10 +104,23 @@ class Stream extends React.Component {
 
     renderWeatherBlurb(){
       const weather =this.state.weather;
-      const blurb = `Here are some tracks for today's ${weather.desc} weather`;
+      const blurb = `Here are some tracks for ${weather.desc.toLowerCase()} weather`;
       return (
         <h3 className='weather-blurb'>{blurb}</h3>
       );
+    }
+
+    playAll(){
+      $('.data-ball').each( (i, el) => {
+        let track = {};
+        track.id = $(el).attr('id').match(/\d+/g);
+        track.audio_url = $(el).attr('data-src');
+        track.image_url = $(el).attr('data-img');
+        track.title = $(el).attr('data-title');
+        track.weather_name = $(el).attr('data-weathername');
+        addTracktoPlaylist(track);
+      });
+      playTrack($('ol li')[0]);
     }
 
   render() {
@@ -119,8 +133,23 @@ class Stream extends React.Component {
         <div className="flex-row home">
           {this.renderTracksList()}
           <nav className="sidebar-stream">
-            <h3>Trending Comments</h3>
-
+            <h3>Choose your weather mood:</h3>
+              <select id="select1"
+                onChange={(e) => {
+                  this.props.fetchUserTracks({'weather_id': $(e.target).val()});
+                  this.setState({weather: {desc:$('#select1 option:selected').text()}});
+                }}
+                name="select1">
+                <option value="1">Sunny</option>
+                <option value="2">Rainy</option>
+                <option value="3">Cloudy</option>
+                <option value="4">Foggy</option>
+                <option value="5">Stormy</option>
+              </select>
+              <button onClick={this.playAll}
+                      className='upload play-all centered'>
+                      Play All
+              </button>
           </nav>
         </div>
         {this.props.children}
