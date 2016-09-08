@@ -1,37 +1,43 @@
 import React from 'react';
 import TrackItem from './track_item';
 import Masonry from 'react-masonry-component';
-export const TracksList = function({tracks,
-                                    playTrack,
-                                    currentUser,
-                                    deleteTrack,
-                                    fetchUserTracks,
-                                    createComment,
-                                    deleteComment})
-{
-  if (!tracks.length){
-    return (<p></p>);
+
+export class TracksList extends React.Component {
+  constructor(props){
+    super(props);
   }
-  else {
-    return ( <Masonry className='home-tracks'
-                elementType={'ul'}
-                ref={function(c) {window.masonry = c.masonry;}}
-              >
-      {tracks.map ( track => {
+
+
+  render() {
+    if (!this.props.tracks.length){
+      return (<p></p>);
+    }
+    else {
+      return (
+      <Masonry className='home-tracks'
+        elementType={'ul'}
+        ref={ function(c) {
+                if (c)
+                  window.masonry = c.masonry;
+              }
+            }
+      >
+      {this.props.tracks.map ( track => {
         return (
           <TrackItem
             key={track.id}
             track={track}
-            currentUser={currentUser}
-            playTrack={playTrack}
-            deleteTrack={deleteTrack}
-            fetchUserTracks={fetchUserTracks}
-            createComment={createComment}
-            deleteComment={deleteComment}
+            currentUser={this.props.currentUser}
+            playTrack={this.props.playTrack}
+            deleteTrack={this.props.deleteTrack}
+            fetchUserTracks={this.props.fetchUserTracks}
+            createComment={this.props.createComment}
+            deleteComment={this.props.deleteComment}
             />
-        );
+          );
         })
       }
     </Masonry>);
+    }
   }
-};
+}
