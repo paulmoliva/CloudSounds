@@ -10,7 +10,7 @@ import {hashHistory} from 'react-router';
 export default ({getState, dispatch}) => next => action => {
   const successCallback = user => {
     dispatch(receiveCurrentUser(user));
-    hashHistory.push('/home');
+    hashHistory.push('/stream');
   };
   const logOutCallback = () => {
     hashHistory.push('/');
