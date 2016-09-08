@@ -86,6 +86,7 @@ ul {
   margin: 20px 5px;
   border-left: 1px solid #eee;
   margin-top: -68px;
+  text-align: center;
   ul {
     display: flex;
     flex-direction: column;
@@ -96,6 +97,7 @@ ul {
   h3 {
     text-align: left;
     margin-left: 20px;
+    font-size: 1.3vw;
   }
 }
 .sidebar {
@@ -370,7 +372,8 @@ select {
   color: whitesmoke;
   text-shadow: 1px 1px black;
   padding: 0px;
-  margin-left: 10px;
+  display: block;
+  margin: 0 auto;
 }
 
 .home-tracks {
@@ -642,7 +645,10 @@ select#select1 option[value="1"]   { background-image:url('https://res.cloudinar
 
 .upload.play-all.centered{
   text-align: center;
-  margin-left: 25%;
+  width: 75%;
+
+  box-sizing: border-box;
+
 }
 
 .centered {
