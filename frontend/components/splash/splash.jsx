@@ -4,6 +4,8 @@ import SessionForm from './session_form.jsx';
 import {CloudinaryImageConstants} from '../../constants/cloudinary';
 import {getLocation, requestData} from '../../util/weather_helpers.js';
 import { playTrack, addOlListener, addTracktoPlaylist } from '../../util/player_helpers';
+import SearchIndex from '../search/searchindex';
+import {SearchItem} from '../search/searchitem';
 import SplashTrackItem from './splash_track_item';
 import Masonry from 'react-masonry-component';
 class Splash extends React.Component {
@@ -32,6 +34,7 @@ class Splash extends React.Component {
     this.showErrors = this.showErrors.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
     this.playAll = this.playAll.bind(this);
+    this.makeSearchResults = this.makeSearchResults.bind(this);
   }
 
   componentDidMount(){
@@ -173,7 +176,15 @@ class Splash extends React.Component {
       </div>
       <div className="search">
         <form className="search-form">
-          <input type="text" placeholder="Search for weather moods, artists, or tracks"></input>
+          <input type="text"
+            placeholder="Search for tracks"
+            onChange={ e => {
+              debugger;
+              $.get('/api/search?' + $(e.target).val(), (results) => this.props.receiveSearchResults(results) );
+            }}>
+
+          </input>
+          {this.makeSearchResults()}
         </form>
         <p> or </p>
         <button className="upload" onClick={this.guestLogin}>Upload your own</button>
@@ -195,6 +206,10 @@ class Splash extends React.Component {
       </Masonry>) : <img src="https://res.cloudinary.com/cloud-sounds/image/upload/v1473033713/loading5_kluvdv.gif" />}
     </div>
   );}
+
+  makeSearchResults(){
+    if(this.props.results)return (<SearchIndex results={this.props.results}/>);
+  }
 
   weatherGreeting() {
     if (Object.keys(this.props.weather).length)
