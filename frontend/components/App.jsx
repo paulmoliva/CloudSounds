@@ -2,11 +2,13 @@ import React from 'react';
 import { Link } from 'react-router';
 import SplashContainer from './splash/splash_container';
 import {playTrack} from '../util/player_helpers';
+import {getLocation, requestData} from '../util/weather_helpers';
 
 class App extends React.Component {
 
   componentDidMount(){
     this.setUpPlayer();
+
   }
 
 setUpPlayer(){

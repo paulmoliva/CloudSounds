@@ -39,6 +39,7 @@ export function requestData(location, that, callback) {
       weatherID: determineWeatherID(desc)
     };
       that.setState({weather: weatherObj});
+      that.props.receiveWeather(weatherObj);
       if (callback) callback({'weather_id': weatherObj.weatherID});
     }
   };

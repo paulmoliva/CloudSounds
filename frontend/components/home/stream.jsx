@@ -13,15 +13,7 @@ import {getLocation, requestData} from '../../util/weather_helpers';
 class Stream extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      weather: {
-        temp: 65,
-        desc: '',
-        city: 'San Francisco',
-        weatherID: 2
-       }
-    };
-
+    this.state = this.props.weather;
     this.generateTracksArray = this.generateTracksArray.bind(this);
     this.renderTracksList = this.renderTracksList.bind(this);
     this.generateNavBar = this.generateNavBar.bind(this);
@@ -30,8 +22,9 @@ class Stream extends React.Component {
   }
 
   componentDidMount() {
-
-    getLocation(this, requestData, this.props.fetchUserTracks);
+    if(!Object.keys(this.props.weather).length)
+      getLocation(this, requestData, this.props.fetchUserTracks);
+    this.setState({weather: this.props.weather});
     addOlListener();
     installWaveformListener();
   }
@@ -103,11 +96,20 @@ class Stream extends React.Component {
     }
 
     renderWeatherBlurb(){
-      const weather =this.state.weather;
-      const blurb = `Here are some tracks for ${weather.desc.toLowerCase()} weather`;
-      return (
-        <h3 className='weather-blurb'>{blurb}</h3>
-      );
+      let weather = this.state.weather;
+      if (!weather && Object.keys(this.props.weather).length) {
+        weather = this.props.weather;
+        const blurb = `Here are some tracks for ${weather.desc.toLowerCase()} weather`;
+        return (
+          <h3 className='weather-blurb'>{blurb}</h3>
+        );
+      } else if (Object.keys(this.props.weather).length) {
+        weather = this.state.weather;
+        const blurb = `Here are some tracks for ${weather.desc.toLowerCase()} weather`;
+        return (
+          <h3 className='weather-blurb'>{blurb}</h3>
+        );
+      } else getLocation(this, requestData, this.props.fetchUserTracks);
     }
 
     playAll(){
@@ -133,13 +135,16 @@ class Stream extends React.Component {
         <div className="flex-row home">
           {this.renderTracksList()}
           <nav className="sidebar-stream">
-            <h3>Choose your weather mood:</h3>
+
               <select id="select1"
                 onChange={(e) => {
-                  this.props.fetchUserTracks({'weather_id': $(e.target).val()});
-                  this.setState({weather: {desc:$('#select1 option:selected').text()}});
+                  if ($(e.target).val() !== '0'){
+                    this.props.fetchUserTracks({'weather_id': $(e.target).val()});
+                    this.setState({weather: {desc:$('#select1 option:selected').text()}});
+                  }
                 }}
                 name="select1">
+                <option value="0">Choose your weather mood:</option>
                 <option value="1">Sunny</option>
                 <option value="2">Rainy</option>
                 <option value="3">Cloudy</option>
