@@ -2,13 +2,15 @@ import React from 'react';
 import { Link, hashHistory } from 'react-router';
 
 const CommentItem = ({comment, deleteComment, currentUser, track}) => {
+  const that = this;
   function deleteThisComment() {
     deleteComment(comment.id);
   }
   function makeDeleteButton(){
     if (currentUser &&
         (comment.user_id === currentUser.user.id
-        || track.user_id === currentUser.user.id)
+        || track.user_id === currentUser.user.id) //&&
+        //this.props.location.pathname.match(/home/)
        ) {
         return (
           <button className='track-delete'
