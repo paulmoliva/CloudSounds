@@ -24,6 +24,7 @@ class Stream extends React.Component {
   componentDidMount() {
     if(!Object.keys(this.props.weather).length)
       getLocation(this, requestData, this.props.fetchUserTracks);
+    else this.props.fetchUserTracks({'weather_id': this.props.weather.weatherID})
     this.setState({weather: this.props.weather});
     addOlListener();
     installWaveformListener();
