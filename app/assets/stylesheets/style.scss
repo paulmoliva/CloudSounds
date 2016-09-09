@@ -22,9 +22,9 @@ body {
   font-family: 'Interstate';
 }
 
-// body::-webkit-scrollbar {
-//     display: none;
-// }
+body::-webkit-scrollbar {
+    display: none;
+}
 
 p {
   margin: 0 20px;

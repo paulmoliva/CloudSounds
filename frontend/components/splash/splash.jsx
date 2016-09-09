@@ -38,8 +38,8 @@ class Splash extends React.Component {
   }
 
   componentDidMount(){
-    if(!Object.keys(this.props.weather).length)
-      getLocation(this, requestData, this.props.fetchUserTracks);
+    //if(!Object.keys(this.props.weather).length)
+    getLocation(this, requestData, this.props.fetchUserTracks);
     const that = this;
     $(document).on( 'keyup', (e) => {
       let login = document.getElementById('loginModal');
