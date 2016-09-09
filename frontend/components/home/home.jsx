@@ -114,8 +114,13 @@ class Home extends React.Component {
         <div className="flex-row home">
           {this.renderTracksList()}
           <nav className="sidebar">
-            <h3>Trending Comments</h3>
-
+            <h3>More from Paul Oliva:</h3>
+            <div className='column'>
+              <a className="sidebar-link" href="http://www.pauloliva.com/chart-demo.html">Pol.js</a>
+              <a className="sidebar-link" href="http://alaskapoliticianrater.herokuapp.com/">Alaska Politician Rater</a>
+              <a className="sidebar-link" href="http://github.com/paulmoliva">My Github</a>
+              <a className="sidebar-link" href="http://pauloliva.com/">My Portfolio</a>
+            </div>
           </nav>
         </div>
         {this.props.children}
