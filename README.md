@@ -1,5 +1,7 @@
 # CloudSounds
 
+![CloudSounds](http://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_960/v1473444479/Selection_019_dhgfz1.png)
+
 [CloudSounds live][heroku]
 
 [heroku]: https://www.cloudsounds.io
