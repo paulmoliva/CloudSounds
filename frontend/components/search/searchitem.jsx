@@ -23,7 +23,7 @@ export const SearchItem = ({track}) => {
              data-weathername={track.weather_name}
           ></p>
           <img src=
-            {"http://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" +
+            {"https://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" +
                 track.weather_id}
             className='icon-40 favorite-icon liked'
             id = {'icon'+track.id}

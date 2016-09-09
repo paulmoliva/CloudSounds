@@ -37,7 +37,7 @@ const NavBar = ({currentUser, logout, results, receiveSearchResults}) => {
             type="text"
             placeholder="Search"
             onChange={ e => {
-              debugger;
+              $('.search-results').append(<li>Loading...<img src="https://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_40/v1473033713/loading5_kluvdv.gif"></img></li>);
               $.get('/api/search?' + $(e.target).val(), (sResults) => receiveSearchResults(sResults) );
 
               $(document).on('click', function (eve) {

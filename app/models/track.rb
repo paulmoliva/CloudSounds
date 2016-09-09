@@ -8,7 +8,7 @@ class Track < ActiveRecord::Base
 
   def default_values
     if self.image_url == ""
-      self.image_url = 'http://res.cloudinary.com/cloud-sounds/image/upload/v1472772526/album_qfitcx.jpg'
+      self.image_url = 'https://res.cloudinary.com/cloud-sounds/image/upload/v1472772526/album_qfitcx.jpg'
     end
   end
 

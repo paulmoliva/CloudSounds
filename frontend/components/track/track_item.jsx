@@ -154,7 +154,7 @@ class TrackItem  extends React.Component {
     if(this.props.track.liked){
       return (
         <img src=
-          {"http://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" +
+          {"https://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" +
               this.props.track.weather_id}
           className='icon-40 favorite-icon liked'
           onClick={this.toggleLike}
@@ -164,7 +164,7 @@ class TrackItem  extends React.Component {
     } else {
       return (
         <img src=
-          {"http://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" +
+          {"https://res.cloudinary.com/cloud-sounds/image/upload/w_40,h_40/v1472690716/icon-" +
               this.props.track.weather_id}
           className='icon-40 favorite-icon'
           onClick={this.toggleLike}
