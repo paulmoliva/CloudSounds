@@ -119,6 +119,8 @@ setUpPlayer(){
 
 ### Waveforms
 
+![waveform](http://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_960/v1473444038/ezgif.com-video-to-gif_1_h0eudw.gif)
+
 Waveforms are generated with [Wavesurfer.js](https://github.com/katspaugh/wavesurfer.js). The first time a track is uploaded, CloudSounds uses WaveSurfer to asynchronously generate the waveform data. Upon success, a call is made to Wavesurfer's off-label backend method ```getPeaks()```, and the track's waveform data is stored in the database as an array of floating point integers.
 
 ```javascript
@@ -175,7 +177,6 @@ settings: {
 
 Additionally, when a track is played, a click handler is installed on a transparent, absolutely positioned ```div``` overlaying the waveform, allowing the user to click the waveform to advance or rewind the track's progress. The handler is removed once the track is no longer playing, so wayward clicks upon a previously played track's waveform do not interfere with the currently playing track's progress.
 
-![waveform](http://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_960/v1473444038/ezgif.com-video-to-gif_1_h0eudw.gif)
 
 ### Comments and Likes
 
@@ -210,3 +211,5 @@ CloudSounds uses the [worldweatheronline](worldweatheronline.com) API to fetch w
 ### Search
 
 The splash page and navbar contain a search bar that autocompletes a list of matching tracks. The tracks can be played or added to the playlist from the search results list without navigating to a separate page.
+
+![Search](http://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_888/v1473445014/ezgif.com-video-to-gif_2_ydzwez.gif)
