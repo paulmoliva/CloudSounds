@@ -181,8 +181,6 @@ class Splash extends React.Component {
           id="search"
           placeholder="Search for tracks"
           onChange={ e => {
-            $('.search-results').empty();
-            $('.search-results').append(<li>Loading...<img src="https://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_40/v1473033713/loading5_kluvdv.gif"></img></li>);
             $.get('/api/search?' + $(e.target).val(), (results) => this.props.receiveSearchResults(results) );
             const that = this;
             $(document).on('click', function (eve) {
