@@ -175,7 +175,7 @@ settings: {
 
 Additionally, when a track is played, a click handler is installed on a transparent, absolutely positioned ```div``` overlaying the waveform, allowing the user to click the waveform to advance or rewind the track's progress. The handler is removed once the track is no longer playing, so wayward clicks upon a previously played track's waveform do not interfere with the currently playing track's progress.
 
-![waveform](http://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_480/v1473444038/ezgif.com-video-to-gif_1_h0eudw.gif)
+![waveform](http://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_960/v1473444038/ezgif.com-video-to-gif_1_h0eudw.gif)
 
 ### Comments and Likes
 
@@ -205,7 +205,7 @@ makeLikeButton() {
 
 CloudSounds uses the [worldweatheronline](worldweatheronline.com) API to fetch weather data for a user's location. Each uploaded track is tagged with a particular 'weather mood' by the uploader, and when a user logs in, CloudSounds displays tracks pertaining to the current weather in their location. If the user is in a different mood, a selection can be made from a dropdown menu and tracks for a different type of weather are rendered.
 
-![weatherMoods](http://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_480/v1473443468/ezgif.com-video-to-gif_hfyitg.gif)
+![weatherMoods](http://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_960/v1473443468/ezgif.com-video-to-gif_hfyitg.gif)
 
 ### Search
 
