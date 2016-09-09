@@ -2,7 +2,7 @@ export function determineWeatherID(string){
   if (string.match(/(sun|clear)/)) return 1;
   else if (string.match(/(rainy|shower|drizzle)/)) return 2;
   else if (string.match(/(cloud|overcast)/)) return 3;
-  else if (string.match(/fog/)) return 4;
+  else if (string.match(/(fog|mist)/)) return 4;
   else if (string.match(/storm/)) return 5;
   else return 5;
 }
