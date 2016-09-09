@@ -13,7 +13,7 @@ export const SearchItem = ({track}) => {
           }
         } />
         <button className='enqueue-track'
-          onClick={addTracktoPlaylist}
+          onClick={() => addTracktoPlaylist(track)}
           title="Add to playlist" />
           <p className="data-ball hidden"
              id={`search-${track.id}`}

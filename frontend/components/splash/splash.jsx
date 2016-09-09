@@ -177,6 +177,7 @@ class Splash extends React.Component {
       <div className="search">
 
         <input type="text"
+          autoComplete="nope"
           id="search"
           placeholder="Search for tracks"
           onChange={ e => {

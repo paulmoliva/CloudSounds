@@ -34,6 +34,7 @@ const NavBar = ({currentUser, logout, results, receiveSearchResults}) => {
 
         <div className="header-search">
           <input className="header-search"
+            autoComplete="nope"
             type="text"
             placeholder="Search"
             onChange={ e => {
