@@ -119,7 +119,7 @@ setUpPlayer(){
 
 ![waveform](http://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_960/v1473444038/ezgif.com-video-to-gif_1_h0eudw.gif)
 
-Waveforms are generated with [Wavesurfer.js](https://github.com/katspaugh/wavesurfer.js). The first time a track is uploaded, CloudSounds uses WaveSurfer to asynchronously generate the waveform data. Upon success, a call is made to Wavesurfer's off-label backend method ```getPeaks()```, and the track's waveform data is stored in the database as an array of floating point integers.
+Waveforms are generated with [Wavesurfer.js](https://github.com/katspaugh/wavesurfer.js). The first time a track is uploaded, CloudSounds uses WaveSurfer to asynchronously generate the waveform data. Upon success, a call is made to Wavesurfer's off-label backend method ```getPeaks()```, and the track's waveform data is stored in the database as an array of floating point numbers.
 
 ```javascript
 if (!this.props.track.peaks.length){
