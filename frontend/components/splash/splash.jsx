@@ -175,17 +175,25 @@ class Splash extends React.Component {
         </div>
       </div>
       <div className="search">
-        <form className="search-form">
-          <input type="text"
-            placeholder="Search for tracks"
-            onChange={ e => {
-              debugger;
-              $.get('/api/search?' + $(e.target).val(), (results) => this.props.receiveSearchResults(results) );
-            }}>
 
-          </input>
-          {this.makeSearchResults()}
-        </form>
+        <input type="text"
+          id="search"
+          placeholder="Search for tracks"
+          onChange={ e => {
+            debugger;
+            $.get('/api/search?' + $(e.target).val(), (results) => this.props.receiveSearchResults(results) );
+            const that = this;
+            $(document).on('click', function (eve) {
+              if($(eve.target).closest('.search-results').length === 0) {
+                $('#search').val('');
+                that.props.receiveSearchResults({});
+              }
+            });
+          }}>
+
+        </input>
+
+        {this.makeSearchResults()}
         <p> or </p>
         <button className="upload" onClick={this.guestLogin}>Upload your own</button>
       </div>

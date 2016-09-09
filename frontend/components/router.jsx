@@ -49,7 +49,7 @@ class AppRouter extends React.Component{
           </Route>
           <Route path="stream" component={ StreamContainer } onEnter={ this._ensureLoggedIn } />
           <Route path="users/:id" component={ UsersContainer }/>
-          <Route path="tracks/:id" component={ TrackContainer }/>
+          <Route path="tracks/:id" component={ TrackContainer } onEnter={ this._ensureLoggedIn }/>
         </Route>
       </Router>
     );

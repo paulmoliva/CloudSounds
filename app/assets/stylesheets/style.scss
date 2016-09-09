@@ -315,13 +315,27 @@ h1.user-show-name {
   width: 610px;
 }
 
+.search-form {
+  position: relative;
+}
+
+.search ul.search-results{
+  top: 80px;
+  width: 614px;
+  left: 15%;
+}
+
 ul.search-results {
+  position: absolute !important;
   max-height: 240px;
-  width: 610px;
+  width: inherit;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
+  z-index: 3;
+  background-color: rgba(255,255,255,0.85);
   li {
+    min-height: 40px;
     margin: 2px 0;
     width: 95%;
     display: flex;
@@ -549,6 +563,12 @@ select#select1 option[value="1"]   { background-image:url('https://res.cloudinar
   margin-right: 20px;
 }
 
+ul.search-results li .icon-40{
+  &:hover{
+    cursor: default;
+  }
+}
+
 .track-description {
   width: 92%;
   margin-top: 10px;
@@ -751,6 +771,7 @@ select#select1 option[value="1"]   { background-image:url('https://res.cloudinar
   justify-content: center;
   align-items: center;
   width: 90%;
+  position: relative;
 }
 
 

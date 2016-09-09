@@ -34,7 +34,10 @@ class Stream extends React.Component {
   generateNavBar(){
     if (this.props.currentUser){
       return (
-        <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}/>
+        <NavBar currentUser={this.props.currentUser.user}
+          logout={this.props.logout}
+          receiveSearchResults={this.props.receiveSearchResults}
+          results={this.props.results}/>
       );
     } else return '';
   }

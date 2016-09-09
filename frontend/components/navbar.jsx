@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { hashHistory } from 'react-router';
+import SearchIndex from './search/searchindex';
+import {SearchItem} from './search/searchitem';
 
-const NavBar = ({currentUser, logout}) => {
+const NavBar = ({currentUser, logout, results, receiveSearchResults}) => {
   function gotoHome(){
     hashHistory.push('/home');
   }
@@ -13,6 +15,10 @@ const NavBar = ({currentUser, logout}) => {
 
   function toggleDropdown(){
     $('.dropdown').toggleClass('hidden');
+  }
+
+  function makeSearchResults(){
+    if(results)return (<SearchIndex results={results}/>);
   }
 
   return (
@@ -27,7 +33,22 @@ const NavBar = ({currentUser, logout}) => {
           </div>
 
         <div className="header-search">
-          <input className="header-search"type="text" placeholder="Search"></input>
+          <input className="header-search"
+            type="text"
+            placeholder="Search"
+            onChange={ e => {
+              debugger;
+              $.get('/api/search?' + $(e.target).val(), (sResults) => receiveSearchResults(sResults) );
+
+              $(document).on('click', function (eve) {
+                if($(eve.target).closest('.header-search').length === 0) {
+                  $('.header-search').val('');
+                  receiveSearchResults({});
+                }
+              });
+            }}>
+          </input>
+          {makeSearchResults()}
         </div>
 
           <div className="upload-header-button" onClick={gotoUpload}>
