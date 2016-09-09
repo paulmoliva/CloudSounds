@@ -108,6 +108,7 @@ class Home extends React.Component {
       {this.generateNavBar()}
       <div className='content margin'>
         {this.generateHeaderLinks()}
+        <h3 className="weather-blurb">Tracks you've uploaded</h3>
         <div className="flex-row home">
           {this.renderTracksList()}
           <nav className="sidebar">

@@ -27,7 +27,7 @@ export const fetchUserTracks = function(track_params, success, errors) {
 export const deleteTrack = function(id, success, errors) {
   $.ajax({
     type: 'DELETE',
-    url: `api/tracks?id=${id}`,
+    url: `api/tracks/${id}`,
     success
   });
 };

@@ -22,9 +22,9 @@ body {
   font-family: 'Interstate';
 }
 
-body::-webkit-scrollbar {
-    display: none;
-}
+// body::-webkit-scrollbar {
+//     display: none;
+// }
 
 p {
   margin: 0 20px;
@@ -523,6 +523,10 @@ select#select1 option[value="1"]   { background-image:url('https://res.cloudinar
   margin-top: 20px;
   margin-bottom: 0px;
   color: rgb(153,153,153);
+}
+
+h3.weather-blurb.padded {
+    padding-top: 20px;
 }
 
 .circle-play {

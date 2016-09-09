@@ -10,7 +10,7 @@ export class SearchIndex extends React.Component {
   render(){
     debugger;
     if (!Object.keys(this.props.results).length){
-      return(<ul></ul>);
+      return(<ul className='search-results'></ul>);
     } else {
       let results = [];
       for(let key in this.props.results){

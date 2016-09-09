@@ -23,6 +23,11 @@ class UserShow extends React.Component {
     installWaveformListener();
   }
 
+  componentWillReceiveProps(newProps){
+    if (newProps.params.id !== this.props.params.id)
+      this.props.fetchUserTracks({id: newProps.params.id});
+  }
+
   generateTracksArray() {
     let arr = [];
     for (let key in this.props.tracks){
@@ -69,9 +74,9 @@ class UserShow extends React.Component {
         <div>
           {this.generateNavBar()}
           <div className='content margin'>
-            <h1 className='user-show-name'>
+            <h3 className="weather-blurb padded">
               {this.props.tracks.username + "'s Tracks"}
-            </h1>
+            </h3>
             <div className="flex-row home">
               {this.renderTracksList()}
             </div>
