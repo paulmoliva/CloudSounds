@@ -66,7 +66,7 @@ class UserShow extends React.Component {
             unlike={this.props.unlike}
           />
         );
-      }
+      } else return (<div className='home-tracks'></div>);
     }
 
     render() {

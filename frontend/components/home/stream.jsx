@@ -24,7 +24,7 @@ class Stream extends React.Component {
   componentDidMount() {
     if(!Object.keys(this.props.weather).length)
       getLocation(this, requestData, this.props.fetchUserTracks);
-    else this.props.fetchUserTracks({'weather_id': this.props.weather.weatherID})
+    else this.props.fetchUserTracks({'weather_id': this.props.weather.weatherID});
     this.setState({weather: this.props.weather});
     addOlListener();
     installWaveformListener();
@@ -96,7 +96,7 @@ class Stream extends React.Component {
             unlike={this.props.unlike}
             />
         );
-      }
+      } else return (<div className='home-tracks'></div>);
     }
 
     renderWeatherBlurb(){
@@ -113,7 +113,12 @@ class Stream extends React.Component {
         return (
           <h3 className='weather-blurb'>{blurb}</h3>
         );
-      } else getLocation(this, requestData, this.props.fetchUserTracks);
+      } else {
+        getLocation(this, requestData, this.props.fetchUserTracks);
+        return (<h3 className='weather-blurb'>Loading...
+        <img src="https://res.cloudinary.com/cloud-sounds/image/upload/w_18/v1473033713/loading5_kluvdv.gif" />
+        </h3>);
+      }
     }
 
     playAll(){
