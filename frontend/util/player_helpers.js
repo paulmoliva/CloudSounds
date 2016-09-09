@@ -105,9 +105,6 @@ export function installWaveformListener(){
 export function addOlListener() {
   $('ol').click( e => {
     $(e.target).addClass('playing').siblings().removeClass('playing');
-    // window.audio.load($(e.target).attr('data-src'));
-    // $('#wrapper').removeClass('hidden');
-    // window.audio.play();
     playTrack(e.target);
   });
 }

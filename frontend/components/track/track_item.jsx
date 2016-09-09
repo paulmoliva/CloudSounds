@@ -141,11 +141,17 @@ class TrackItem  extends React.Component {
   makeLikeButton() {
     if(this.props.track.liked){
       return (
-        <button id={this.props.track.id + '-like'}onClick={this.toggleLike} className='track-favorite liked'>{this.props.track.like_count}</button>
+        <button id={this.props.track.id + '-like'}
+          onClick={this.toggleLike}
+          className='track-favorite liked'>{this.props.track.like_count}
+        </button>
       );
     } else {
       return (
-        <button id={this.props.track.id + '-like'}onClick={this.toggleLike} className='track-favorite'>{this.props.track.like_count}</button>
+        <button id={this.props.track.id + '-like'}
+          onClick={this.toggleLike}
+          className='track-favorite'>{this.props.track.like_count}
+        </button>
       );
     }
   }

@@ -9,7 +9,6 @@ import StreamContainer from './home/stream_container';
 import UploadContainer from './track/upload_container';
 import UsersContainer from './users/users_container';
 import TrackContainer from './track/track_container';
-import {Test} from './users/test';
 //
 
 

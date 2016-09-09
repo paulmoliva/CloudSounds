@@ -23,10 +23,6 @@ setUpPlayer(){
           const trackId = next.attr('id').split('-')[1];
           playTrack($(next[0]));
         }
-
-        // next.addClass('playing').siblings().removeClass('playing');
-        // window.audio.load($(next).attr('data-src'));
-        // window.audio.play();
       }
     });
 
@@ -98,25 +94,6 @@ setUpPlayer(){
         $('.volume').attr('data-volume', prevvolume);
       }
     });
-
-    // Keyboard shortcuts
-    // $(document).keydown(function(e) {
-    //   var unicode = e.charCode ? e.charCode : e.keyCode;
-    //   // right arrow
-    //   if (unicode == 39) {
-    //     var next = $('li.playing').next();
-    //     if (!next.length) next = $('ol li').first();
-    //     next.click();
-    //     // back arrow
-    //   } else if (unicode == 37) {
-    //     var prev = $('li.playing').prev();
-    //     if (!prev.length) prev = $('ol li').last();
-    //     prev.click();
-    //     // spacebar
-    //   }
-    //
-    //     //window.audio.playPause(); TODO: Toggle playPause
-    // });
   }
 
 
