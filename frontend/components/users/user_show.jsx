@@ -64,6 +64,7 @@ class UserShow extends React.Component {
             deleteComment={this.props.deleteComment}
             like={this.props.like}
             unlike={this.props.unlike}
+            loading={this.props.tracks.loading}
           />
         );
       } else return (<div className='home-tracks'></div>);

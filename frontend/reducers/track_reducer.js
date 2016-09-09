@@ -5,10 +5,15 @@ import merge from 'lodash/merge';
 
 const TrackReducer = function(state = {}, action) {
   switch (action.type) {
+    case TrackConstants.FETCH_USER_TRACKS:
+      debugger;
+      return merge({}, state, {loading:true});
     case TrackConstants.RECEIVE_SINGLE_TRACK:
+      state.loading = false;
       const track = action.track;
       return merge({}, state, track);
     case TrackConstants.RECEIVE_USER_TRACKS:
+      state.loading = false;
       const tracks = action.tracks;
       return merge({}, tracks);
     case TrackConstants.REMOVE_DELETED_TRACK:
