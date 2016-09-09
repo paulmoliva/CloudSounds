@@ -12,12 +12,11 @@ export class TracksList extends React.Component {
     if (!this.props.tracks.length){
       return (<p></p>);
     } else if (this.props.loading) {
-      debugger;
       return (
         <Masonry className='home-tracks'
                   elementType={'ul'}>
           <li>
-        <img src="https://res.cloudinary.com/cloud-sounds/image/upload/v1473401875/giphy_2_oo7udv.gif" />    
+        <img src="https://res.cloudinary.com/cloud-sounds/image/upload/v1473401875/giphy_2_oo7udv.gif" />
           </li>
         </Masonry>
       );

@@ -7,7 +7,6 @@ const SearchReducer = function(state ={}, action){
       let results = action.results;
       return merge({}, results);
     case "LOADING":
-      debugger;
       return merge({}, {loading:true});
     default:
       return state;

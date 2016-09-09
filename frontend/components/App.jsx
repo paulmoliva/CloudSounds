@@ -66,7 +66,6 @@ setUpPlayer(){
       var relY = e.pageY - offset.top;
       relY = 60 - relY;
       player.volume = relY / 60;
-      console.log(relY);
       $('.volume-bar').css('height', `${relY}px`);
       $('.volume').attr('data-volume', `${relY}`);
       $('.volume').attr('data-prevvolume', `${relY}`);
@@ -80,7 +79,6 @@ setUpPlayer(){
     $('.volume').on('click', (e) => {
       if (e.target.className !== 'volume') return;
       const currentVolume = parseInt($('.volume').attr('data-volume'));
-      console.log(currentVolume);
       if (currentVolume > 0 || isNaN(currentVolume)){
         player.volume = 0.0;
         // $('.volume').toggleClass('muted');

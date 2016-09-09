@@ -56,10 +56,6 @@ export function playTrack(el) {
     var wave = $('#waveform-' + trackID + ' wave canvas');
     var waveWidth = wave.width();
     window.audio.skipTo( x / waveWidth);
-    console.log(x / waveWidth + '%');
-    console.log('offset:' + canvas.offsetLeft);
-    console.log('waveWidth:' + waveWidth);
-    console.log('clickPos:' + x);
   }
   can.on("click", getPosition);
 }
@@ -89,10 +85,6 @@ export function installWaveformListener(){
     var wave = $('#waveform-' + playingTrackID + ' wave canvas');
     var waveWidth = wave.width();
     window.audio.skipTo( x / waveWidth);
-    console.log(x / waveWidth + '%');
-    console.log('offset:' + canvas.offsetLeft);
-    console.log('waveWidth:' + waveWidth);
-    console.log('clickPos:' + x);
   }
   if ($('.playing').length){
     //for detectng clicks on the waveform
