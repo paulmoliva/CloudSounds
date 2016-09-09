@@ -36,6 +36,7 @@ class Stream extends React.Component {
       return (
         <NavBar currentUser={this.props.currentUser.user}
           logout={this.props.logout}
+          loading={this.props.loading}
           receiveSearchResults={this.props.receiveSearchResults}
           results={this.props.results}/>
       );

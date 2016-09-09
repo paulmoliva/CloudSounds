@@ -6,7 +6,6 @@ import merge from 'lodash/merge';
 const TrackReducer = function(state = {}, action) {
   switch (action.type) {
     case TrackConstants.FETCH_USER_TRACKS:
-      debugger;
       return merge({}, state, {loading:true});
     case TrackConstants.RECEIVE_SINGLE_TRACK:
       state.loading = false;

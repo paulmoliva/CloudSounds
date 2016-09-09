@@ -4,7 +4,7 @@ import { hashHistory } from 'react-router';
 import SearchIndex from './search/searchindex';
 import {SearchItem} from './search/searchitem';
 
-const NavBar = ({currentUser, logout, results, receiveSearchResults}) => {
+const NavBar = ({currentUser, logout, results, receiveSearchResults, loading}) => {
   function gotoHome(){
     hashHistory.push('/home');
   }
@@ -18,7 +18,7 @@ const NavBar = ({currentUser, logout, results, receiveSearchResults}) => {
   }
 
   function makeSearchResults(){
-    if(results)return (<SearchIndex results={results}/>);
+    if(results)return (<SearchIndex loading={results.loading}results={results}/>);
   }
 
   return (
@@ -38,6 +38,7 @@ const NavBar = ({currentUser, logout, results, receiveSearchResults}) => {
             type="text"
             placeholder="Search"
             onChange={ e => {
+              loading({results: 'loading'});
               $.get('/api/search?' + $(e.target).val(), (sResults) => receiveSearchResults(sResults) );
 
               $(document).on('click', function (eve) {

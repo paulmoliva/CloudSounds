@@ -181,6 +181,7 @@ class Splash extends React.Component {
           id="search"
           placeholder="Search for tracks"
           onChange={ e => {
+            this.props.loading({results: 'loading'});
             $.get('/api/search?' + $(e.target).val(), (results) => this.props.receiveSearchResults(results) );
             const that = this;
             $(document).on('click', function (eve) {
@@ -216,7 +217,8 @@ class Splash extends React.Component {
   );}
 
   makeSearchResults(){
-    if(this.props.results)return (<SearchIndex results={this.props.results}/>);
+    if(this.props.results)return (<SearchIndex loading={this.props.results.loading}
+      results={this.props.results}/>);
   }
 
   weatherGreeting() {

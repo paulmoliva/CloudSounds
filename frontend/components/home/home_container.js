@@ -3,7 +3,7 @@ import { logout } from '../../actions/session_actions';
 import { fetchUserTracks, deleteTrack } from '../../actions/track_actions';
 import { createComment, deleteComment } from '../../actions/comment_actions';
 import { like, unlike } from '../../actions/like_actions';
-import { receiveSearchResults } from '../../actions/search_actions';
+import { receiveSearchResults,loading } from '../../actions/search_actions';
 import Home from './home';
 
 const mapStateToProps = state => {
@@ -23,7 +23,8 @@ const mapDispatchToProps = dispatch => ({
   deleteComment: (id) => dispatch(deleteComment(id)),
   like: (likeData) =>dispatch(like(likeData)),
   unlike: (likeData) => dispatch(unlike(likeData)),
-  receiveSearchResults: (results) => dispatch(receiveSearchResults(results))
+  receiveSearchResults: (results) => dispatch(receiveSearchResults(results)),
+  loading: (results) => dispatch(loading(results))
 });
 
 export default connect(

@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
+import {playTrack,
+        addTracktoPlaylist,
+        addOlListener,
+        installWaveformListener} from '../../util/player_helpers';
 
 import NavBar from '../navbar';
 import TrackItem from './track_item';
@@ -76,7 +80,10 @@ class TrackShow extends React.Component {
     this.track = this.props.tracks[trackId];
     return (
       <div>
-        <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}/>
+        <NavBar currentUser={this.props.currentUser.user} logout={this.props.logout}
+        loading={this.props.loading}
+        receiveSearchResults={this.props.receiveSearchResults}
+        results={this.props.results}/>
         <div className='content margin'>
           <div className="flex-row home">
             <ul className='home-tracks'>
@@ -89,6 +96,8 @@ class TrackShow extends React.Component {
                 fetchUserTracks={this.props.fetchUserTracks}
                 createComment={this.props.createComment}
                 deleteComment={this.props.deleteComment}
+                like={this.props.like}
+                unlike={this.props.unlike}
                 />
             </ul>
             <nav className="sidebar">

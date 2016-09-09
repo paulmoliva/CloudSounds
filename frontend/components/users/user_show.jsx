@@ -47,6 +47,7 @@ class UserShow extends React.Component {
         <NavBar currentUser={this.props.currentUser.user}
           logout={this.props.logout}
           receiveSearchResults={this.props.receiveSearchResults}
+          loading={this.props.loading}
           results={this.props.results}/>
       );
     } else return '';

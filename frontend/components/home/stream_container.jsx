@@ -4,7 +4,7 @@ import { fetchUserTracks, deleteTrack } from '../../actions/track_actions';
 import { createComment, deleteComment } from '../../actions/comment_actions';
 import { like, unlike } from '../../actions/like_actions';
 import { receiveWeather } from '../../actions/weather_actions';
-import { receiveSearchResults } from '../../actions/search_actions';
+import { receiveSearchResults, loading } from '../../actions/search_actions';
 import Stream from './stream';
 
 const mapStateToProps = state => {
@@ -25,7 +25,8 @@ const mapDispatchToProps = dispatch => ({
   like: (likeData) =>dispatch(like(likeData)),
   unlike: (likeData) => dispatch(unlike(likeData)),
   receiveWeather: (weather) => dispatch(receiveWeather(weather)),
-  receiveSearchResults: (results) => dispatch(receiveSearchResults(results))
+  receiveSearchResults: (results) => dispatch(receiveSearchResults(results)),
+  loading: (results) => dispatch(loading(results))
 });
 
 export default connect(

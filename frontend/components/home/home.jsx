@@ -40,6 +40,7 @@ class Home extends React.Component {
           logout={this.props.logout}
           receiveSearchResults={this.props.receiveSearchResults}
           results={this.props.results}
+          loading={this.props.loading}
           />
       );
     } else return '';
