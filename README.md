@@ -201,6 +201,8 @@ makeLikeButton() {
 
 CloudSounds uses the [worldweatheronline](worldweatheronline.com) API to fetch weather data for a user's location. Each uploaded track is tagged with a particular 'weather mood' by the uploader, and when a user logs in, CloudSounds displays tracks pertaining to the current weather in their location. If the user is in a different mood, a selection can be made from a dropdown menu and tracks for a different type of weather are rendered.
 
+[weatherMoods]: http://res.cloudinary.com/cloud-sounds/image/upload/c_scale,w_480/v1473443468/ezgif.com-video-to-gif_hfyitg.gif
+
 ### Search
 
 The splash page and navbar contain a search bar that autocompletes a list of matching tracks. The tracks can be played or added to the playlist from the search results list without navigating to a separate page.
