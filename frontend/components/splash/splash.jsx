@@ -19,12 +19,12 @@ class Splash extends React.Component {
       email: "",
       avatar_url: "",
       errors: "",
-      // weather: {
-      //   temp: 65,
-      //   desc: 'cloudy',
-      //   city: 'San Francisco',
-      //   weatherID: 2
-      //  }
+      weather: {
+        temp: 65,
+        desc: 'cloudy',
+        city: 'San Francisco',
+        weatherID: 2
+       }
     };
 
 
@@ -39,6 +39,7 @@ class Splash extends React.Component {
 
   componentDidMount(){
     //if(!Object.keys(this.props.weather).length)
+    this.props.fetchUserTracks({'weather_id': 3});
     getLocation(this, requestData, this.props.fetchUserTracks);
     const that = this;
     $(document).on( 'keyup', (e) => {
@@ -225,7 +226,7 @@ class Splash extends React.Component {
     if (Object.keys(this.props.weather).length)
       return `It\'s ${Math.round(this.props.weather.temp)}℉ and ${this.props.weather.desc} in ${this.props.weather.city}`;
     else
-      return 'Loading current weather';
+      return "It's 65℉ and cloudy in San Francisco.";
   }
 
   mapTracksToItems(){
