@@ -27,7 +27,12 @@ class Stream extends React.Component {
     else this.props.fetchUserTracks({'weather_id': this.props.weather.weatherID});
     this.setState({weather: this.props.weather});
     addOlListener();
-    installWaveformListener();
+    setTimeout( ()=> installWaveformListener(), 500);
+  }
+
+  componentWillReceiveProps(nextProps){
+    if (nextProps.tracks !== this.props.tracks)
+      setTimeout( ()=> installWaveformListener(), 500);
   }
 
 
