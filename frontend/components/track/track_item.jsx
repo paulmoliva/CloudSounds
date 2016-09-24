@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackCommentsIndex from './track_comments_index';
+import WaveUtil from './../../util/wave_util';
 import { Link } from 'react-router';
 class TrackItem  extends React.Component {
 
@@ -49,16 +50,19 @@ class TrackItem  extends React.Component {
     return str.slice(0, ln) + elipses;
   }
   generateWaveform() {
+    var waveColors = WaveUtil.colors(this.props.track.weather_id);
     var waveform = window.Wavesurfer.create({
       container: `#waveform-${this.props.track.id}`,
       maxCanvasWidth: (screen.width * 0.4062),
       height: 60,
-      waveColor: 'rgba(126,192,238,1)',
+      waveColor: waveColors.waveColor,
       cursorColor: 'transparent',
-      progressColor: 'rgb(238,126,136)',
+      progressColor: waveColors.progressColor,
       barWidth: 1.75,
       normalize: true,
     });
+    if (waveColors.BGColor)
+      $(`#waveform-${this.props.track.id}`).css('background-color', waveColors.BGColor);
     const that = this;
     if (!this.props.track.peaks.length){
       waveform.load(this.props.track.audio_url);
