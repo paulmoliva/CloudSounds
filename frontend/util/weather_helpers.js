@@ -33,6 +33,7 @@ export function requestData(location, that, callback) {
     else
       city = weatherJSON.data.nearest_area[0].areaName[0].value;
     let desc = data.weatherDesc[0].value.toLowerCase();
+    if (desc.match(/cloudy/)) desc = 'cloudy';
     let weatherObj = {temp: data.temp_F,
       desc: desc,
       city: city,
