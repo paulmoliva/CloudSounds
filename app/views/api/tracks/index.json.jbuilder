@@ -1,4 +1,5 @@
-if @tracks.is_a?(Track::ActiveRecord_Associations_CollectionProxy)
+if @tracks.is_a?(Track::ActiveRecord_Associations_CollectionProxy) ||
+    @tracks.is_a?(Track::ActiveRecord_AssociationRelation)
   @tracks.each do |track|
     json.partial! '/api/tracks/track', track: track, commments: @comments
   end

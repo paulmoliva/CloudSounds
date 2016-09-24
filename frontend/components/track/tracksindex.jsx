@@ -46,7 +46,7 @@ export class TracksList extends React.Component {
             unlike={this.props.unlike}
             />
           );
-        })
+        }).reverse()
       }
     </Masonry>);
     }

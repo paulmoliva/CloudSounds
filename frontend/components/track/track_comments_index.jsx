@@ -34,7 +34,7 @@ class TrackCommentsIndex extends React.Component {
       let comment = this.props.comments[n];
       result.push(CommentItem({comment, deleteComment, currentUser, track}));
     }
-    return result;
+    return result.reverse();
   }
 
   render() {

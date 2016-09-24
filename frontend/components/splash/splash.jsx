@@ -234,7 +234,7 @@ class Splash extends React.Component {
     for(let key in this.props.tracks){
       result.push(this.props.tracks[key]);
     }
-    return result.map( (el) => <SplashTrackItem track={el} key={el.id} /> );
+    return result.map( (el) => <SplashTrackItem track={el} key={el.id} /> ).reverse();
   }
 
   loginSubmit(e) {
