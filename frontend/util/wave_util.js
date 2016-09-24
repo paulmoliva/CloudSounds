@@ -5,14 +5,14 @@ const colors = (weather_id, track_id) => {
     BGColor: undefined
   };
   switch (weather_id) {
-    case 3:
+    case 1:
+      colorObj.waveColor = 'rgba(126,192,238,1)';
+      colorObj.progressColor = 'rgb(238,126,136)';
+      break;
+    default:
       colorObj.waveColor = 'aliceblue';
       colorObj.progressColor = '#bbb';
       colorObj.BGColor = '#7EC0EE';
-      break;
-    default:
-      colorObj.waveColor = 'rgba(126,192,238,1)';
-      colorObj.progressColor = 'rgb(238,126,136)';
   }
   return colorObj;
 };
